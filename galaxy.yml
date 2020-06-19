@@ -1,0 +1,23 @@
+dependencies: {}
+description: ''
+documentation: ''
+homepage: ''
+issues: ''
+license: "Apache-2.0"
+name: aos_switch
+namespace: arubanetworks
+readme: README.md
+repository: ''
+tags: [
+  networking,
+  aruba,
+  switch,
+  switches,
+  hpe,
+  datacenter
+]
+version: 1.0.0
+authors:
+  - "Tiffany Chiapuzio-Wong"
+  - "Sunil Veeramachaneni"
+  - "Castro, Jorge Arturo"
