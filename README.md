@@ -64,7 +64,7 @@ Example of setting environment variable in the command :
  You can also check which ansible.cfg is used by increasing the verbosity (add -v to command above) and accordingly set the value of NETWORK_GROUP_MODULES to "arubaoss" in the [defaults] section.
 ```
 [defaults]
-ANSIBLE_NETWORK_GROUP_MODULES=arubaoss
+NETWORK_GROUP_MODULES=arubaoss
 ```
 
 Example Playbook
