@@ -63,6 +63,7 @@ EXAMPLES = '''
 from ansible.module_utils.basic import AnsibleModule # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_firmware # NOQA
 from time import sleep, time # NOQA
 
 
@@ -87,10 +88,10 @@ def reboot(module):
     params = module.params
     url = '/system/reboot'
 
-    status_url = '/system/status'
+    result = get_firmware(module)
     result = get_config(module, status_url)
     if not result:
-        return {'msg': 'Could not get devcie status. Not rebooted!',
+        return {'msg': 'Could not get device status. Not rebooted!',
                 'changed': False, 'failed': True}
 
     data = {
