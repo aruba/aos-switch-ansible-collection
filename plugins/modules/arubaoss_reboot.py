@@ -89,7 +89,6 @@ def reboot(module):
     url = '/system/reboot'
 
     result = get_firmware(module)
-    result = get_config(module, status_url)
     if not result:
         return {'msg': 'Could not get device status. Not rebooted!',
                 'changed': False, 'failed': True}
