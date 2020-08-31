@@ -161,6 +161,7 @@ Contribution
 At Aruba Networks we're dedicated to ensuring the quality of our products, if you find any
 issues at all please open an issue on our [Github](https://github.com/aruba/aos-switch-ansible-collection) and we'll be sure to respond promptly!
 
+For more contribution opportunities follow our guidelines outlined in our [CONTRIBUTING.md](https://github.com/aruba/aos-switch-ansible-collection/blob/master/CONTRIBUTING.md)
 
 License
 -------
