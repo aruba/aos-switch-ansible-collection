@@ -11,11 +11,16 @@ Requirements
 
 * Python 2.7 or 3.5+
 * Ansible 2.9.0 or later
+  * Ansible 2.10+ requires `ansible.netcommon` collection to be installed  
 * For AOS-Switch firmware version 16.08 and above is supported
 * Enable REST on your AOS-Switch device with the following commands:
     ```
     switch(config)# web-management ssl
     switch(config)# rest-interface
+    ```
+* Install all Ansible requirements, with the following command:
+    ```
+    ansible-galaxy install -r requirements.yml
     ```
 
 Installation
@@ -58,7 +63,7 @@ Setting Environment Variables
 --------------
 In order to use the AOS-Switch collection you need to modify your environment in order for Ansible to recognize the Network OS:  
 
-Example of setting environment variable in the command :  
+Example of setting environment variable in the command :
  `$ ANSIBLE_NETWORK_GROUP_MODULES=arubaoss  ansible-playbook sample_playbook.yml -i inventory.yml`   
 
  You can also check which ansible.cfg is used by increasing the verbosity (add -v to command above) and accordingly set the value of NETWORK_GROUP_MODULES to "arubaoss" in the [defaults] section.

@@ -31,7 +31,10 @@
 
 from ansible.module_utils._text import to_text
 from ansible.module_utils.basic import env_fallback
-from ansible.module_utils.network.common.utils import to_list
+try:
+    from ansible.module_utils.network.common.utils import to_list
+except ImportError:
+    from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import to_list
 from ansible.module_utils.connection import exec_command, Connection, ConnectionError # NOQA
 from ansible.module_utils.six import iteritems
 from ansible.module_utils.urls import fetch_url

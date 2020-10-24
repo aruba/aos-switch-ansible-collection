@@ -106,8 +106,14 @@ RETURN = r''' # '''
 import time # NOQA
 from ansible.module_utils._text import to_text  # NOQA
 from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible.module_utils.network.common.parsing import Conditional # NOQA
-from ansible.module_utils.network.common.utils import to_lines, ComplexList # NOQA
+try:
+    from ansible.module_utils.network.common.parsing import Conditional  # NOQA
+except ImportError:
+    from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.parsing import Conditional  # NOQA
+try:
+    from ansible.module_utils.network.common.utils import to_lines, ComplexList # NOQA
+except ImportError:
+    from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import to_lines, ComplexList # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_cli_commands as run_commands  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
 

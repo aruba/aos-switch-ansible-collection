@@ -1,4 +1,5 @@
-dependencies: {}
+dependencies:
+    "ansible.netcommon": "*"
 description: ''
 documentation: ''
 homepage: ''
@@ -16,7 +17,7 @@ tags: [
   hpe,
   datacenter
 ]
-version: 1.0.2
+version: 1.1.0
 authors:
   - "Tiffany Chiapuzio-Wong"
   - "Sunil Veeramachaneni"

@@ -215,7 +215,12 @@ from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss 
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_cli_config as get_config  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import check_args as arubaoss_check_args  # NOQA
 from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible.module_utils.network.common.config import NetworkConfig, dumps # NOQA
+try:
+    from ansible.module_utils.network.common.config import NetworkConfig, dumps  # NOQA
+except ImportError:
+    from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.config import NetworkConfig, dumps  # NOQA
+
+
 
 
 def get_running_config(module, config=None):
