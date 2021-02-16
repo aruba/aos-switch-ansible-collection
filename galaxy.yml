@@ -8,7 +8,7 @@ license: "Apache-2.0"
 name: aos_switch
 namespace: arubanetworks
 readme: README.md
-repository: ''
+repository: https://github.com/aruba/aos-switch-ansible-collection
 tags: [
   networking,
   aruba,
