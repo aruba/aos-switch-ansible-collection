@@ -63,19 +63,19 @@ options:
         choices: VT_STATIC, VT_STATIC_SVLAN, VT_GVRP
         required: false
     is_jumbo_enabled:
-        description:  Whether Jumbo is enabled
+        description: Whether Jumbo is enabled
         required: false
     is_voice_enabled:
-        description:  Whether Voice is enabled
+        description: Whether Voice is enabled
         required: false
     is_dsnoop_enabled:
-        description:  Whether DSNOOP is enabled
+        description: Whether DSNOOP is enabled
         required: false
     is_dhcp_server_enabled:
-        description:  Whether DHCP server is enabled
+        description: Whether DHCP server is enabled
         required: false
     is_management_vlan:
-        description:  Whether vlan is a management vlan or not
+        description: Whether vlan is a management vlan or not
         required: false
     ip_address_mode:
         description: IP Address Mode to be configured on vlan
@@ -132,19 +132,19 @@ options:
         required: false
         default: 10 [10-128]
     robustness:
-        description:  Set the number of times to retry a query
+        description: Set the number of times to retry a query
         required: false
         default: 2 [1-8]
     igmp_version:
-        description:  Set the IGMP version to use
+        description: Set the IGMP version to use
         required: false
         default: 2 [2-3]
     is_querier_enabled:
-        description:  Specify querier/non-querier capability for the VLAN.
+        description: Specify querier/non-querier capability for the VLAN.
         required: false
         default: true
     interval:
-        description:  Sets the interval in seconds between IGMP queries
+        description: Sets the interval in seconds between IGMP queries
         required: false
         default: 125 [5-300]
 
