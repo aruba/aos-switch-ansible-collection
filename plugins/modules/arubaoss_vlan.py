@@ -36,15 +36,11 @@ options:
     command:
         description: Name of sub module, according to the
                      configuration required.
-        choices: config_vlan,
-                 config_vlan_port,
-                 config_vlan_ipaddress,
-                 config_vlan_dhcpHelperAddress,
-                 config_vlan_igmp
+        choices: [ config_vlan, config_vlan_port, config_vlan_ipaddress, config_vlan_dhcpHelperAddress, config_vlan_igmp ]
         required: True
     config:
         description: To config or unconfig the required command
-        choices: create, delete
+        choices: [ create, delete ]
         required: False
     vlan_id:
         description: vlan id to be configured
@@ -56,11 +52,11 @@ options:
         required: false
     status:
         description: the status of the VLAN
-        choices: VS_PORT_BASED, VS_PROTOCOL_BASED, VS_DYNAMIC
+        choices: [ VS_PORT_BASED, VS_PROTOCOL_BASED, VS_DYNAMIC ]
         required: false
     vlantype:
         description: The type of VLAN, default being VT_STATIC
-        choices: VT_STATIC, VT_STATIC_SVLAN, VT_GVRP
+        choices: [ VT_STATIC, VT_STATIC_SVLAN, VT_GVRP ]
         required: false
     is_jumbo_enabled:
         description: Whether Jumbo is enabled
@@ -79,7 +75,7 @@ options:
         required: false
     ip_address_mode:
         description: IP Address Mode to be configured on vlan
-        choices: IAAM_DISABLED, IAAM_STATIC, IAAM_DHCP
+        choices: [ IAAM_DISABLED, IAAM_STATIC, IAAM_DHCP ]
         required: False
     vlan_ip_address:
         description: IP Address to be configured on vlan
@@ -88,8 +84,8 @@ options:
         description: IP Mask for the IP Address configured
         required: False
     version:
-        description: Version of IP Address
-        choices: IAV_IP_V4. (V6 is not supported via REST)
+        description: Version of IP Address (V6 is not supported via REST)
+        choices: [ IAV_IP_V4 ]
         required: False
     helper_addresses:
         description: DHCP helper address for the corresponding VLAN id
@@ -99,7 +95,7 @@ options:
         required: False
     port_mode:
         description: Port modes to be configured
-        choices: POM_UNTAGGED, POM_TAGGED_STATIC, POM_FORBIDDEN
+        choices: [ POM_UNTAGGED, POM_TAGGED_STATIC, POM_FORBIDDEN ]
         required: False
     qos_policy:
         description: Qos policy to be added to vlan
@@ -110,11 +106,11 @@ options:
     acl_type:
         description: Type of acl policy
         default: AT_STANDARD_IPV4
-        choices: AT_STANDARD_IPV4, AT_EXTENDED_IPV4, AT_CONNECTION_RATE_FILTER
+        choices: [ AT_STANDARD_IPV4, AT_EXTENDED_IPV4, AT_CONNECTION_RATE_FILTER ]
         required: false
     acl_direction:
         description: Direction is which acl to be applied
-        choices: AD_INBOUND, AD_OUTPUND, AD_CRF
+        choices: [ AD_INBOUND, AD_OUTPUND, AD_CRF ]
         required: false
     is_igmp_enabled:
         description: "Enable/disable/configure Internet Group Management
