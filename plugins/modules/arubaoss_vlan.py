@@ -121,29 +121,29 @@ options:
                       Protocol (IGMP) feature on a VLAN."
         required: false
         default: false
-    last_member_query_interval
+    last_member_query_interval:
         description: "IGMP last member query interval. Value will be
                       ignored if is_igmp_enabled is false."
         required: false
         default: 1 [1-2]
-    query_max_response_time
+    query_max_response_time:
         description: "Set the time interval in seconds to wait for a
                       response to a query"
         required: false
         default: 10 [10-128]
-    robustness
+    robustness:
         description:  Set the number of times to retry a query
         required: false
         default: 2 [1-8]
-    igmp_version
+    igmp_version:
         description:  Set the IGMP version to use
         required: false
         default: 2 [2-3]
-    is_querier_enabled
+    is_querier_enabled:
         description:  Specify querier/non-querier capability for the VLAN.
         required: false
         default: true
-    interval
+    interval:
         description:  Sets the interval in seconds between IGMP queries
         required: false
         default: 125 [5-300]
