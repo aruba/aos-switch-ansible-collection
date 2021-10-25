@@ -50,9 +50,9 @@ options:
         description: vlan id to be configured
         required: true
     name:
-        description: Name of the VLAN. While creating a Vlan If name is given
+        description: "Name of the VLAN. While creating a Vlan If name is given
         as empty string, default value (VLANx, where x is the vlan_id) will be
-        configured. Empty string will not be accepted while modifying a Vlan
+        configured. Empty string will not be accepted while modifying a Vlan"
         required: false
     status:
         description: the status of the VLAN
@@ -117,18 +117,18 @@ options:
         choices: AD_INBOUND, AD_OUTPUND, AD_CRF
         required: false
     is_igmp_enabled:
-        description:  Enable/disable/configure Internet Group Management
-                      Protocol (IGMP) feature on a VLAN.
+        description: "Enable/disable/configure Internet Group Management
+                      Protocol (IGMP) feature on a VLAN."
         required: false
         default: false
     last_member_query_interval
-        description:  IGMP last member query interval. Value will be
-                      ignored if is_igmp_enabled is false.
+        description: "IGMP last member query interval. Value will be
+                      ignored if is_igmp_enabled is false."
         required: false
         default: 1 [1-2]
     query_max_response_time
-        description:  Set the time interval in seconds to wait for a
-                      response to a query
+        description: "Set the time interval in seconds to wait for a
+                      response to a query"
         required: false
         default: 10 [10-128]
     robustness
