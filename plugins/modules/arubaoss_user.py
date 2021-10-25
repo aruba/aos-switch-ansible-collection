@@ -52,11 +52,11 @@ options:
         description:
             - type of password being conifgured
         required: true
-        choices: PET_PLAIN_TEXT, PET_SHA1
+        choices: [ PET_PLAIN_TEXT, PET_SHA1 ]
     state:
         description:
             - Enable or disable
-        choices: create, delete
+        choices: [create, delete ]
         default: create
         required: false
 
