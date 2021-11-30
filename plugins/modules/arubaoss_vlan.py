@@ -36,50 +36,46 @@ options:
     command:
         description: Name of sub module, according to the
                      configuration required.
-        choices: config_vlan,
-                 config_vlan_port,
-                 config_vlan_ipaddress,
-                 config_vlan_dhcpHelperAddress,
-                 config_vlan_igmp
+        choices: [ config_vlan, config_vlan_port, config_vlan_ipaddress, config_vlan_dhcpHelperAddress, config_vlan_igmp ]
         required: True
     config:
         description: To config or unconfig the required command
-        choices: create, delete
+        choices: [ create, delete ]
         required: False
     vlan_id:
         description: vlan id to be configured
         required: true
     name:
-        description: Name of the VLAN. While creating a Vlan If name is given
+        description: "Name of the VLAN. While creating a Vlan If name is given
         as empty string, default value (VLANx, where x is the vlan_id) will be
-        configured. Empty string will not be accepted while modifying a Vlan
+        configured. Empty string will not be accepted while modifying a Vlan"
         required: false
     status:
         description: the status of the VLAN
-        choices: VS_PORT_BASED, VS_PROTOCOL_BASED, VS_DYNAMIC
+        choices: [ VS_PORT_BASED, VS_PROTOCOL_BASED, VS_DYNAMIC ]
         required: false
     vlantype:
         description: The type of VLAN, default being VT_STATIC
-        choices: VT_STATIC, VT_STATIC_SVLAN, VT_GVRP
+        choices: [ VT_STATIC, VT_STATIC_SVLAN, VT_GVRP ]
         required: false
     is_jumbo_enabled:
-        description:  Whether Jumbo is enabled
+        description: Whether Jumbo is enabled
         required: false
     is_voice_enabled:
-        description:  Whether Voice is enabled
+        description: Whether Voice is enabled
         required: false
     is_dsnoop_enabled:
-        description:  Whether DSNOOP is enabled
+        description: Whether DSNOOP is enabled
         required: false
     is_dhcp_server_enabled:
-        description:  Whether DHCP server is enabled
+        description: Whether DHCP server is enabled
         required: false
     is_management_vlan:
-        description:  Whether vlan is a management vlan or not
+        description: Whether vlan is a management vlan or not
         required: false
     ip_address_mode:
         description: IP Address Mode to be configured on vlan
-        choices: IAAM_DISABLED, IAAM_STATIC, IAAM_DHCP
+        choices: [ IAAM_DISABLED, IAAM_STATIC, IAAM_DHCP ]
         required: False
     vlan_ip_address:
         description: IP Address to be configured on vlan
@@ -88,8 +84,8 @@ options:
         description: IP Mask for the IP Address configured
         required: False
     version:
-        description: Version of IP Address
-        choices: IAV_IP_V4. (V6 is not supported via REST)
+        description: Version of IP Address (V6 is not supported via REST)
+        choices: [ IAV_IP_V4 ]
         required: False
     helper_addresses:
         description: DHCP helper address for the corresponding VLAN id
@@ -99,7 +95,7 @@ options:
         required: False
     port_mode:
         description: Port modes to be configured
-        choices: POM_UNTAGGED, POM_TAGGED_STATIC, POM_FORBIDDEN
+        choices: [ POM_UNTAGGED, POM_TAGGED_STATIC, POM_FORBIDDEN ]
         required: False
     qos_policy:
         description: Qos policy to be added to vlan
@@ -110,41 +106,41 @@ options:
     acl_type:
         description: Type of acl policy
         default: AT_STANDARD_IPV4
-        choices: AT_STANDARD_IPV4, AT_EXTENDED_IPV4, AT_CONNECTION_RATE_FILTER
+        choices: [ AT_STANDARD_IPV4, AT_EXTENDED_IPV4, AT_CONNECTION_RATE_FILTER ]
         required: false
     acl_direction:
         description: Direction is which acl to be applied
-        choices: AD_INBOUND, AD_OUTPUND, AD_CRF
+        choices: [ AD_INBOUND, AD_OUTPUND, AD_CRF ]
         required: false
     is_igmp_enabled:
-        description:  Enable/disable/configure Internet Group Management
-                      Protocol (IGMP) feature on a VLAN.
+        description: "Enable/disable/configure Internet Group Management
+                      Protocol (IGMP) feature on a VLAN."
         required: false
         default: false
-    last_member_query_interval
-        description:  IGMP last member query interval. Value will be
-                      ignored if is_igmp_enabled is false.
+    last_member_query_interval:
+        description: "IGMP last member query interval. Value will be
+                      ignored if is_igmp_enabled is false."
         required: false
         default: 1 [1-2]
-    query_max_response_time
-        description:  Set the time interval in seconds to wait for a
-                      response to a query
+    query_max_response_time:
+        description: "Set the time interval in seconds to wait for a
+                      response to a query"
         required: false
         default: 10 [10-128]
-    robustness
-        description:  Set the number of times to retry a query
+    robustness:
+        description: Set the number of times to retry a query
         required: false
         default: 2 [1-8]
-    igmp_version
-        description:  Set the IGMP version to use
+    igmp_version:
+        description: Set the IGMP version to use
         required: false
         default: 2 [2-3]
-    is_querier_enabled
-        description:  Specify querier/non-querier capability for the VLAN.
+    is_querier_enabled:
+        description: Specify querier/non-querier capability for the VLAN.
         required: false
         default: true
-    interval
-        description:  Sets the interval in seconds between IGMP queries
+    interval:
+        description: Sets the interval in seconds between IGMP queries
         required: false
         default: 125 [5-300]
 
