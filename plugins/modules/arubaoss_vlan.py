@@ -217,6 +217,8 @@ def config_vlan_ipaddress(module):
                 'changed': False, 'failed': True}
     else:
         data = {'vlan_id': params['vlan_id']}
+        if params['vlan_id'] == 1:
+            data['is_primary_vlan'] = True
 
     if params['ip_address_mode'] == "IAAM_STATIC" and \
             params['config'] == "create":
@@ -252,7 +254,10 @@ def config_vlan_ipaddress(module):
             # Check if IP already configured
             if params['ip_address_mode'] == "IAAM_STATIC":
                 if newdata['collection_result']['total_elements_count'] == 1:
-                    if newdata['ip_address_subnet_element'][0]['ip_address']['octets'] == params['vlan_ip_address']: # NOQA
+                    ip_data = newdata['ip_address_subnet_element'][0]
+                    if ip_data['ip_address_mode'] != params['ip_address_mode']:
+                        pass
+                    elif ip_data['ip_address']['octets'] == params['vlan_ip_address']: # NOQA
                         return {'msg': 'The ip address is already '
                                 'present on switch',
                                 'changed': False, 'failed': False}

@@ -41,12 +41,6 @@ from ansible.module_utils.urls import fetch_url
 from time import sleep
 import json
 
-try:
-    from __main__ import display
-except ImportError:
-    from ansible.utils.display import Display
-    display = Display()
-
 
 _DEVICE_CONNECTION = None
 _DEVICE_CONFIGS = {}
