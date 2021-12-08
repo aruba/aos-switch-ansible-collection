@@ -33,7 +33,7 @@ description:
     - "This implements rest api's which configure snmp on device"
 
 options:
-    commmunity_nme:
+    community_name:
         description:
             - snmp community name. Required when configuring community
         required: false
