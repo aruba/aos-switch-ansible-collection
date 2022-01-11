@@ -14,6 +14,7 @@ from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.int
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.legacy import Default, HostSystemInfo, \
     SwitchSpecificSystemInfo, Modules, PowerSupplies
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.vlans import VlansFacts
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.vlans_ports import VlansPortsFacts
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.acls import AclsFacts
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.lacp_interfaces import LacpInterfacesFacts
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.lldp_neighbors import LldpNeighborsFacts
@@ -31,6 +32,7 @@ FACT_LEGACY_SUBSETS = dict(
 
 FACT_RESOURCE_SUBSETS = dict(
     vlans=VlansFacts,
+    vlans_ports=VlansPortsFacts,
     interfaces=InterfacesFacts,
     acls=AclsFacts,
     lldp_neighbors=LldpNeighborsFacts,
