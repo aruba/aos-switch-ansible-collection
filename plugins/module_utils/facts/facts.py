@@ -15,6 +15,9 @@ from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.leg
     SwitchSpecificSystemInfo, Modules, PowerSupplies
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.vlans import VlansFacts
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.vlans_ports import VlansPortsFacts
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.loop_protect_status import LoopProtectStatusFacts 
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.loop_protect_ports import LoopProtectPortsFacts 
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.loop_protect_vlans import LoopProtectVlansFacts 
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.acls import AclsFacts
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.lacp_interfaces import LacpInterfacesFacts
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.lldp_neighbors import LldpNeighborsFacts
@@ -33,6 +36,9 @@ FACT_LEGACY_SUBSETS = dict(
 FACT_RESOURCE_SUBSETS = dict(
     vlans=VlansFacts,
     vlans_ports=VlansPortsFacts,
+    loop_protect_status = LoopProtectStatusFacts,
+    loop_protect_ports = LoopProtectPortsFacts,
+    loop_protect_vlans = LoopProtectVlansFacts,
     interfaces=InterfacesFacts,
     acls=AclsFacts,
     lldp_neighbors=LldpNeighborsFacts,
