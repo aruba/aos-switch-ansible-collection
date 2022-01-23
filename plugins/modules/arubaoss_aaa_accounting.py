@@ -35,19 +35,19 @@ description:
 options:
     cmd_accounting_method:
         description: Method for commands Accounting Configuration
-        choices: AME_NONE, AME_TACACS, AME_RADIUS
+        choices: [ AME_NONE, AME_TACACS, AME_RADIUS ]
         required: False
     cmd_accounting_mode:
         description: Mode for commands Accounting Configuration
-        choices: AMO_NONE, AMO_STOP_ONLY
+        choices: [ AMO_NONE, AMO_STOP_ONLY ]
         required: False
     ntwk_accounting_method:
         description: Method for network Accounting Configuration
-        choices: AME_NONE, AME_TACACS, AME_RADIUS
+        choices: [ AME_NONE, AME_TACACS, AME_RADIUS ]
         required: False
     ntwk_accounting_mode:
         description: Mode for network Accounting Configuration
-        choices: AMO_NONE, AMO_STOP_ONLY, AMO_START_STOP
+        choices: [ AMO_NONE, AMO_STOP_ONLY, AMO_START_STOP ]
         required: False
     update_interval:
         description: Update interval for accounting
