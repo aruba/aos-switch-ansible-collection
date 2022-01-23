@@ -35,12 +35,12 @@ description:
 options:
     command:
         description: To configure a specific feature on AAA authorization
-        choices: ["authorization_group","authorization_method"]
+        choices: ["authorization_group", "authorization_method"]
         required: False
         default: "authorization_method"
     authorization_method:
         description: To authorization method needed
-        choices: AZM_NONE, AZM_TACACS
+        choices: ["AZM_NONE", "AZM_TACACS"]
         required: False
     group_name:
         description: Group name for the autorization group
@@ -63,7 +63,7 @@ options:
         default: False
     config:
         description: To config or unconfig the required command
-        choices: create, delete
+        choices: ["create", "delete" ]
 
 author:
     - Sanju Sadanandan (@hpe)
