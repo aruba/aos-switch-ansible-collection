@@ -76,9 +76,9 @@ options:
     description: Specify the password type.
                  Used with config_authentication_local_user
       command.
-    choices=["PET_SHA1","PET_PLAIN_TEXT", "PET_SHA256"]
+    choices: ["PET_SHA1","PET_PLAIN_TEXT", "PET_SHA256"]
     required: False
-    default="PET_SHA1"
+    default: "PET_SHA1"
   user_password:
     description: Specify the password.
                  Used with config_authentication_local_user
@@ -87,8 +87,8 @@ options:
   min_pwd_len:
     description: Configures the minimum password length for a user. Used with
       config_authentication_local_user command.
-    type='int' <1-64>
-    default=8
+    type: 'int <1-64>'
+    default: 8
   aging_period:
     description: Configures the password aging time for a user. Used with
       config_authentication_local_user command.
@@ -130,7 +130,7 @@ EXAMPLES = '''
     group_name: "super"
     local_user_name: "ARUBA"
     password_type: "PET_SHA256"
-    user_password: "1c6976e5b5410115bde308bd4dee15dfb167a9c873fc4bb8a81f6f2ab478a918" # NOQA
+    user_password: "1c6976e5b5410115bde308bd4dee15dfb167a9c873fc4bb8a81f6f2ab478a918"
 
   - name: Create Authentication local user2
     arubaoss_aaa_authentication:
