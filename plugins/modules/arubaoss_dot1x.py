@@ -100,7 +100,7 @@ options:
     logoff_period:
         description: Logoff Period
         required: False
-        default:300
+        default: 300
     unauth_period:
         description: Unauth period
         required: False
