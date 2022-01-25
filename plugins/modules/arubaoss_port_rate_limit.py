@@ -35,18 +35,20 @@ description:
 options:
     command:
         description: Function name calls according to configuration required
-        choices: update_rate_limit_attributes,
+        choices: [ update_rate_limit_attributes,
                  clear_rate_limit_trap,
                  update_rate_limit_onPort,
-                 update_rate_limit_attributes_onPort
+                 update_rate_limit_attributes_onPort ]
         required: False
+        default: update_rate_limit_attributes
     port_id:
         description: Port_id of the port
         required: True
     icmp_traffic_type:
-        description: ICMP traffic type. Default is "PITT_IP_V4"
-        choices: PITT_IP_ALL, PITT_IP_V4, PITT_IP_V6
+        description: ICMP traffic type.
+        choices: [ PITT_IP_ALL, PITT_IP_V4, PITT_IP_V6 ]
         required: False
+        default: PITT_IP_V4
     icmp_rate_limit:
         description: ICMP Rate Limit value.
         required: False
@@ -54,8 +56,9 @@ options:
         description: Queue traffic direction. port_id and queues_direction
                      are required to uniquely identify the
                      queue_rate_percentage to be set
-        choices: PTD_OUT
+        choices: [ PTD_OUT ]
         required: False
+        default: PTD_OUT
     queue_rate_percentage:
         description: Rate limit for each egress queue in percentage. Apply
                      the default value on all queues to reset the configuration
@@ -64,16 +67,18 @@ options:
         description: The traffic type. port_id, traffic_type and
                      direction are  required to uniquely identify
                      the rate_limit value to be set
-        choices: PTT_BCAST, PTT_MCAST, PTT_ALL, PTT_UKWN_UNCST
+        choices: [ PTT_BCAST, PTT_MCAST, PTT_ALL, PTT_UKWN_UNCST ]
         required: False
+        default : PTT_ALL
     direction:
         description: Traffic flow direction. port_id, traffic_type and
                      direction are required to uniquely identify the
                      rate_limit value to be set. PTD_OUT is applicable,
                      only when traffic_type is PTT_ALL on
                      specific platforms
-        choices: PTD_IN, PTD_OUT
+        choices: [ PTD_IN, PTD_OUT ]
         required: False
+        default: PTD_IN
     rate_limit:
         description: Rate limit value. rate_limit_in_kbps and
                      rate_limit_in_percent will be null if rate_limit
