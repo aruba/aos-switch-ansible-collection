@@ -62,7 +62,7 @@ options:
     type: int
   output_file:
     description: Full path of the local system file to which commands' results will be output.
-    The directory must exist, but if the file doesn't exist, it will be created.
+       The directory must exist, but if the file doesn't exist, it will be created.
     required: False
     type: str
 '''  # NOQA
