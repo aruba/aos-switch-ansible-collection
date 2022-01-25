@@ -46,8 +46,8 @@ options:
         required: True
     file_type:
         description:
-            - Type of file that needs to be transfered. Defualt is
-            firmware.
+            - Type of file that needs to be transfered. Default is
+              firmware.
         required: false
     action:
         description:
