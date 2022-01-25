@@ -53,7 +53,7 @@ options:
         description: The PoE allocation method
         choices: [ PPAM_USAGE, PPAM_CLASS, PPAM_VALUE ]
         required: False
-        default: [ PPAM_USAGE ]
+        default: PPAM_USAGE
     allocated_power_in_watts:
         description: Allocated power value. Default value for this is
                      platform dependent
