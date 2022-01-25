@@ -49,7 +49,7 @@ options:
     is_mac_authentication_enabled:
         description: Enables/disables MAC authentication on the Port
         required: False
-    reauthenticate
+    reauthenticate:
         description: Provides option on whether to reauthenticate
         required: False
     mac_address_limit:
