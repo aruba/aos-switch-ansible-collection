@@ -103,10 +103,10 @@ options:
     type: bool
   match_bit:
     description: The set of TCP match bits. Only PT_TCP protocol_type support match_bit.
-      - MB_ACK : Match TCP packets with the ACK bit set.
-      - MB_FIN : Match TCP packets with the FIN bit set
-      - MB_RST : Match TCP packets with the RST bit set
-      - MB_SYN : Match TCP packets with the SYN bit set
+       - MB_ACK Match TCP packets with the ACK bit set.
+       - MB_FIN Match TCP packets with the FIN bit set
+       - MB_RST Match TCP packets with the RST bit set
+       - MB_SYN Match TCP packets with the SYN bit set
     required: false
     choices: ['MB_ACK','MB_FIN', 'MB_RST','MB_SYN']
   source_port:
