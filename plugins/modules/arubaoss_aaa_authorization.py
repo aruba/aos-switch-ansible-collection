@@ -35,12 +35,12 @@ description:
 options:
     command:
         description: To configure a specific feature on AAA authorization
-        choices=["authorization_group","authorization_method"]
+        choices: ["authorization_group", "authorization_method"]
         required: False
-        default="authorization_method"
+        default: "authorization_method"
     authorization_method:
         description: To authorization method needed
-        choices: AZM_NONE, AZM_TACACS
+        choices: ["AZM_NONE", "AZM_TACACS"]
         required: False
     group_name:
         description: Group name for the autorization group
@@ -53,17 +53,17 @@ options:
         type: 'str'
     cmd_permission:
         description: Permit or deny the match command
-        choices=["AZP_PERMIT","AZP_DENY"]
+        choices: ["AZP_PERMIT","AZP_DENY"]
         required: False
-        default="AZP_PERMIT"
+        default: "AZP_PERMIT"
     is_log_enabled:
         description: Generate an event log any time a match happens.
         choices: [True, False]
-        required=False
-        default=False
+        required: False
+        default: False
     config:
         description: To config or unconfig the required command
-        choices: create, delete
+        choices: ["create", "delete" ]
 
 author:
     - Sanju Sadanandan (@hpe)

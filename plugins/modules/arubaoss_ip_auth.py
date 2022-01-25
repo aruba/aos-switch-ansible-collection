@@ -41,7 +41,7 @@ options:
         description:
             - Type of access to be allowed.
         required: false
-        choices: AR_MANAGER, AR_OPERATOR
+        choices: [ AR_MANAGER, AR_OPERATOR ]
     mask:
         description:
             - Net mask for auth_ip.
@@ -50,6 +50,7 @@ options:
         description:
             - Type of access method allowed.
         required: false
+        choices: [ AM_ALL, AM_SSH, AM_TELNET, AM_WEB, AM_SNMP, AM_TFTP ]
     auth_id:
         description:
             - Sequence number for auth rule
@@ -59,7 +60,7 @@ options:
             - Enable/disable/read ip auth data
         required: false
         default: create
-        choices: create, delete
+        choices: [ create, delete ]
 
 
 author:

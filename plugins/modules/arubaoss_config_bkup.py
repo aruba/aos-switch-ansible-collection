@@ -45,12 +45,12 @@ options:
         description:
             - Type of configuration file. If this option is used, configuration
               file is saved to the system.
-        choices: CT_RUNNING_CONFIG, CT_STARTUP_CONFIG
+        choices: [CT_RUNNING_CONFIG, CT_STARTUP_CONFIG]
         required: false
     server_type:
         description:
             - server type from/to which configuration needs to be copied
-        choices: ST_FLASH, ST_TFTP, ST_SFTP
+        choices: [ST_FLASH, ST_TFTP, ST_SFTP]
         required: false
     forced_reboot:
         description:
@@ -93,9 +93,6 @@ options:
     server_passwd:
             description: SFTP server password
             required: false
-
-
-
 
 author:
     - Ashish Pant (@hpe)

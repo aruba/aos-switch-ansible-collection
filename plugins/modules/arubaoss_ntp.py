@@ -99,19 +99,19 @@ options:
         type: list of dictionaries
         enable:
             description: enable or disable traps
-            choices: True, False
+            choices: [ True, False ]
             required: False
         trap:
             description: Select trap variable
-            choices: "ntp-Mode-Change",
-                     "ntp-Stratum-Change",
-                     "ntp-Peer-Change",
-                     "ntp-New-Association",
-                     "ntp-Remove-Association",
-                     "ntp-Config-Change",
-                     "ntp-LeapSec-announced",
-                     "Ntp-alive-Heartbeat",
-                     "all"
+            choices: [ ntp-Mode-Change,
+                     ntp-Stratum-Change,
+                     ntp-Peer-Change,
+                     ntp-New-Association,
+                     ntp-Remove-Association,
+                     ntp-Config-Change,
+                     ntp-LeapSec-announced,
+                     ntp-alive-Heartbeat,
+                     all ]
         required: true
     keyValue:
         description: The string to be added to authentication KeyId
@@ -121,7 +121,7 @@ options:
         description: Use the OOBM interface to connect to the server
                      used with config_ntp_ipv4addr command. Note not
                      all devices have OOBM ports
-        choices: True, False
+        choices: [ True, False ]
         required: False
 
 author:

@@ -37,7 +37,7 @@ options:
     command:
         description: The command to be configured
         required: False
-        choices: configMacAuth, configMacAuthOnPort
+        choices: [ configMacAuth, configMacAuthOnPort ]
     port_id:
         description: The port id to be configured on the switch
         required: False
@@ -49,7 +49,7 @@ options:
     is_mac_authentication_enabled:
         description: Enables/disables MAC authentication on the Port
         required: False
-    reauthenticate
+    reauthenticate:
         description: Provides option on whether to reauthenticate
         required: False
     mac_address_limit:

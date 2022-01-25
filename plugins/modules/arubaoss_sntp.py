@@ -39,12 +39,13 @@ options:
     command:
         description: Name of sub module, according to the configuration
                      required.
-        choices: config_sntp, config_sntp_priority,
+        choices: [ config_sntp, config_sntp_priority ]
         required: True
     config:
         description: To config, unconfig the required command
-        choices: create, delete
+        choices: [ create, delete ]
         required: True
+        default: create
     sntp_config_poll_interval:
         description: The number of seconds between updates of the system
                      clock using SNTP.
@@ -52,29 +53,29 @@ options:
     sntp_client_operation_mode:
         description: The mode in which clients are sending packets
                      to SNTP server.
-      choices: SNTP_DISABLE, SNTP_DHCP_MODE,
-               SNTP_UNICAST_MODE, SNTP_BROADCAST_MODE
+        choices: [SNTP_DISABLE, SNTP_DHCP_MODE,
+               SNTP_UNICAST_MODE, SNTP_BROADCAST_MODE]
         required: false
-      default : SNTP_DHCP_MODE
+        default: SNTP_DHCP_MODE
     sntp_ip_address:
         description: IP Address to be configured on sntp server priority
         required: True
     version:
-        description: Version of IP Address
-        choices: IAV_IP_V4. (V6 is not supported via REST)
+        description: Version of IP Address (V6 is not supported via REST)
+        choices: [ IAV_IP_V4]
         required: True
+        default: IAV_IP_V4
     sntp_server_priority:
         description: Priority of Server Address.
         required: True
     sntp_server_version:
         description: SNTP version of server.
         required: false
-      default : 7
+        default : 7
     sntp_server_is_oobm:
         description:  Use the OOBM interface to connect to the server
         required: false
-      default : false
-
+        default : false
 
 
 author:

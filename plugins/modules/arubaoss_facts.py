@@ -31,13 +31,13 @@ module: arubaoss_facts
 version_added: "2.10"
 short_description: Collects facts from remote PVOS device
 description:
-  - This module retrieves facts from Aruba devices running the PVOS operating system. 
+  - This module retrieves facts from Aruba devices running the PVOS operating system.
     Facts will be printed out when the playbook execution is done with increased verbosity.
 author: Stella Rajan
 options:
 
-  gather_subset: 
-    description: 
+  gather_subset:
+    description:
       - Retrieve a subset of all device information. This can be a single
         category or it can be a list. As warning, leaving this field blank
         returns all facts, which may be an intensive process.
@@ -48,7 +48,7 @@ options:
             'module_info', 'system_power_supply']
     type: list
 
-  gather_network_resources: 
+  gather_network_resources:
     description:
       - Retrieve vlan, interface, acl, lacp interfaces or lldp neighbors information.
         This can be a single category or it can be a list. Leaving this field blank

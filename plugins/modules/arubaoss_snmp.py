@@ -41,6 +41,8 @@ options:
         description:
             - Type of access required. Operator or Manager.
         required: false
+        default: UT_OPERATOR
+        choices: [ UT_OPERATOR, UT_MANAGER ]
     restricted:
         description:
             - Extent of access restricted or unrestricted
@@ -53,6 +55,8 @@ options:
         description:
             - Host IP address version
         required: false
+        default: IAP_IP_V4
+        choices: [ IAP_IP_V4 ]
     informs:
         description:
             - Enable/disables informs to host
@@ -61,14 +65,18 @@ options:
         description:
             - Timeout for informs
         required: false
+        default: 15
     inform_retires:
         description:
             - Retries required for informs
         required: false
+        default: 3
     trap_level:
         description:
             - Trap level for host
         required: false
+        default: STL_NONE
+        choices: [ STL_ALL, STL_CRITICAL, STL_NOT_INFO, STL_DEBUG, STL_NONE ]
     use_oobm:
         description:
             - Enable/disable oobm port usage

@@ -35,7 +35,7 @@ description:
 options:
     dns_config_mode:
         description: DNS Configuration Mode, default is DCM_DHCP
-        choices: DCM_DHCP, DCM_MANUAL, DCM_DISABLED
+        choices: [DCM_DHCP, DCM_MANUAL, DCM_DISABLED]
         required: False
     dns_domain_names:
         description: The first  manually configured DNS server domain name,
@@ -75,7 +75,8 @@ options:
         required: False
     version_1:
         description: The ip version of first manually configured DNS Server.
-        choices: IAV_IP_V4. (V6 is not supported via REST)
+          (V6 is not supported via REST)
+        choices: [IAV_IP_V4]
         type: str
         required: False
     server_2:
@@ -86,7 +87,8 @@ options:
         required: False
     version_2:
         description: The ip version of second manually configured DNS Server.
-        choices: IAV_IP_V4. (V6 is not supported via REST)
+          (V6 is not supported via REST)
+        choices: [IAV_IP_V4]
         type: str
         required: False
     server_3:
@@ -97,7 +99,8 @@ options:
         required: False
     version_3:
         description: The ip version of third manually configured DNS Server.
-        choices: IAV_IP_V4. (V6 is not supported via REST)
+          (V6 is not supported via REST)
+        choices: [IAV_IP_V4]
         type: str
         required: False
     server_4:
@@ -108,7 +111,8 @@ options:
         required: False
     version_4:
         description: The ip version of fourth manually configured DNS Server.
-        choices: IAV_IP_V4. (V6 is not supported via REST)
+          (V6 is not supported via REST)
+        choices: [IAV_IP_V4]
         type: str
         required: False
 

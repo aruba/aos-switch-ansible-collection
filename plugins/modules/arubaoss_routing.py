@@ -37,7 +37,7 @@ options:
         description:
             - To enable/disable routing globally.
         required: true
-        choices: create, delete
+        choices: [ create, delete ]
 
 
 author:

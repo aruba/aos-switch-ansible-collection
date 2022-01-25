@@ -41,24 +41,24 @@ options:
         description:
             - Traffic class type
         default: QCT_IP_V4
-        choices: QCT_IP_V4, QCT_IP_V6
+        choices: [ QCT_IP_V4, QCT_IP_V6 ]
         required: true
     dscp_value:
         description:
             - dscp value to be applied
-        choices: 0-64
+        choices: [ 0 - 64 ]
         required: false
     entry_type:
         description:
             - Type of action to take.
-        choices: QTCET_MATCH, QTCET_IGNORE
+        choices: [ QTCET_MATCH, QTCET_IGNORE ]
         required: false
     protocol_type:
         description:
             - Protocol type for traffic filter.
         required: false
-        choices: 'PT_GRE','PT_ESP','PT_AH','PT_OSPF','PT_PIM','PT_VRRP',
-                 'PT_ICMP','PT_IGMP','PT_IP','PT_SCTP','PT_TCP','PT_UDP'
+        choices: [ 'PT_GRE','PT_ESP','PT_AH','PT_OSPF','PT_PIM','PT_VRRP',
+                 'PT_ICMP','PT_IGMP','PT_IP','PT_SCTP','PT_TCP','PT_UDP' ]
     icmp_type:
         description:
             - Applies to icmp type matching this field. Only PT_ICMP
@@ -74,11 +74,16 @@ options:
             - Applies to igmp type matching this field. Only PT_IGMP
               protocol_type support igmp_type
         required: false
+        choices: [ IT_HOST_QUERY, IT_HOST_REPORT, IT_DVMRP, IT_PIM, IT_TRACE,
+                  IT_V2_HOST_REPORT, IT_V2_HOST_LEAVE, IT_MTRACE_REPLY,
+                  IT_MTRACE_REQUEST, IT_V3_HOST_REPORT, IT_MROUTER_ADVERTISEMENT,
+                  IT_MROUTER_SOLICITATION, IT_MROUTER_TERMINATION ]
     match_bit:
         description:
             - The set of tcp match bits . Only PT_TCP  protocol_type
               support match_bit
         required: false
+        choices: [ MB_ACK, MB_FIN, MB_RST, MB_SYN ]
     source_port:
         description:
             - Applies to source port matching this filter. Only PT_SCTP,
@@ -111,17 +116,17 @@ options:
     application_type:
         description:
             - Applies to application matching this extended traffic filter
-        required: fasle
+        required: false
     precedence:
         description:
             - IP precedence flag
         required: false
-        choices: 0, 1, 2, 3, 4, 5, 6, 7
+        choices: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
     tos:
         description:
             - Tos value
         required: false
-        choices: 0, 2, 4, 8
+        choices: [ 0, 2, 4, 8 ]
     sequece_no:
         description:
             - Sequence number for the traffic class configured

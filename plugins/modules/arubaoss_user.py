@@ -43,6 +43,7 @@ options:
         description:
             - Type of user being configured.
         required: true
+        choices: [ UT_OPERATOR, UT_MANAGER ]
         default: UT_OPERATOR
     user_password:
         description:
@@ -53,10 +54,11 @@ options:
             - type of password being conifgured
         required: true
         choices: [ PET_PLAIN_TEXT, PET_SHA1 ]
+        default: PET_PLAIN_TEXT
     state:
         description:
             - Enable or disable
-        choices: [create, delete ]
+        choices: [ create, delete ]
         default: create
         required: false
 

@@ -33,23 +33,23 @@ description:
     - "This implements rest apis which can be used to configure AAA Accounting"
 
 options:
-    cmd_accounting_method
+    cmd_accounting_method:
         description: Method for commands Accounting Configuration
-        choices: AME_NONE, AME_TACACS, AME_RADIUS
+        choices: [ AME_NONE, AME_TACACS, AME_RADIUS ]
         required: False
-    cmd_accounting_mode
+    cmd_accounting_mode:
         description: Mode for commands Accounting Configuration
-        choices: AMO_NONE, AMO_STOP_ONLY
+        choices: [ AMO_NONE, AMO_STOP_ONLY ]
         required: False
-    ntwk_accounting_method
+    ntwk_accounting_method:
         description: Method for network Accounting Configuration
-        choices: AME_NONE, AME_TACACS, AME_RADIUS
+        choices: [ AME_NONE, AME_TACACS, AME_RADIUS ]
         required: False
-    ntwk_accounting_mode
+    ntwk_accounting_mode:
         description: Mode for network Accounting Configuration
-        choices: AMO_NONE, AMO_STOP_ONLY, AMO_START_STOP
+        choices: [ AMO_NONE, AMO_STOP_ONLY, AMO_START_STOP ]
         required: False
-    update_interval
+    update_interval:
         description: Update interval for accounting
         required: False
 

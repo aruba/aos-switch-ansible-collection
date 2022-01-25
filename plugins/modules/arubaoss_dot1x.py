@@ -35,13 +35,13 @@ description:
 options:
     command:
         description: Module to be configured.
-        choices: dot1x_config,
+        choices: [ dot1x_config,
                  authenticator_port_config,
                  authentication_method_config,
                  dot1x_port_security,
                  authenticator_port_clearstats,
                  authenticator_port_initialize,
-                 authenticator_port_reauthenticate
+                 authenticator_port_reauthenticate ]
         required: False
     is_dot1x_enabled:
         description: Global 802.1x admin status
@@ -64,7 +64,7 @@ options:
     control:
         description: 802.1X Authenticator Port operational control
         required: False
-        choices: DAPC_UNAUTHORIZED, DAPC_AUTO, DAPC_AUTHORIZED
+        choices: [ DAPC_UNAUTHORIZED, DAPC_AUTO, DAPC_AUTHORIZED ]
     unauthorized_vlan_id:
         description: 802.1X unauthorized VLAN ID. Displays 0 if not
                      configured. Use 0 to reset unauthorized_vlan_id.
@@ -72,21 +72,24 @@ options:
     client_limit:
         description: Client limit
         required: False
-    quiet_period: Quiet Period
-        description:
+    quiet_period:
+        description: Quiet Period
         required: False
     tx_period:
         description: Tx Period
         required: False
     supplicant_timeout:
-        description: Supplicant timeout, default= 30
+        description: Supplicant timeout
         required: False
+        default: 30
     server_timeout:
-        description: Server timeout, default= 300
+        description: Server timeout
         required: False
+        default: 300
     max_requests:
-        description: Max requests, default =2
+        description: Max requests
         required: False
+        default: 2
     reauth_period:
         description: Reauth Period
         required: False
@@ -95,37 +98,34 @@ options:
                      Use 0 to reset authorized_vlan_id
         required: False
     logoff_period:
-        description: Logoff Period, default = 300
+        description: Logoff Period
         required: False
+        default: 300
     unauth_period:
-        description: Unauth period, default = 0
+        description: Unauth period
         required: False
+        default: 0
     cached_reauth_period:
-        description: Cached reauth period, default = 0
+        description: Cached reauth period
         required: False
+        default: 0
     enforce_cache_reauth:
         description: Authenticator enforce canched reauthentication
         required: False
-    server_timeout:
-        description:
-        required: False
-    supplicant_timeout:
-        description:
-        required: False
     primary_authentication_method:
         description: The primary authentication method
-        choices: DPAM_LOCAL, DPAM_EAP_RADIUS, DPAM_CHAP_RADIUS
+        choices: [ DPAM_LOCAL, DPAM_EAP_RADIUS, DPAM_CHAP_RADIUS ]
         required: False
     secondary_authentication_method:
         description: The secondary authentication method
-        choices: DSAM_NONE, DSAM_AUTHORIZED, DSAM_CACHED_REAUTH
+        choices: [ DSAM_NONE, DSAM_AUTHORIZED, DSAM_CACHED_REAUTH ]
         required: False
     server_group:
         description: The server group
         required: False
     controlled_direction:
         description: Traffic Controlled direction
-        choices: DCD_IN, DCD_OUT
+        choices: [ DCD_IN, DCD_OUT ]
         required: False
     allow_mbv:
         description: Configuration of MAC based Vlans

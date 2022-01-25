@@ -35,18 +35,23 @@ description:
 options:
     command:
         description: Function name calls according to configuration required
-        choices: config_spanning_tree, config_spanning_tree_port
+        choices: [ config_spanning_tree, config_spanning_tree_port ]
         required: True
+        default: config_spanning_tree
     config:
         description: To config or unconfig the required command
-        choices: create, delete
+        choices: [ create, delete ]
         required: False
+        default: create
     mode:
-        description:
+        description: MSTP or RPVST
+        choices: [ STM_MSTP, STM_RPVST ]
         required: False
+        default: STM_MSTP
     priority:
-        description:
+        description: STP priority
         required: False
+        default: 8
     port_id:
         description: ID of the port
         required: False

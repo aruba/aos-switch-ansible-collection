@@ -41,7 +41,7 @@ options:
         description:
             - Server IP address version
         default: IAV_IP_V4
-        choices: IAV_IP_V4, IAV_IP_V6
+        choices: [ IAV_IP_V4, IAV_IP_V6 ]
         required: false
     description:
         description:
@@ -51,7 +51,7 @@ options:
         description:
             - Type of protocol to configure
         default: TP_UDP
-        choices: TP_TCP, TP_UDP, TP_TLS
+        choices: [ TP_TCP, TP_UDP, TP_TLS ]
         required: false
     server_port:
         description:
@@ -59,9 +59,9 @@ options:
         required: false
     state:
         description:
-            - Create of delete configuration
+            - Create or delete configuration
         default: create
-        choices: create,delete
+        choices: [ create, delete ]
         required: false
 
 

@@ -48,9 +48,13 @@ options:
     version:
         description: Version of ip address
         required: False
+        choices: [ IAV_IP_V4, IAV_IP_V6 ]
+        default: IAV_IP_V4
     device_operation_mode:
         description: Mode in which the device is operating on
         required: False
+        choices: [ DOM_CLOUD, DOM_CLOUD_WITH_SUPPORT, DOM_AUTONOMOUS ]
+        default: DOM_AUTONOMOUS
     uplink_vlan_id:
         description: Vlan via which central is connected. This is applicable
                      only when device_operation_mode is DOM_CLOUD or
