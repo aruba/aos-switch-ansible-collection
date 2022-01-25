@@ -23,7 +23,7 @@ ANSIBLE_METADATA = {
 
 DOCUMENTATION = '''
 ---
-module: any_cli
+module: arubaoss_ip_route
 
 short_description: implements rest api for static routing
 
@@ -37,8 +37,8 @@ options:
     ip_route_mode:
         description:
             - Mode for route type
-        choices: 'IRM_GATEWAY', 'IRM_REJECT', 'IRM_VLAN', 'IRM_BLACK_HOLE',
-                 'IRM_TUNNEL_ARUBA_VPN'
+        choices: [ 'IRM_GATEWAY', 'IRM_REJECT', 'IRM_VLAN', 'IRM_BLACK_HOLE',
+                 'IRM_TUNNEL_ARUBA_VPN']
         required: true
     destination_vlan:
         description:
@@ -47,12 +47,12 @@ options:
     metric:
         description:
             - ip route metric
-        default= 1
+        default: 1
         required: false
     distance:
         description:
             - ip route distance
-        defualt: 1
+        default: 1
         required: false
     name:
         description:
@@ -70,12 +70,12 @@ options:
     ip_version:
         description:
             - Ip address type to be configured
-        defualt: IAV_IPV_V4
+        default: IAV_IPV_V4
         required: false
     gateway:
         description:
             - IP address of the gateway to forward traffic when route mode
-              is IRM_GATEWAY
+                is IRM_GATEWAY
         required: false
     mask:
         description:
