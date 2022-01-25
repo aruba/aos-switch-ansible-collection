@@ -35,13 +35,13 @@ description:
 options:
     command:
         description: Module to be configured.
-        choices: dot1x_config,
+        choices: [ dot1x_config,
                  authenticator_port_config,
                  authentication_method_config,
                  dot1x_port_security,
                  authenticator_port_clearstats,
                  authenticator_port_initialize,
-                 authenticator_port_reauthenticate
+                 authenticator_port_reauthenticate ]
         required: False
     is_dot1x_enabled:
         description: Global 802.1x admin status
@@ -64,7 +64,7 @@ options:
     control:
         description: 802.1X Authenticator Port operational control
         required: False
-        choices: DAPC_UNAUTHORIZED, DAPC_AUTO, DAPC_AUTHORIZED
+        choices: [ DAPC_UNAUTHORIZED, DAPC_AUTO, DAPC_AUTHORIZED ]
     unauthorized_vlan_id:
         description: 802.1X unauthorized VLAN ID. Displays 0 if not
                      configured. Use 0 to reset unauthorized_vlan_id.
@@ -114,18 +114,18 @@ options:
         required: False
     primary_authentication_method:
         description: The primary authentication method
-        choices: DPAM_LOCAL, DPAM_EAP_RADIUS, DPAM_CHAP_RADIUS
+        choices: [ DPAM_LOCAL, DPAM_EAP_RADIUS, DPAM_CHAP_RADIUS ]
         required: False
     secondary_authentication_method:
         description: The secondary authentication method
-        choices: DSAM_NONE, DSAM_AUTHORIZED, DSAM_CACHED_REAUTH
+        choices: [ DSAM_NONE, DSAM_AUTHORIZED, DSAM_CACHED_REAUTH ]
         required: False
     server_group:
         description: The server group
         required: False
     controlled_direction:
         description: Traffic Controlled direction
-        choices: DCD_IN, DCD_OUT
+        choices: [ DCD_IN, DCD_OUT ]
         required: False
     allow_mbv:
         description: Configuration of MAC based Vlans
