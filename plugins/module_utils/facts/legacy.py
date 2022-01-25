@@ -50,7 +50,7 @@ class FactsBase(object):
             self.facts['host_system_info'] = self.data
             return
 
-        if self._fact_name in self.data.keys():
+        if type(self.data) == dict and self._fact_name in self.data.keys():
             self.facts[self._fact_name] = self.data[self._fact_name]
 
 
