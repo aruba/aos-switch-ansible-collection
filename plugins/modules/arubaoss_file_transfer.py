@@ -46,24 +46,34 @@ options:
         required: True
     file_type:
         description:
-            - Type of file that needs to be transfered. Default is
-              firmware.
+            - Type of file that needs to be transfered.
         required: false
+        choice: [ FTT_CONFIG, FTT_FIRMWARE, FTT_EVENT_LOGS, FTT_CRASH_FILES,
+          FTT_SYSTEM_INFO, FTT_SHOW_TECH,  FTT_DEBUG_LOGS ]
+        default: FTT_FIRMWARE
     action:
         description:
-            - Type of action upload/download. Default is download.
+            - Type of action upload/download.
         required: False
+        choices: [ FTA_DOWNLOAD, FTA_UPLOAD ]
+        default: FTA_DOWNLOAD
     show_tech_option:
         description:
             - Specifies type of show tech command to be executed.
         required: false
+        choices: [ STO_BASIC, STO_ALL, STO_BUFFERS, STO_INSTRUMENTATION,
+          STO_MSTP, STO_OOBM, STO_RAPID_PVST, STO_ROUTE, STO_SMART_LINK,
+          STO_STATISTICS, STO_TRANSCEIVERS, STO_TUNNEL_INTERCEPT,
+          STO_TUNNEL_TAP, STO_TUNNEL_VXLAN, STO_COMPONENTS ]
     boot_image:
         description:
             - Flash where image needs to be copied
+        choices: [ BI_PRIMARY_IMAGE, BI_SECONDARY_IMAGE ]
+        default: BI_PRIMARY_IMAGE
     copy_iter:
         description:
             - Approx max iteration to wait for image copy to get completed.
-
+        default: 20
 
 author:
     - Ashish Pant (@hpe)
