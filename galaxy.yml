@@ -17,7 +17,7 @@ tags: [
   hpe,
   datacenter
 ]
-version: 1.4.1
+version: 1.5.0
 authors:
   - "Tiffany Chiapuzio-Wong"
   - "Sunil Veeramachaneni"
