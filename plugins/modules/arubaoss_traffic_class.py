@@ -57,8 +57,8 @@ options:
         description:
             - Protocol type for traffic filter.
         required: false
-        choices: 'PT_GRE','PT_ESP','PT_AH','PT_OSPF','PT_PIM','PT_VRRP',
-                 'PT_ICMP','PT_IGMP','PT_IP','PT_SCTP','PT_TCP','PT_UDP'
+        choices: [ 'PT_GRE','PT_ESP','PT_AH','PT_OSPF','PT_PIM','PT_VRRP',
+                 'PT_ICMP','PT_IGMP','PT_IP','PT_SCTP','PT_TCP','PT_UDP' ]
     icmp_type:
         description:
             - Applies to icmp type matching this field. Only PT_ICMP
@@ -111,7 +111,7 @@ options:
     application_type:
         description:
             - Applies to application matching this extended traffic filter
-        required: fasle
+        required: false
     precedence:
         description:
             - IP precedence flag
