@@ -49,6 +49,7 @@ options:
     config:
       description: To config or remove the required command
       choices: ['create','delete']
+      default: create
       required: False
       type: str
     retry_interval:
@@ -107,20 +108,21 @@ options:
       type: str
       required: False
     version:
-      description: Version of the IP Address used
+      description: Version of the IP Address used  (V6 is not supported via REST)
       default: IAV_IP_V4
-      choices: IAV_IP_V4. (V6 is not supported via REST)
+      choices: [ IAV_IP_V4 ]
       required: False
     server_group_name:
       description: the AAA Server Group name
       required: False
     time_window_type:
         description: Time window type
-        choices: TW_POSITIVE_TIME_WINDOW, TW_PLUS_OR_MINUS_TIME_WINDOW
+        default: TW_POSITIVE_TIME_WINDOW
+        choices: [ TW_POSITIVE_TIME_WINDOW, TW_PLUS_OR_MINUS_TIME_WINDOW ]
         required: False
     radius_server_id:
         description: The unique ID of the RADIUS Profile.
-        choices: 1 -- 15
+        choices: [ 1 -- 15 ]
         default: 1
         required: False
 author:
