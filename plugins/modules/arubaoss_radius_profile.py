@@ -74,9 +74,9 @@ options:
       type: int
       required: False
     key:
-      description: "Used with config_radius_profile command, Configure
-                    the default authentication key for all RADIUS."
-        Input key as empty string to reset the value"
+      description: Used with config_radius_profile command, Configure
+                    the default authentication key for all RADIUS.
+        Input key as empty string to reset the value
       type: str
       required: False
     tracking_uname:
