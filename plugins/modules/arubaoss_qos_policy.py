@@ -68,7 +68,7 @@ options:
         required: false
     state:
         description:
-            - Create of delete configuration
+            - Create or delete configuration
         default: create
         choices: [ create, delete ]
         required: false
