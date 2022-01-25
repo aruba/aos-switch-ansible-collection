@@ -35,8 +35,9 @@ description:
 options:
     command:
         description: The module to be called.
-        choices: reset_poe_port, config_poe_port and config_poe_slot
+        choices: [ reset_poe_port, config_poe_port, config_poe_slot ]
         required: False
+        default: config_poe_port
     port_id:
         description: The Port id
         required: False
@@ -45,22 +46,26 @@ options:
         required: False
     poe_priority:
         description: The port PoE priority
-        choices: PPP_CRITICAL, PPP_HIGH, PPP_LOW
+        choices: [ PPP_CRITICAL, PPP_HIGH, PPP_LOW ]
         required: False
+        default: PPP_LOW
     poe_allocation_method:
         description: The PoE allocation method
-        choices: PPAM_USAGE, PPAM_CLASS, PPAM_VALUE
+        choices: [ PPAM_USAGE, PPAM_CLASS, PPAM_VALUE ]
         required: False
+        default: [ PPAM_USAGE ]
     allocated_power_in_watts:
         description: Allocated power value. Default value for this is
                      platform dependent
         required: False
+        default: 1
     port_configured_type:
         description:  Port configured type
         required: False
     pre_standard_detect_enabled:
         description: pre_std_detect enable or disable
         required: False
+        default: False
     slot_name:
         description: The slot name
         required: False
@@ -240,7 +245,7 @@ Returns
 
 def run_module():
     module_args = dict(
-        command=dict(type='str', required=False, default="config_poe",
+        command=dict(type='str', required=False, default="config_poe_port",
                      choices=["reset_poe_port",
                               "config_poe_port",
                               "config_poe_slot"]),
