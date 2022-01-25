@@ -42,10 +42,10 @@ options:
         choices: create, delete
         required: False
     mode:
-        description:
+        description: stp or rstp
         required: False
     priority:
-        description:
+        description: STP priority
         required: False
     port_id:
         description: ID of the port
