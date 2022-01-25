@@ -48,7 +48,7 @@ options:
         description:
             - Type of file that needs to be transfered.
         required: false
-        choice: [ FTT_CONFIG, FTT_FIRMWARE, FTT_EVENT_LOGS, FTT_CRASH_FILES,
+        choices: [ FTT_CONFIG, FTT_FIRMWARE, FTT_EVENT_LOGS, FTT_CRASH_FILES,
           FTT_SYSTEM_INFO, FTT_SHOW_TECH,  FTT_DEBUG_LOGS ]
         default: FTT_FIRMWARE
     action:

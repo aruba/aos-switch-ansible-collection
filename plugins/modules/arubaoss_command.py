@@ -45,7 +45,7 @@ options:
     description: Specifies whether all conditions in 'wait_for' must be satisfied or if just
       any one condition can be satisfied. To be used with 'wait_for'.
     default: 'all'
-    choice: ['any', 'all']
+    choices: ['any', 'all']
     required: False
     type: str
   retries:
