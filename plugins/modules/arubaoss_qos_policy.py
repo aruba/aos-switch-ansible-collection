@@ -42,7 +42,7 @@ options:
         description:
             - traffic class type
         required: false
-        choices: QCT_IP_V4, QCT_IP_V6
+        choices: [ QCT_IP_V4, QCT_IP_V6 ]
         default: QCT_IP_V4
     policy_name:
         description:
@@ -57,7 +57,7 @@ options:
             - Type of qos action to take.
         requried: false
         default: QPAT_RATE_LIMIT
-        choices: QPAT_RATE_LIMIT, QPAT_PRIORITY, QPAT_DSCP_VALUE
+        choices: [ QPAT_RATE_LIMIT, QPAT_PRIORITY, QPAT_DSCP_VALUE ]
     action_value:
         description:
             - Value for each action.
@@ -65,6 +65,12 @@ options:
     sequence_no:
         description:
             - Sequence number for traffic class
+        required: false
+    state:
+        description:
+            - Create of delete configuration
+        default: create
+        choices: [ create, delete ]
         required: false
 
 
