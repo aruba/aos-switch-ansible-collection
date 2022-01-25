@@ -94,9 +94,6 @@ options:
             description: SFTP server password
             required: false
 
-
-
-
 author:
     - Ashish Pant (@hpe)
 '''
