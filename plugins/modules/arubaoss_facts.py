@@ -52,8 +52,8 @@ options:
     description:
       - Retrieve vlan, interface, acl, lacp interfaces or lldp neighbors information.
         This can be a single category or it can be a list. Leaving this field blank
-        returns all interfaces, vlans, acl, lacp interfaces and lldp neighbors.
-    choices: ['interfaces', 'vlans', 'acls', 'lacp_interfaces', 'lldp_neighbors']
+        returns all interfaces, vlans, vlan-port assignments, loop protect status/ports/vlans, acl, lacp interfaces and lldp neighbors.
+    choices: ['interfaces', 'vlans', 'vlans_ports', 'loop_protect_status', 'loop_protect_ports', 'loop_protect_vlans', 'acls', 'lacp_interfaces', 'lldp_neighbors']
     required: False
     type: list
 
@@ -157,7 +157,8 @@ def main():
                                        'module_info',
                                        'system_power_supply']),
         'gather_network_resources': dict(type='list',
-                                         choices=['interfaces', 'vlans',
+                                         choices=['interfaces', 'vlans', 'vlans_ports',
+                                                  'loop_protect_status', 'loop_protect_ports', 'loop_protect_vlans',
                                                   'acls', 'lldp_neighbors',
                                                   'lacp_interfaces'])
     }
