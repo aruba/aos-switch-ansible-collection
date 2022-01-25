@@ -37,11 +37,11 @@ options:
     description: Function name calls according to configuration required.
       choice config_tacacs_server - Configure a TACACS+ server.
       choice config_tacacs_profile - Configure global TACACS+ profile.
-    choices: config_tacacs_profile, config_tacacs_server
+    choices: [ config_tacacs_profile, config_tacacs_server ]
     required: True
   config:
     description: To configure or unconfigure the required command.
-    choices: create, delete
+    choices: [ create, delete ]
     default: create
     required: False
   dead_time:
