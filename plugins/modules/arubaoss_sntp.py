@@ -52,10 +52,10 @@ options:
     sntp_client_operation_mode:
         description: The mode in which clients are sending packets
                      to SNTP server.
-      choices: SNTP_DISABLE, SNTP_DHCP_MODE,
+        choices: SNTP_DISABLE, SNTP_DHCP_MODE,
                SNTP_UNICAST_MODE, SNTP_BROADCAST_MODE
         required: false
-      default : SNTP_DHCP_MODE
+        default : SNTP_DHCP_MODE
     sntp_ip_address:
         description: IP Address to be configured on sntp server priority
         required: True
@@ -69,12 +69,11 @@ options:
     sntp_server_version:
         description: SNTP version of server.
         required: false
-      default : 7
+        default : 7
     sntp_server_is_oobm:
         description:  Use the OOBM interface to connect to the server
         required: false
-      default : false
-
+        default : false
 
 
 author:
