@@ -86,7 +86,6 @@ options:
           protocol_type support icmp_code
     required: false
     default: -1
-    required: false
     type: int
   igmp_type:
     description: Applies to igmp type matching this field. Only PT_IGMP
