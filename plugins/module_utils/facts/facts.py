@@ -21,7 +21,10 @@ from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.loo
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.acls import AclsFacts
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.lacp_interfaces import LacpInterfacesFacts
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.lldp_neighbors import LldpNeighborsFacts
-from ansible.module_utils.network.common.facts.facts import FactsBase
+try:
+    from ansible.module_utils.network.common.facts.facts import FactsBase
+except ImportError:
+    from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.facts.facts import FactsBase
 import json # NOQA
 
 
