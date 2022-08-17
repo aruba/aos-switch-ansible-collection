@@ -15,6 +15,7 @@
 # specific language governing permissions and limitations
 # under the License.
 
+from __future__ import (absolute_import, division, print_function)
 
 ANSIBLE_METADATA = {
     'metadata_version': '1.1',
@@ -113,7 +114,6 @@ EXAMPLES = '''
           sntp_client_operation_mode: "SNTP_UNICAST_MODE"
           command: config_sntp
 '''
-
 
 from ansible.module_utils.basic import AnsibleModule # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands # NOQA
