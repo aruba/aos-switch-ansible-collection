@@ -25,12 +25,12 @@ DOCUMENTATION = '''
 ---
 module: arubaoss_interfaces
 
-short_description: implements rest api for port configuration
+short_description: implements rest api for traffic class configuration
 
 version_added: "2.4"
 
 description:
-    - "This implements rest apiis whcih can be used to configure ports"
+    - "This implements rest apiis whcih can be used to configure trafic class"
 
 options:
     class_name:
