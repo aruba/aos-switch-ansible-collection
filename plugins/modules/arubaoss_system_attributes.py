@@ -25,12 +25,12 @@ DOCUMENTATION = '''
 ---
 module: arubaoss_system_attributes
 
-short_description: implements rest api for DOT1x configuration
+short_description: implements rest api for system attributes
 
 version_added: "2.4"
 
 description:
-    - "This implements rest apis which can be used to configure DOT1x"
+    - "This implements rest apis which can be used to configure system attributes"
 
 options:
     hostname:
