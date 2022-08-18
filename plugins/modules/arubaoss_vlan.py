@@ -167,23 +167,23 @@ EXAMPLES = '''
          config: "create"
          command: config_vlan
 
-      - name: Configure igmp and its parameters for VLAN 2
-        arubaoss_vlan:
-          vlan_id: 2
-          command: config_vlan_igmp
-          is_igmp_enabled: true
-          last_member_query_interval: 2
-          query_max_response_time: 20
-          robustness: 4
-          igmp_version: 2
-          is_querier_enabled: true
-          interval: 145
+     - name: Configure igmp and its parameters for VLAN 2
+       arubaoss_vlan:
+         vlan_id: 2
+         command: config_vlan_igmp
+         is_igmp_enabled: true
+         last_member_query_interval: 2
+         query_max_response_time: 20
+         robustness: 4
+         igmp_version: 2
+         is_querier_enabled: true
+         interval: 145
 
-      - name: delete igmp for VLAN 2
-        arubaoss_vlan:
-          vlan_id: 2
-          command: config_vlan_igmp
-          is_igmp_enabled: false
+     - name: delete igmp for VLAN 2
+       arubaoss_vlan:
+         vlan_id: 2
+         command: config_vlan_igmp
+         is_igmp_enabled: false
 '''
 
 from ansible.module_utils.basic import AnsibleModule  # NOQA

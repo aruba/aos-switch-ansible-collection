@@ -135,26 +135,26 @@ EXAMPLES = '''
     password_type: "PET_SHA256"
     user_password: "1c6976e5b5410115bde308bd4dee15dfb167a9c873fc4bb8a81f6f2ab478a918"
 
-  - name: Create Authentication local user2
-    arubaoss_aaa_authentication:
-      command: config_authentication_local_user
-      group_name: "super"
-      local_user_name: "user2"
-      password_type: "PET_SHA1"
-      user_password: "d033e22ae348aeb5660fc2140aec35850c4da997"
+- name: Create Authentication local user2
+  arubaoss_aaa_authentication:
+    command: config_authentication_local_user
+    group_name: "super"
+    local_user_name: "user2"
+    password_type: "PET_SHA1"
+    user_password: "d033e22ae348aeb5660fc2140aec35850c4da997"
 
-  - name: update Authentication local user min_pwd_len, aging_period
-    arubaoss_aaa_authentication:
-      command: config_authentication_local_user
-      local_user_name: "user1"
-      min_pwd_len: 10
-      aging_period: 20
+- name: update Authentication local user min_pwd_len, aging_period
+  arubaoss_aaa_authentication:
+    command: config_authentication_local_user
+    local_user_name: "user1"
+    min_pwd_len: 10
+    aging_period: 20
 
-  - name: Delete Authentication local user
-    arubaoss_aaa_authentication:
-      command: config_authentication_local_user
-      local_user_name: "user1"
-      config: "delete"
+- name: Delete Authentication local user
+  arubaoss_aaa_authentication:
+    command: config_authentication_local_user
+    local_user_name: "user1"
+    config: "delete"
 '''
 
 

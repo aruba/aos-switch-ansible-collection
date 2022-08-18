@@ -74,31 +74,31 @@ EXAMPLES = '''
          interface: 1
          description: "test_interface"
 
-      - name: configure qos on port
-        arubaoss_interface:
-          interface: 5
-          qos_policy: "my_qos"
+     - name: configure qos on port
+       arubaoss_interface:
+         interface: 5
+         qos_policy: "my_qos"
 
-      - name: delete qos from port
-        arubaoss_interface:
-          interface: 5
-          qos_policy: "my_qos"
-          enable: False
+     - name: delete qos from port
+       arubaoss_interface:
+         interface: 5
+         qos_policy: "my_qos"
+         enable: False
 
-      - name: config acl on ports
-        arubaoss_interface:
-          interface: 2
-          acl_id: test
-          acl_type: standard
-          acl_direction: in
+     - name: config acl on ports
+       arubaoss_interface:
+         interface: 2
+         acl_id: test
+         acl_type: standard
+         acl_direction: in
 
-      - name: delete acl ports stats
-        arubaoss_interface:
-          state: delete
-          interface: 2
-          acl_id: test
-          acl_type: standard
-          acl_direction: in
+     - name: delete acl ports stats
+       arubaoss_interface:
+         state: delete
+         interface: 2
+         acl_id: test
+         acl_type: standard
+         acl_direction: in
 
 '''
 

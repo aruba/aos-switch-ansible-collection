@@ -50,13 +50,13 @@ EXAMPLES = '''
        arubaoss_anycli:
          command: "vlan 100"
 
-      - name: View the running config in the system
-        arubaoss_anycli:
-          command: "show running-config
+     - name: View the running config in the system
+       arubaoss_anycli:
+         command: "show running-config"
 
-      - name: configure ip mtu
-        arubaoss_anycli:
-          command: "jumbo ip-mtu 1600"
+     - name: configure ip mtu
+       arubaoss_anycli:
+         command: "jumbo ip-mtu 1600"
 '''
 
 from ansible.module_utils.basic import AnsibleModule  # NOQA
