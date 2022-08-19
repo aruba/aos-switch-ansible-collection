@@ -49,7 +49,7 @@ At least one review from a maintainer is required for all patches.
 
 All contributions must include acceptance of the DCO:
 
-### Developer’s Certificate of Origin
+### Developer's Certificate of Origin
 
 > Developer Certificate of Origin Version 1.1
 >
