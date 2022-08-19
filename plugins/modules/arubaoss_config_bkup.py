@@ -230,7 +230,7 @@ def config_restore(module):
                     module.log(status['status'])
                     continue
                 else:
-                    return {'msg': 'Config restore is already running: {}'
+                    return {'msg': 'Config restore is already running: {1}'
                             .format(status), 'changed': False}
         break
 
