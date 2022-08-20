@@ -341,9 +341,7 @@ def traffic_class_match(module):
 
         qos_config = get_config(module, match_url)
         if qos_config:
-            print("HERE")
             check_config = module.from_json(to_text(qos_config))
-            print("CHECK", check_config)
             for config in check_config['qos_class_match_element']:
                 if config['traffic_match']['protocol_type'] == 'PT_TCP':
                     config['traffic_match'].pop('is_connection_established')

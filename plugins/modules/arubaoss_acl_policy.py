@@ -360,7 +360,6 @@ def check_acl_rule_exists(module):
             if ele['acl_action'] != params['acl_action']:
                 continue
             if params['acl_type'] == 'AT_EXTENDED_IPV4':
-                print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 protocol_type = ele['traffic_match']['protocol_type']
                 source_ip_address = \
                     ele['traffic_match']['source_ip_address']['octets']
