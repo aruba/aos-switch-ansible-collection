@@ -221,8 +221,6 @@ except ImportError:
     from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.config import NetworkConfig, dumps  # NOQA
 
 
-
-
 def get_running_config(module, config=None):
     '''
     Gets the running-config from the switch
