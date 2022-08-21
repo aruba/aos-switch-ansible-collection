@@ -250,9 +250,9 @@ def community(module):
             method = 'POST'
 
         data = {
-                'access_type': params['access_type'],
-                'community_name': params['community_name'],
-                'restricted': params['restricted']
+            'access_type': params['access_type'],
+            'community_name': params['community_name'],
+            'restricted': params['restricted']
         }
 
     else:
@@ -285,14 +285,14 @@ def host(module):
         else:
             method = 'POST'
         data = {
-                'host_ip': {
-                    'octets': params['host_ip'],
-                    'version': params['version']
-                },
-                'community': params['community_name'],
-                'trap_level': params['trap_level'],
-                'informs': params['informs'],
-                'use_oobm': params['use_oobm'],
+            'host_ip': {
+                'octets': params['host_ip'],
+                'version': params['version']
+            },
+            'community': params['community_name'],
+            'trap_level': params['trap_level'],
+            'informs': params['informs'],
+            'use_oobm': params['use_oobm'],
         }
 
         if params['informs']:

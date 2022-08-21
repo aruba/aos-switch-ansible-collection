@@ -110,11 +110,11 @@ def config_syslog(module):
             method = 'POST'
 
     data = {
-            'ip_address': {
-                'octets': params['server_address'],
-                'version': params['version']
-                },
-            'transport_protocol': params['protocol'],
+        'ip_address': {
+            'octets': params['server_address'],
+            'version': params['version']
+            },
+        'transport_protocol': params['protocol'],
     }
 
     protocol = params['protocol']

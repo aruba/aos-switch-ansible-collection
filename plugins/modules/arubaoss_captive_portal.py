@@ -108,8 +108,8 @@ def config_captive_portal(module):
 
         if params['profile_name']:
             data['custom_profile'] = {
-                    'profile': params['profile_name'],
-                    'url': params['server_url']
+                'profile': params['profile_name'],
+                'url': params['server_url']
             }
 
         result = run_commands(module, url, data, 'PUT', url)

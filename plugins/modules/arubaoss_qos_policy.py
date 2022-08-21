@@ -119,8 +119,8 @@ def qos(module):
     if params['state'] == 'create':
 
         data = {
-                'policy_name': params['policy_name'],
-                'policy_type': params['policy_type'],
+            'policy_name': params['policy_name'],
+            'policy_type': params['policy_type'],
         }
         method = 'POST'
 
@@ -189,11 +189,11 @@ def qos_class(module):
         action_value = params['action_value']
 
         data = {
-                'policy_id': policy_id,
-                'traffic_class_id': class_id,
-                'first_action': {
-                    'action_type': action,
-                },
+            'policy_id': policy_id,
+            'traffic_class_id': class_id,
+            'first_action': {
+                'action_type': action,
+            },
         }
         if params['sequence_no'] > 0:
             data['sequence_no'] = params['sequence_no']

@@ -120,10 +120,10 @@ def update(module):
     url = "/loop_protect"
 
     data = {
-            'port_disable_timer_in_senconds': params['port_disable_timer'],
-            'trasmit_interval_in_seconds': params['transmit_interval'],
-            'mode': params['mode'],
-            'is_trap_on_loop_detected_enabled': params['trap']
+        'port_disable_timer_in_senconds': params['port_disable_timer'],
+        'trasmit_interval_in_seconds': params['transmit_interval'],
+        'mode': params['mode'],
+        'is_trap_on_loop_detected_enabled': params['trap']
     }
 
     result = run_commands(module, url, data, 'PUT', check=url)
@@ -142,9 +142,9 @@ def update_port(module):
                 .format(params['interface']), 'changed': False}
 
     data = {
-            'port_id': params['interface'],
-            'is_loop_protection_enabled': params['loop_protected'],
-            'receiver_action': params['receiver_action']
+        'port_id': params['interface'],
+        'is_loop_protection_enabled': params['loop_protected'],
+        'receiver_action': params['receiver_action']
     }
 
     result = run_commands(module, url, data, 'PUT', check=url)
@@ -163,8 +163,8 @@ def update_vlan(module):
                 'changed': False}
 
     data = {
-            'vlan_id': params['vlan'],
-            'is_vlan_loop_protected': params['loop_protected'],
+       'vlan_id': params['vlan'],
+        'is_vlan_loop_protected': params['loop_protected'],
     }
 
     result = run_commands(module, url, data, 'PUT', check=url)

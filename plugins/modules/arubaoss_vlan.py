@@ -502,14 +502,14 @@ def config_qos(module):
                     return ret
 
         data = {
-                'vlan_id': params['vlan_id'],
-                'policy_id': policy_id
+            'vlan_id': params['vlan_id'],
+            'policy_id': policy_id
         }
         result = run_commands(module, url, data, 'POST')
 
     else:
         url = url + '/' + str(params['vlan_id']) + '-' + \
-              params['qos_policy'] + '~' + 'QPT_QOS'
+            params['qos_policy'] + '~' + 'QPT_QOS'
         check_url = url + '/stats'
 
         result = run_commands(module, url, {}, 'DELETE', check=check_url)
@@ -596,8 +596,8 @@ def config_igmp(module):
     data['robustness'] = params['robustness']
     data['version'] = params['igmp_version']
     data['querier'] = {
-            'is_querier_enabled': params['is_querier_enabled'],
-            'interval': params['interval']
+        'is_querier_enabled': params['is_querier_enabled'],
+        'interval': params['interval']
     }
 
     method = 'PUT'

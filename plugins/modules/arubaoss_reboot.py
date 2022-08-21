@@ -97,7 +97,7 @@ def reboot(module):
                 'changed': False, 'failed': True}
 
     data = {
-            'boot_image': params['boot_image'],
+        'boot_image': params['boot_image'],
     }
 
     result = run_commands(module, url, data, 'reboot')

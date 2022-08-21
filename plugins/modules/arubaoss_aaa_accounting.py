@@ -98,8 +98,9 @@ def config_accounting(module):
     serverGrp = {}
     data['update_interval'] = params['update_interval']
     data['accounting_commands'] = {
-            'accounting_method': params['cmd_accounting_method'],
-            'accounting_mode': params['cmd_accounting_mode']}
+        'accounting_method': params['cmd_accounting_method'],
+        'accounting_mode': params['cmd_accounting_mode']
+    }
 
     # Server Group name is not supported when accounting_method is AME_TACACS
     if not params['cmd_accounting_method'] == "AME_TACACS":
@@ -110,8 +111,9 @@ def config_accounting(module):
     data['accounting_commands'].update(serverGrp)
 
     data['accounting_network'] = {
-            'accounting_method': params['ntwk_accounting_method'],
-            'accounting_mode': params['ntwk_accounting_mode']}
+        'accounting_method': params['ntwk_accounting_method'],
+        'accounting_mode': params['ntwk_accounting_mode']
+    }
 
     # Server Group name is not supported when accounting_method is AME_TACACS
     if not params['ntwk_accounting_method'] == "AME_TACACS":

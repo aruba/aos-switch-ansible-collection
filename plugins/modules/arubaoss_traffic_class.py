@@ -282,8 +282,8 @@ def traffic_class_match(module):
             return {'msg': 'protocol_type is required', 'changed': False}
 
         data = {
-                'traffic_class_id': class_id,
-                'entry_type': params['entry_type'],
+            'traffic_class_id': class_id,
+            'entry_type': params['entry_type'],
         }
 
         if params['dscp_value']:

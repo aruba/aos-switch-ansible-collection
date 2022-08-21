@@ -112,10 +112,10 @@ def config_user(module):
                         'changed': False, 'failed': True}
 
     data = {
-            'type': params['user_type'],
-            'name': params['user_name'],
-            'password': params['user_password'],
-            'password_type': params['password_type']
+        'type': params['user_type'],
+        'name': params['user_name'],
+        'password': params['user_password'],
+        'password_type': params['password_type']
     }
 
     method = 'POST'

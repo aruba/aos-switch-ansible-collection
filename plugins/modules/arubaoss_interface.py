@@ -153,9 +153,9 @@ def qos(module):
                     return ret
 
         data = {
-                'port_id': params['interface'],
-                'policy_id': policy_id,
-                'direction': params['qos_direction']
+            'port_id': params['interface'],
+            'policy_id': policy_id,
+            'direction': params['qos_direction']
         }
         result = run_commands(module, url, data, 'POST')
 

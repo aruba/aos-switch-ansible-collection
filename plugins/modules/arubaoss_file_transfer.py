@@ -127,9 +127,9 @@ def transfer(module):
     params = module.params
     url = '/file-transfer'
     data = {
-            'file_type': params['file_type'],
-            'action': params['action'],
-            'url': params['file_url'],
+        'file_type': params['file_type'],
+        'action': params['action'],
+        'url': params['file_url'],
     }
     if params['show_tech_option']:
         data['show_tech_option'] = params['show_tech_option']

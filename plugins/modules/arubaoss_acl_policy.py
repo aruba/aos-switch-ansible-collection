@@ -291,8 +291,8 @@ def acl(module):
     if params['state'] == 'create':
 
         data = {
-                'acl_name': params['acl_name'],
-                'acl_type': params['acl_type'],
+            'acl_name': params['acl_name'],
+            'acl_type': params['acl_type'],
         }
 
         check_list = \

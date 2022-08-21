@@ -172,9 +172,10 @@ def route(module):
                 return {'msg': '{} is required for {}'.format(key, route_type),
                         'changed': False}
 
-    data = {'ip_route_mode': params['ip_route_mode'],
-            'metric': params['metric'],
-            'distance': params['distance']
+    data = {
+        'ip_route_mode': params['ip_route_mode'],
+        'metric': params['metric'],
+        'distance': params['distance']
     }
 
     if route_type == 'IRM_GATEWAY':

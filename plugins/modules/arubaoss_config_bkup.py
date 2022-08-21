@@ -128,8 +128,8 @@ def config_backup(module):
     url = '/system/config/cfg_backup_files'
 
     data = {
-            'file_name': params['file_name'],
-            'config_type': params['config_type']
+        'file_name': params['file_name'],
+        'config_type': params['config_type']
     }
 
     if params['state'] == 'create':
@@ -157,8 +157,8 @@ def config_restore(module):
 
     server_type = params['server_type']
     data = {
-            'file_name': params['file_name'],
-            'server_type': server_type,
+        'file_name': params['file_name'],
+        'server_type': server_type,
     }
 
     if server_type == 'ST_TFTP' or server_type == 'ST_SFTP':

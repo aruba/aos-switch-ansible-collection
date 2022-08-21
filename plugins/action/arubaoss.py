@@ -61,10 +61,10 @@ class ActionModule(_ActionModule):
 
             if transport == 'cli':
                 return dict(
-                        failed=True,
-                        msg='invalid connection specified, expected'
-                            'connection=local, got %s'
-                            % self._play_context.connection)
+                    failed=True,
+                    msg='invalid connection specified, expected'
+                        'connection=local, got %s'
+                        % self._play_context.connection)
             else:
                 self._task.args['provider'] = \
                     ActionModule.aossapi_implementation(provider,
