@@ -337,7 +337,7 @@ def main():
                 else:
                     filename = "backup.cfg"
 
-                with open(dir_path+'/'+filename, 'w') as backupfile:
+                with open(dir_path + '/' + filename, 'w') as backupfile:
                     backupfile.write(contents)
                     backupfile.write("\n")
 

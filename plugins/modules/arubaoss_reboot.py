@@ -108,7 +108,7 @@ def reboot(module):
         result = wait_for_boot(module)
 
         end = time()
-        total_time = int(end-start)
+        total_time = int(end - start)
 
         if result:
             result = {'changed': True, 'msg': 'Device reboot successful.',

@@ -148,7 +148,7 @@ def transfer(module):
         start = time()
         result = wait_to_copy(module)
         end = time()
-        total_time = int(end-start)
+        total_time = int(end - start)
 
         if result == 'FTS_COMPLETED':
             result = {'changed': True, 'msg': 'image transfer  successful.',

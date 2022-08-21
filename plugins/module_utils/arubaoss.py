@@ -190,7 +190,7 @@ class Checkversion:
         if headers['status'] == 200:
             body = response.read()
             body = json.loads(body)
-            api = body['version_element'][len(body['version_element'])-1]['version'] # NOQA
+            api = body['version_element'][len(body['version_element']) - 1]['version'] # NOQA
             self._module.params['api_version'] = api
         else:
             self._module.fail_json(**headers)
