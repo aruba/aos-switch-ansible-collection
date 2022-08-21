@@ -163,7 +163,7 @@ def main():
     module = AnsibleModule(
         argument_spec=argument_spec,
         supports_check_mode=True
-        )
+    )
 
     commands = parse_commands(module, warnings)
     wait_for = module.params['wait_for'] or list()

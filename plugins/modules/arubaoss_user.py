@@ -116,7 +116,7 @@ def config_user(module):
             'name': params['user_name'],
             'password': params['user_password'],
             'password_type': params['password_type']
-            }
+    }
 
     method = 'POST'
     delete_url = url + '/' + params['user_type']

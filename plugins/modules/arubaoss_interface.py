@@ -156,7 +156,7 @@ def qos(module):
                 'port_id': params['interface'],
                 'policy_id': policy_id,
                 'direction': params['qos_direction']
-                }
+        }
         result = run_commands(module, url, data, 'POST')
 
     else:

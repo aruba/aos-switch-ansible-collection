@@ -293,7 +293,7 @@ def acl(module):
         data = {
                 'acl_name': params['acl_name'],
                 'acl_type': params['acl_type'],
-                }
+        }
 
         check_list = \
             set(['AT_EXTENDED_IPV4', 'AT_STANDARD_IPV4',
@@ -471,7 +471,7 @@ def acl_rule(module):
         data.update({
             'acl_id': acl_id,
             'acl_action': params['acl_action'],
-            })
+        })
 
         if params['remark']:
             data['remark'] = params['remark']
@@ -500,21 +500,21 @@ def acl_rule(module):
                     "source_ip_address": {
                         "version": version,
                         "octets": params['source_ip_address']
-                        },
+                    },
                     "source_ip_mask": {
                         "version": version,
                         "octets": params['source_ip_mask']
-                        },
+                    },
                     "destination_ip_address": {
                         "version": version,
                         "octets": params['destination_ip_address']
-                        },
+                    },
                     "destination_ip_mask": {
                         "version": version,
                         "octets": params['destination_ip_mask']
-                        }
                     }
-                })
+                }
+            })
 
             if protocol == 'PT_ICMP':
                 if params['icmp_type'] > -1:
@@ -566,13 +566,13 @@ def acl_rule(module):
                     'source_ip_address': {
                         'version': 'IAV_IP_V4',
                         'octets': source_ip,
-                        },
+                    },
                     'source_ip_mask': {
                         'version': 'IAV_IP_V4',
                         'octets': source_mask,
-                        }
                     }
-                })
+                }
+            })
 
         # Check idempotency for duplicate ip values
         if check_acl_rule_exists(module) is True:

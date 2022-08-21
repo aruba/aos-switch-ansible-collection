@@ -175,7 +175,7 @@ def route(module):
     data = {'ip_route_mode': params['ip_route_mode'],
             'metric': params['metric'],
             'distance': params['distance']
-            }
+    }
 
     if route_type == 'IRM_GATEWAY':
         if 'gateway' not in params:

@@ -195,7 +195,7 @@ def traffic_class(module):
         data = {
             'class_name': params['class_name'],
             'class_type': params['class_type']
-            }
+        }
         method = 'POST'
 
     elif params['state'] == 'delete':
@@ -284,7 +284,7 @@ def traffic_class_match(module):
         data = {
                 'traffic_class_id': class_id,
                 'entry_type': params['entry_type'],
-                }
+        }
 
         if params['dscp_value']:
             data['dscp_value'] = params['dscp_value']
@@ -295,21 +295,21 @@ def traffic_class_match(module):
                 "source_ip_address": {
                     "version": version,
                     "octets": params['source_ip_address']
-                    },
+                },
                 "source_ip_mask": {
                     "version": version,
                     "octets": params['source_ip_mask']
-                    },
+                },
                 "destination_ip_address": {
                     "version": version,
                     "octets": params['destination_ip_address']
-                    },
+                },
                 "destination_ip_mask": {
                     "version": version,
                     "octets": params['destination_ip_mask']
-                    }
                 }
-            })
+            }
+        })
 
         if protocol == 'PT_ICMP':
             if params['icmp_type'] > -1:

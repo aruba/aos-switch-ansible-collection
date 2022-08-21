@@ -504,7 +504,7 @@ def config_qos(module):
         data = {
                 'vlan_id': params['vlan_id'],
                 'policy_id': policy_id
-                }
+        }
         result = run_commands(module, url, data, 'POST')
 
     else:

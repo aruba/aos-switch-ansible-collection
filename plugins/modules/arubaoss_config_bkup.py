@@ -130,7 +130,7 @@ def config_backup(module):
     data = {
             'file_name': params['file_name'],
             'config_type': params['config_type']
-            }
+    }
 
     if params['state'] == 'create':
         check_config = get_config(module, url)
@@ -159,7 +159,7 @@ def config_restore(module):
     data = {
             'file_name': params['file_name'],
             'server_type': server_type,
-            }
+    }
 
     if server_type == 'ST_TFTP' or server_type == 'ST_SFTP':
         if not params['server_name'] and not params['server_ip']:
@@ -172,9 +172,9 @@ def config_restore(module):
                 'tftp_server_address': {
                     'server_address': {
                         'host_name': params['server_name']
-                        }
                     }
-                })
+                }
+            })
         if params['server_ip']:
             data.update({
                 'tftp_server_address': {
@@ -182,10 +182,10 @@ def config_restore(module):
                         'ip_address': {
                             'octets': params['server_ip'],
                             'version': 'IAV_IP_V4'
-                            }
                         }
                     }
-                })
+                }
+            })
 
     if server_type == 'ST_SFTP':
         if params['server_name']:
@@ -193,9 +193,9 @@ def config_restore(module):
                 'sftp_server_address': {
                     'server_address': {
                         'host_name': params['server_name']
-                        }
                     }
-                })
+                }
+            })
         if params['server_ip']:
             data.update({
                 'sftp_server_address': {
@@ -203,10 +203,10 @@ def config_restore(module):
                         'ip_address': {
                             'octets': params['server_ip'],
                             'version': 'IAV_IP_V4'
-                            }
                         }
                     }
-                })
+                }
+            })
 
         data['sftp_server_address']['user_name'] = params['user_name']
         data['sftp_server_address']['password'] = params['server_passwd']

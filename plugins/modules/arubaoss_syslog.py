@@ -115,7 +115,7 @@ def config_syslog(module):
                 'version': params['version']
                 },
             'transport_protocol': params['protocol'],
-           }
+    }
 
     protocol = params['protocol']
     if params['server_port'] == 0:

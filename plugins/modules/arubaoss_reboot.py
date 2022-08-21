@@ -98,7 +98,7 @@ def reboot(module):
 
     data = {
             'boot_image': params['boot_image'],
-            }
+    }
 
     result = run_commands(module, url, data, 'reboot')
     total_time = 0

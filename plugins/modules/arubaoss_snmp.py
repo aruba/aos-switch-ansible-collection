@@ -253,7 +253,7 @@ def community(module):
                 'access_type': params['access_type'],
                 'community_name': params['community_name'],
                 'restricted': params['restricted']
-                }
+        }
 
     else:
         url = check_url
@@ -288,19 +288,19 @@ def host(module):
                 'host_ip': {
                     'octets': params['host_ip'],
                     'version': params['version']
-                    },
+                },
                 'community': params['community_name'],
                 'trap_level': params['trap_level'],
                 'informs': params['informs'],
                 'use_oobm': params['use_oobm'],
-                }
+        }
 
         if params['informs']:
             data.update({
                 'informs': params['informs'],
                 'inform_timeout': params['inform_timeout'],
                 'inform_retries': params['inform_retries']
-                })
+            })
 
     else:
         data = {}

@@ -130,7 +130,7 @@ def transfer(module):
             'file_type': params['file_type'],
             'action': params['action'],
             'url': params['file_url'],
-            }
+    }
     if params['show_tech_option']:
         data['show_tech_option'] = params['show_tech_option']
 
