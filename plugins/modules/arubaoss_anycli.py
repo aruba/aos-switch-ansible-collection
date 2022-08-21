@@ -106,7 +106,7 @@ Returns
 def run_module():
     module_args = dict(
         command=dict(type='str', required=False, default=''),
-   )
+    )
 
     module_args.update(arubaoss_argument_spec)
 
