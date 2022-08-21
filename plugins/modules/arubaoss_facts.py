@@ -180,5 +180,6 @@ def main():
 
     module.exit_json(ansible_facts=ansible_facts, warnings=warnings)
 
+
 if __name__ == '__main__':
     main()

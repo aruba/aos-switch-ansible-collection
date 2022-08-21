@@ -91,6 +91,7 @@ def cli_command(module):
     result = run_commands(module, url, data, method, check=url)
     return result
 
+
 """
 -------
 Name: run_module()
