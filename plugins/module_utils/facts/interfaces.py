@@ -30,7 +30,7 @@ class InterfacesFacts(object):
         url = '/ports'
         check_presence = get_config(self._module, url)
         if check_presence:
-           ports = json.loads(check_presence)
+            ports = json.loads(check_presence)
 
         facts = {
             'interfaces': ports

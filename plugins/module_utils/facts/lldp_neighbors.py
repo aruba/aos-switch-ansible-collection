@@ -31,7 +31,7 @@ class LldpNeighborsFacts(object):
         url = '/lldp/remote-device'
         check_presence = get_config(self._module, url)
         if check_presence:
-           lldp_neighbors = json.loads(check_presence)
+            lldp_neighbors = json.loads(check_presence)
         facts = {
             'lldp_neighbors': lldp_neighbors
         }

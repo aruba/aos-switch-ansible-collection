@@ -30,7 +30,7 @@ class AclsFacts(object):
         url = '/acls'
         check_presence = get_config(self._module, url)
         if check_presence:
-           acls = json.loads(check_presence)
+            acls = json.loads(check_presence)
         facts = {
             'acls': acls
         }

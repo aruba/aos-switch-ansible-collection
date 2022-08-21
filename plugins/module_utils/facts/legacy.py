@@ -31,16 +31,16 @@ class FactsBase(object):
         Obtain and populate the facts
         '''
         if self._fact_name == 'host_system_info':
-          try:
-             check_presence = get_config(self._module, self._url)
-             self.data = json.loads(check_presence)
-          except Exception:
-             stacked_check_presence = get_config(self._module, self._stacked_url)
-             self.data = json.loads(stacked_check_presence)
+            try:
+                check_presence = get_config(self._module, self._url)
+                self.data = json.loads(check_presence)
+            except Exception:
+                stacked_check_presence = get_config(self._module, self._stacked_url)
+                self.data = json.loads(stacked_check_presence)
         else:
-          check_presence = get_config(self._module, self._url)
-          if check_presence:
-            self.data = json.loads(check_presence)
+            check_presence = get_config(self._module, self._url)
+            if check_presence:
+                self.data = json.loads(check_presence)
 
         if self._fact_name == 'switch_specific_system_info':
             self.facts['switch_specific_system_info'] = self.data

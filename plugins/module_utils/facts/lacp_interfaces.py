@@ -31,7 +31,7 @@ class LacpInterfacesFacts(object):
         url = '/lacp/port'
         check_presence = get_config(self._module, url)
         if check_presence:
-           lacp_interfaces = json.loads(check_presence)
+            lacp_interfaces = json.loads(check_presence)
         facts = {
             'lacp_interfaces': lacp_interfaces
         }

@@ -31,7 +31,7 @@ class VlansPortsFacts(object):
         url = '/vlans-ports'
         check_presence = get_config(self._module, url)
         if check_presence:
-          vlans_ports = json.loads(check_presence)
+            vlans_ports = json.loads(check_presence)
 
         facts = {
             'vlans_ports': vlans_ports

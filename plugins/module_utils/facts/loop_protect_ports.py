@@ -31,7 +31,7 @@ class LoopProtectPortsFacts(object):
         url = '/loop_protect/ports'
         check_presence = get_config(self._module, url)
         if check_presence:
-          ports = json.loads(check_presence)
+            ports = json.loads(check_presence)
 
         facts = {
           'loop_protect_ports': ports

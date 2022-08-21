@@ -32,7 +32,7 @@ class LoopProtectVlansFacts(object):
         url = '/loop_protect/vlans'
         check_presence = get_config(self._module, url)
         if check_presence:
-          vlans = json.loads(check_presence)
+            vlans = json.loads(check_presence)
 
         facts = {
           'loop_protect_vlans': vlans

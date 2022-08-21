@@ -31,7 +31,7 @@ class LoopProtectStatusFacts(object):
         url = '/loop_protect'
         check_presence = get_config(self._module, url)
         if check_presence:
-          status = json.loads(check_presence)
+            status = json.loads(check_presence)
 
         facts = {
           'loop_protect_status': status
