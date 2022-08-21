@@ -148,9 +148,9 @@ def main():
     """
     argument_spec = {
         'gather_subset': dict(default=['host_system_info',
-                                   'switch_specific_system_info',
-                                   'module_info',
-                                   'system_power_supply'],
+                                       'switch_specific_system_info',
+                                       'module_info',
+                                       'system_power_supply'],
                               type='list',
                               choices=['host_system_info',
                                        'switch_specific_system_info',

@@ -163,7 +163,7 @@ def update_vlan(module):
                 'changed': False}
 
     data = {
-       'vlan_id': params['vlan'],
+        'vlan_id': params['vlan'],
         'is_vlan_loop_protected': params['loop_protected'],
     }
 

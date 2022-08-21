@@ -537,9 +537,9 @@ def config_acl(module):
         return {'msg': 'Configure ACL first. {} does not exist'
                 .format(params['acl_id']), 'changed': False}
 
-    delete_url = "{}/{}-{}~{}-{}".format(url, params['vlan_id'],
-                                         params['acl_id'], acl_type,
-                                         direction)
+    delete_url = "{1}/{2}-{3}~{4}-{5}".format(url, params['vlan_id'],
+                                              params['acl_id'], acl_type,
+                                              direction)
 
     config_present = False
     current_acl = get_config(module, url)
