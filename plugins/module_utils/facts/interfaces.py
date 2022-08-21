@@ -12,6 +12,7 @@ __metaclass__ = type
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config  # NOQA
 import json  # NOQA
 
+
 class InterfacesFacts(object):
     '''
     Class for PVOS Interface facts
