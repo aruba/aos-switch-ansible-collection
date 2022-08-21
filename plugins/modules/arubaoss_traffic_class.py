@@ -374,7 +374,7 @@ def run_module():
         class_type=dict(type='str', required=False, default='QCT_IP_V4',
                         choices=['QCT_IP_V4', 'QCT_IP_V6']),
         dscp_value=dict(type='int', reqquired=False,
-                        choices=[i for i in range(0, 64)]),
+                        choices=[list(range(0, 64))]),
         state=dict(type='str', required=False, default='create',
                    choices=['create', 'delete']),
         sequence_no=dict(type='int', required=False, default=-1),
