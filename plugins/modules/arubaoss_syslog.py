@@ -113,7 +113,7 @@ def config_syslog(module):
         'ip_address': {
             'octets': params['server_address'],
             'version': params['version']
-            },
+        },
         'transport_protocol': params['protocol'],
     }
 
