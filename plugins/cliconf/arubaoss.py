@@ -16,18 +16,18 @@ description:
 version_added: "2.9"
 """
 
-import json # NOQA
-import re # NOQA
-from itertools import chain # NOQA
+import json  # NOQA
+import re  # NOQA
+from itertools import chain  # NOQA
 
-from ansible.errors import AnsibleConnectionFailure # NOQA
-from ansible.module_utils._text import to_text # NOQA
-from ansible.module_utils.common._collections_compat import Mapping # NOQA
+from ansible.errors import AnsibleConnectionFailure  # NOQA
+from ansible.module_utils._text import to_text  # NOQA
+from ansible.module_utils.common._collections_compat import Mapping  # NOQA
 try:
     from ansible.module_utils.network.common.utils import to_list
 except ImportError:
-    from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import to_list  # NOQA
-from ansible.plugins.cliconf import CliconfBase, enable_mode # NOQA
+    from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import to_list   # NOQA
+from ansible.plugins.cliconf import CliconfBase, enable_mode  # NOQA
 
 
 class Cliconf(CliconfBase):

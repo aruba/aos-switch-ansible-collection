@@ -38,7 +38,7 @@ class TerminalModule(TerminalBase):
         re.compile(br"[\r\n]?[\w]*\(.+\)\s*[\^\*]?(?:\[.+\])? ?#(?:\s*)$"),
         re.compile(br"[pP]assword:$"),
         re.compile(br"(?<=\s)[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?\s*#\s*$"),
-        re.compile(br"[\r\n]?[\w\+\-\.:\/\[\]]+(?:\([^\)]+\)){0,3}(?:[>#]) ?$"), # NOQA
+        re.compile(br"[\r\n]?[\w\+\-\.:\/\[\]]+(?:\([^\)]+\)){0,3}(?:[>#]) ?$"),  # NOQA
         re.compile(br"[\r\n]?[\w]*(.+)?#(?:\s*)$")
     ]
 

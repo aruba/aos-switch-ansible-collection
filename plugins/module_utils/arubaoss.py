@@ -36,7 +36,7 @@ try:
     from ansible.module_utils.network.common.utils import to_list
 except ImportError:
     from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import to_list
-from ansible.module_utils.connection import exec_command, Connection, ConnectionError # NOQA
+from ansible.module_utils.connection import exec_command, Connection, ConnectionError  # NOQA
 from ansible.module_utils.six import iteritems
 from ansible.module_utils.urls import fetch_url
 from time import sleep
@@ -190,7 +190,7 @@ class Checkversion:
         if headers['status'] == 200:
             body = response.read()
             body = json.loads(body)
-            api = body['version_element'][len(body['version_element']) - 1]['version'] # NOQA
+            api = body['version_element'][len(body['version_element']) - 1]['version']  # NOQA
             self._module.params['api_version'] = api
         else:
             self._module.fail_json(**headers)
@@ -331,7 +331,7 @@ class Aossapi:
             try:
                 if response:
                     data = response.read()
-                    response = self._module.from_json(to_text(data, errors='surrogate_then_replace')) # NOQA
+                    response = self._module.from_json(to_text(data, errors='surrogate_then_replace'))  # NOQA
                     response['header'] = headers
                     response['changed'] = True
                 else:

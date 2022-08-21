@@ -186,13 +186,13 @@ EXAMPLES = '''
           is_igmp_enabled: false
 '''
 
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_firmware # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
-from ansible.module_utils._text import to_text # NOQA
-import json # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_firmware  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
+from ansible.module_utils._text import to_text  # NOQA
+import json  # NOQA
 
 
 """
@@ -260,7 +260,7 @@ def config_vlan_ipaddress(module):
                     ip_data = newdata['ip_address_subnet_element'][0]
                     if ip_data['ip_address_mode'] != params['ip_address_mode']:
                         pass
-                    elif ip_data['ip_address']['octets'] == params['vlan_ip_address']: # NOQA
+                    elif ip_data['ip_address']['octets'] == params['vlan_ip_address']:  # NOQA
                         return {'msg': 'The ip address is already '
                                 'present on switch',
                                 'changed': False, 'failed': False}

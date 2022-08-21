@@ -22,7 +22,7 @@ __metaclass__ = type
 
 from ansible import constants as C
 from ansible.plugins.action.normal import ActionModule as _ActionModule
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_provider_spec # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_provider_spec  # NOQA
 try:
     from ansible.module_utils.network.common.utils import load_provider
 except ImportError:

@@ -160,7 +160,7 @@ options:
 
 author:
     - Ashish Pant (@hpe)
-'''  # NOQA
+'''   # NOQA
 
 EXAMPLES = '''
 - name: Create ip access-list extended permit_all with rule permit ip any any
@@ -263,7 +263,7 @@ EXAMPLES = '''
   with_items:
     - test2
     - test3
-'''  # NOQA
+'''   # NOQA
 
 RETURN = '''
 original_message:
@@ -273,10 +273,10 @@ message:
     description: The output message that the sample module generates
 '''
 
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
-from ansible.module_utils._text import to_text # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
+from ansible.module_utils._text import to_text  # NOQA
 
 
 def acl(module):
@@ -442,7 +442,7 @@ def check_acl_rule_exists(module):
                     source_ip_mask = params['acl_source_mask']
 
                 if source_ip_address != \
-                        ele['std_source_address']['source_ip_address']['octets']: # NOQA
+                        ele['std_source_address']['source_ip_address']['octets']:  # NOQA
                     continue
                 if source_ip_mask != \
                         ele['std_source_address']['source_ip_mask']['octets']:

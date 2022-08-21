@@ -85,10 +85,10 @@ EXAMPLES = '''
 
 '''
 
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
-import sys # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
+import sys  # NOQA
 
 
 def config_syslog(module):

@@ -139,7 +139,7 @@ ansible_net_interfaces:
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.facts import Facts
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec, get_connection
 from ansible.module_utils.basic import AnsibleModule
-import json # NOQA
+import json  # NOQA
 
 def main():
     """
@@ -168,7 +168,7 @@ def main():
     module = AnsibleModule(argument_spec=argument_spec,
                            supports_check_mode=True)
 
-    module._connection = get_connection(module)  # noqa
+    module._connection = get_connection(module)  # NOQA
 
     warnings = []
 
