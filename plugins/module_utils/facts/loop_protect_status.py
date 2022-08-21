@@ -34,7 +34,7 @@ class LoopProtectStatusFacts(object):
             status = json.loads(check_presence)
 
         facts = {
-          'loop_protect_status': status
+            'loop_protect_status': status
         }
         ansible_facts['ansible_network_resources'].update(facts)
         return ansible_facts

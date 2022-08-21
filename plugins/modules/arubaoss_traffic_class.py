@@ -195,7 +195,7 @@ def traffic_class(module):
         data = {
             'class_name': params['class_name'],
             'class_type': params['class_type']
-           }
+            }
         method = 'POST'
 
     elif params['state'] == 'delete':

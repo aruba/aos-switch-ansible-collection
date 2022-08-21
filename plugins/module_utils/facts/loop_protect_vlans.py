@@ -35,7 +35,7 @@ class LoopProtectVlansFacts(object):
             vlans = json.loads(check_presence)
 
         facts = {
-          'loop_protect_vlans': vlans
+            'loop_protect_vlans': vlans
         }
         ansible_facts['ansible_network_resources'].update(facts)
         return ansible_facts

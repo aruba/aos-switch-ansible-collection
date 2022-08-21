@@ -34,7 +34,7 @@ class LoopProtectPortsFacts(object):
             ports = json.loads(check_presence)
 
         facts = {
-          'loop_protect_ports': ports
+            'loop_protect_ports': ports
         }
         ansible_facts['ansible_network_resources'].update(facts)
         return ansible_facts
