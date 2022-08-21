@@ -200,8 +200,8 @@ def route(module):
 
     if route_type == 'IRM_GATEWAY':
         check_url = url + "/" + params['destination'] + "-" + \
-                    params['mask'] + "-" + params['ip_route_mode'] + "-" + \
-                    params['gateway']
+            params['mask'] + "-" + params['ip_route_mode'] + "-" + \
+            params['gateway']
     else:
         check_url = url + "/" + params['destination'] + "-" + \
             params['mask'] + "-" + params['ip_route_mode']
