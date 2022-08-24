@@ -56,6 +56,18 @@ options:
         description: Update interval for accounting
         required: False
 
+    provider:
+        description: A dict object containing connection details.
+        type: dict
+        suboptions:
+            host:
+                description: >
+                    Specifies the DNS host name or address for connecting to the remote
+                    device over the specified transport. The value of host is used as the
+                    destination address for the transport.
+                required: true
+                type: str
+
 author:
     - Sanju Sadanandan (@hpe)
 '''
