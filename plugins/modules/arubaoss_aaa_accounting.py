@@ -78,6 +78,27 @@ options:
                     Specifies the port to use when building the connection to the remote
                     device.
                 type: int
+            ssh_keyfile:
+                description: >
+                    Specifies the SSH key to use to authenticate the connection to the
+                    remote device. This value is the path to the key used to
+                    authenticate the SSH session. If the value is not specified in the
+                    task, the value of environment variable ANSIBLE_NET_SSH_KEYFILE will
+                    be used instead.
+                type: path
+            timeout:
+                description: >
+                    Specifies the timeout in seconds for communicating with the network
+                    device for either connecting or sending commands. If the timeout is
+                    exceeded before the operation is completed, the module will error.
+                type: int
+            username:
+                description: >
+                    Configures the username to use to authenticate the connection to the
+                    remote device. This value is used to authenticate the SSH session.
+                    If the value is not specified in the task, the value of environment
+                    variable ANSIBLE_NET_USERNAME will be used instead.
+                type: str
 
 author:
     - Sanju Sadanandan (@hpe)
