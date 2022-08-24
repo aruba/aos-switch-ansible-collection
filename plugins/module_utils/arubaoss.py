@@ -66,12 +66,12 @@ arubaoss_argument_spec = {
 }
 
 arubaoss_top_spec = {
-    'host': dict(removed_in_version="2.9.0"),
-    'port': dict(removed_in_version="2.9.0", type='int'),
-    'username': dict(removed_in_version="2.9.0"),
-    'password': dict(removed_in_version="2.9.0", no_log=True),
-    'ssh_keyfile': dict(removed_in_version="2.9.0", type='path'),
-    'timeout': dict(removed_in_version="2.9.0", type='int'),
+    'host': dict(removed_in_version="2.9.0", removed_from_collection='ansible.builtin'),
+    'port': dict(removed_in_version="2.9.0", type='int', removed_from_collection='ansible.builtin'),
+    'username': dict(removed_in_version="2.9.0", removed_from_collection='ansible.builtin'),
+    'password': dict(removed_in_version="2.9.0", no_log=True, removed_from_collection='ansible.builtin'),
+    'ssh_keyfile': dict(removed_in_version="2.9.0", type='path', removed_from_collection='ansible.builtin'),
+    'timeout': dict(removed_in_version="2.9.0", type='int', removed_from_collection='ansible.builtin'),
     'use_ssl': dict(type='bool'),
     'validate_certs': dict(type='bool', default=False),
     'api_version': dict(type='str', default='None'),
