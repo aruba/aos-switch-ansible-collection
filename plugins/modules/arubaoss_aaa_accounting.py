@@ -30,7 +30,7 @@ module: arubaoss_aaa_accounting
 
 short_description: implements rest api for AAA Accounting configuration
 
-version_added: "2.4"
+version_added: "2.4.0"
 
 description:
     - "This implements rest apis which can be used to configure AAA Accounting"
