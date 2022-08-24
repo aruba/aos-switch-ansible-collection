@@ -48,6 +48,10 @@ options:
         default: AMO_NONE
         required: False
         type: str
+    cmd_server_group:
+        description: Server Group for commands Accounting Configuration
+        required: False
+        type: str
     ntwk_accounting_method:
         description: Method for network Accounting Configuration
         choices: [ AME_NONE, AME_TACACS, AME_RADIUS ]
@@ -58,6 +62,10 @@ options:
         description: Mode for network Accounting Configuration
         choices: [ AMO_NONE, AMO_STOP_ONLY, AMO_START_STOP ]
         default: AMO_NONE
+        required: False
+        type: str
+    ntwk_server_group:
+        description: Server Group for network Accounting Configuration
         required: False
         type: str
     update_interval:
