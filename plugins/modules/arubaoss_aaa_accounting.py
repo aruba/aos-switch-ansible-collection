@@ -65,8 +65,19 @@ options:
                     Specifies the DNS host name or address for connecting to the remote
                     device over the specified transport. The value of host is used as the
                     destination address for the transport.
-                required: true
                 type: str
+            password:
+                description: >
+                    Specifies the password to use to authenticate the connection to the
+                    remote device. This value is used to authenticate the SSH session.
+                    If the value is not specified in the task, the value of environment
+                    variable ANSIBLE_NET_PASSWORD will be used instead.
+                type: str
+            port:
+                description: >
+                    Specifies the port to use when building the connection to the remote
+                    device.
+                type: int
 
 author:
     - Sanju Sadanandan (@hpe)
