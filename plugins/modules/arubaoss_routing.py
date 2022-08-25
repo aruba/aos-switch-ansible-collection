@@ -42,20 +42,6 @@ options:
         required: true
         choices: [ create, delete ]
 
-
-author:
-    - Ashish Pant (@hpe)
-'''
-
-EXAMPLES = '''
-     - name: enable routing
-       arubaoss_routing:
-         state: create
-
-     - name: disable routing
-       arubaoss_routing:
-         state: delete
-
     host:
         description: >
             Specifies the DNS host name or address for connecting to the remote
@@ -177,6 +163,20 @@ EXAMPLES = '''
                     Configures (force) API version (vX.Y) for acces to the remote device.
                 type: str
                 default: 'None'
+
+
+author:
+    - Ashish Pant (@hpe)
+'''
+
+EXAMPLES = '''
+     - name: enable routing
+       arubaoss_routing:
+         state: create
+
+     - name: disable routing
+       arubaoss_routing:
+         state: delete
 
 '''
 
