@@ -110,16 +110,19 @@ options:
                 default: False
             transport:
                 description: >
-                    Configures the transport (aosapi or network_cli) mode.
+                    Configures the transport (aossapi or network_cli) mode.
                 type: str
+                default: 'aossapi'
             use_proxy:
                 description: >
                     Configures use (Local) Proxy for access to the remote device.
                 type: bool
+                default: False
             api_version:
                 description: >
                     Configures (force) API version (vX.Y) for acces to the remote device.
                 type: str
+                default: 'None'
 
 author:
     - Sanju Sadanandan (@hpe)
