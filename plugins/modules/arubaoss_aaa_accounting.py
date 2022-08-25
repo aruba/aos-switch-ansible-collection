@@ -95,6 +95,15 @@ options:
             If the value is not specified in the task, the value of environment
             variable ANSIBLE_NET_USERNAME will be used instead.
         type: str
+    use_ssl:
+        description: >
+            Configures use SSL (HTTPS) for access to the remote device.
+        type: bool
+    validate_certs:
+        description: >
+            Configures validation of certification for access to the remote device.
+        type: bool
+        default: False
     api_version:
         description: >
             Configures (force) API version (vX.Y) for acces to the remote device.
