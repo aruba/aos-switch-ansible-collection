@@ -56,6 +56,13 @@ options:
         description: Update interval for accounting
         required: False
 
+    host:
+        description: >
+            Specifies the DNS host name or address for connecting to the remote
+            device over the specified transport. The value of host is used as the
+            destination address for the transport.
+        type: str
+
     provider:
         description: A dict object containing connection details.
         type: dict
