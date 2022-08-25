@@ -99,6 +99,27 @@ options:
                     If the value is not specified in the task, the value of environment
                     variable ANSIBLE_NET_USERNAME will be used instead.
                 type: str
+            use_ssl:
+                description: >
+                    Configures use SSL (HTTPS) for access to the remote device.
+                type: bool
+            validate_certs:
+                description: >
+                    Configures validation of certification for access to the remote device.
+                type: bool
+                default: False
+            transport:
+                description: >
+                    Configures the transport (aosapi or network_cli) mode.
+                type: str
+            use_proxy:
+                description: >
+                    Configures use (Local) Proxy for access to the remote device.
+                type: bool
+            api_version:
+                description: >
+                    Configures (force) API version (vX.Y) for acces to the remote device.
+                type: str
 
 author:
     - Sanju Sadanandan (@hpe)
