@@ -157,127 +157,127 @@ options:
     default: create
     choices: ['create', 'delete']
 
-    host:
-        description: >
-            Specifies the DNS host name or address for connecting to the remote
-            device over the specified transport. The value of host is used as the
-            destination address for the transport.
-        type: str
-    password:
-        description: >
-            Specifies the password to use to authenticate the connection to the
-            remote device. This value is used to authenticate the SSH session.
-            If the value is not specified in the task, the value of environment
-            variable ANSIBLE_NET_PASSWORD will be used instead.
-        type: str
-    port:
-        description: >
-            Specifies the port to use when building the connection to the remote
-            device.
-        type: int
-    ssh_keyfile:
-        description: >
-            Specifies the SSH key to use to authenticate the connection to the
-            remote device. This value is the path to the key used to
-            authenticate the SSH session. If the value is not specified in the
-            task, the value of environment variable ANSIBLE_NET_SSH_KEYFILE will
-            be used instead.
-        type: path
-    timeout:
-        description: >
-            Specifies the timeout in seconds for communicating with the network
-            device for either connecting or sending commands. If the timeout is
-            exceeded before the operation is completed, the module will error.
-        type: int
-    username:
-        description: >
-            Configures the username to use to authenticate the connection to the
-            remote device. This value is used to authenticate the SSH session.
-            If the value is not specified in the task, the value of environment
-            variable ANSIBLE_NET_USERNAME will be used instead.
-        type: str
-    use_ssl:
-        description: >
-            Configures use SSL (HTTPS) for access to the remote device.
-        type: bool
-    validate_certs:
-        description: >
-            Configures validation of certification for access to the remote device.
-        type: bool
-        default: False
-    api_version:
-        description: >
-            Configures (force) API version (vX.Y) for acces to the remote device.
-        type: str
-        default: 'None'
+  host:
+      description: >
+        Specifies the DNS host name or address for connecting to the remote
+        device over the specified transport. The value of host is used as the
+        destination address for the transport.
+      type: str
+  password:
+      description: >
+        Specifies the password to use to authenticate the connection to the
+        remote device. This value is used to authenticate the SSH session.
+        If the value is not specified in the task, the value of environment
+        variable ANSIBLE_NET_PASSWORD will be used instead.
+      type: str
+  port:
+      description: >
+        Specifies the port to use when building the connection to the remote
+        device.
+      type: int
+  ssh_keyfile:
+      description: >
+        Specifies the SSH key to use to authenticate the connection to the
+        remote device. This value is the path to the key used to
+        authenticate the SSH session. If the value is not specified in the
+        task, the value of environment variable ANSIBLE_NET_SSH_KEYFILE will
+        be used instead.
+      type: path
+  timeout:
+      description: >
+        Specifies the timeout in seconds for communicating with the network
+        device for either connecting or sending commands. If the timeout is
+        exceeded before the operation is completed, the module will error.
+      type: int
+  username:
+      description: >
+        Configures the username to use to authenticate the connection to the
+        remote device. This value is used to authenticate the SSH session.
+        If the value is not specified in the task, the value of environment
+        variable ANSIBLE_NET_USERNAME will be used instead.
+      type: str
+  use_ssl:
+      description: >
+        Configures use SSL (HTTPS) for access to the remote device.
+      type: bool
+  validate_certs:
+      description: >
+        Configures validation of certification for access to the remote device.
+      type: bool
+      default: False
+  api_version:
+      description: >
+        Configures (force) API version (vX.Y) for acces to the remote device.
+      type: str
+      default: 'None'
 
-    provider:
-        description: A dict object containing connection details.
-        type: dict
-        suboptions:
-            host:
-                description: >
-                    Specifies the DNS host name or address for connecting to the remote
-                    device over the specified transport. The value of host is used as the
-                    destination address for the transport.
-                type: str
-            password:
-                description: >
-                    Specifies the password to use to authenticate the connection to the
-                    remote device. This value is used to authenticate the SSH session.
-                    If the value is not specified in the task, the value of environment
-                    variable ANSIBLE_NET_PASSWORD will be used instead.
-                type: str
-            port:
-                description: >
-                    Specifies the port to use when building the connection to the remote
-                    device.
-                type: int
-            ssh_keyfile:
-                description: >
-                    Specifies the SSH key to use to authenticate the connection to the
-                    remote device. This value is the path to the key used to
-                    authenticate the SSH session. If the value is not specified in the
-                    task, the value of environment variable ANSIBLE_NET_SSH_KEYFILE will
-                    be used instead.
-                type: path
-            timeout:
-                description: >
-                    Specifies the timeout in seconds for communicating with the network
-                    device for either connecting or sending commands. If the timeout is
-                    exceeded before the operation is completed, the module will error.
-                type: int
-            username:
-                description: >
-                    Configures the username to use to authenticate the connection to the
-                    remote device. This value is used to authenticate the SSH session.
-                    If the value is not specified in the task, the value of environment
-                    variable ANSIBLE_NET_USERNAME will be used instead.
-                type: str
-            use_ssl:
-                description: >
-                    Configures use SSL (HTTPS) for access to the remote device.
-                type: bool
-            validate_certs:
-                description: >
-                    Configures validation of certification for access to the remote device.
-                type: bool
-                default: False
-            transport:
-                description: >
-                    Configures the transport (aossapi or network_cli) mode.
-                type: str
-                default: 'aossapi'
-            use_proxy:
-                description: >
-                    Configures use (Local) Proxy for access to the remote device.
-                type: bool
-                default: False
-            api_version:
-                description: >
-                    Configures (force) API version (vX.Y) for acces to the remote device.
-                type: str
-                default: 'None'
+  provider:
+      description: A dict object containing connection details.
+      type: dict
+      suboptions:
+        host:
+          description: >
+              Specifies the DNS host name or address for connecting to the remote
+              device over the specified transport. The value of host is used as the
+              destination address for the transport.
+          type: str
+        password:
+          description: >
+              Specifies the password to use to authenticate the connection to the
+              remote device. This value is used to authenticate the SSH session.
+              If the value is not specified in the task, the value of environment
+              variable ANSIBLE_NET_PASSWORD will be used instead.
+          type: str
+        port:
+          description: >
+              Specifies the port to use when building the connection to the remote
+              device.
+          type: int
+        ssh_keyfile:
+          description: >
+              Specifies the SSH key to use to authenticate the connection to the
+              remote device. This value is the path to the key used to
+              authenticate the SSH session. If the value is not specified in the
+              task, the value of environment variable ANSIBLE_NET_SSH_KEYFILE will
+              be used instead.
+          type: path
+        timeout:
+          description: >
+              Specifies the timeout in seconds for communicating with the network
+              device for either connecting or sending commands. If the timeout is
+              exceeded before the operation is completed, the module will error.
+          type: int
+        username:
+          description: >
+              Configures the username to use to authenticate the connection to the
+              remote device. This value is used to authenticate the SSH session.
+              If the value is not specified in the task, the value of environment
+              variable ANSIBLE_NET_USERNAME will be used instead.
+          type: str
+        use_ssl:
+          description: >
+              Configures use SSL (HTTPS) for access to the remote device.
+          type: bool
+        validate_certs:
+          description: >
+              Configures validation of certification for access to the remote device.
+          type: bool
+          default: False
+        transport:
+          description: >
+              Configures the transport (aossapi or network_cli) mode.
+          type: str
+          default: 'aossapi'
+        use_proxy:
+          description: >
+              Configures use (Local) Proxy for access to the remote device.
+          type: bool
+          default: False
+        api_version:
+          description: >
+              Configures (force) API version (vX.Y) for acces to the remote device.
+          type: str
+          default: 'None'
 
 author:
     - Ashish Pant (@hpe)
