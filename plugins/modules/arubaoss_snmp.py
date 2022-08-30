@@ -15,6 +15,9 @@
 # specific language governing permissions and limitations
 # under the License.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 ANSIBLE_METADATA = {
     'metadata_version': '1.1',
     'status': ['preview'],
@@ -226,7 +229,6 @@ EXAMPLES = '''
           state: delete
 
 '''
-
 
 from ansible.module_utils.basic import AnsibleModule # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config # NOQA
