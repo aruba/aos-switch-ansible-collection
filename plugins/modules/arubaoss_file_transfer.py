@@ -92,6 +92,7 @@ EXAMPLES = '''
 '''
 
 from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible.module_utils.common.text.converters import to_text  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config  # NOQA
@@ -137,7 +138,7 @@ def transfer(module):
     if params['boot_image']:
         data['boot_image'] = params['boot_image']
     result = run_commands(module, url, data, 'POST')
-    message = result.get('body') or None
+    message = to_text(result.get('body')) or None
     if message and 'Another download is in progress' in message:
         result = {'changed': False}
         result['failed'] = True
