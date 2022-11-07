@@ -15,6 +15,9 @@
 # specific language governing permissions and limitations
 # under the License.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 ANSIBLE_METADATA = {
     'metadata_version': '1.1',
     'status': ['preview'],
@@ -25,12 +28,12 @@ DOCUMENTATION = '''
 ---
 module: arubaoss_system_attributes
 
-short_description: implements rest api for DOT1x configuration
+short_description: implements rest api for system attributes
 
 version_added: "2.4"
 
 description:
-    - "This implements rest apis which can be used to configure DOT1x"
+    - "This implements rest apis which can be used to configure system attributes"
 
 options:
     hostname:
@@ -91,9 +94,9 @@ EXAMPLES = '''
          default_gateway_ip: "10.100.119.1"
 '''
 
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
 
 """
 -------

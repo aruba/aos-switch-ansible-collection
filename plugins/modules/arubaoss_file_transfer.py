@@ -15,6 +15,9 @@
 # specific language governing permissions and limitations
 # under the License.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 ANSIBLE_METADATA = {
     'metadata_version': '1.1',
     'status': ['preview'],
@@ -88,13 +91,13 @@ EXAMPLES = '''
 
 '''
 
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible.module_utils.common.text.converters import to_text
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config # NOQA
-import json # NOQA
-from time import sleep, time # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible.module_utils.common.text.converters import to_text  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config  # NOQA
+import json  # NOQA
+from time import sleep, time  # NOQA
 
 
 def wait_to_copy(module):
@@ -125,10 +128,10 @@ def transfer(module):
     params = module.params
     url = '/file-transfer'
     data = {
-            'file_type': params['file_type'],
-            'action': params['action'],
-            'url': params['file_url'],
-            }
+        'file_type': params['file_type'],
+        'action': params['action'],
+        'url': params['file_url'],
+    }
     if params['show_tech_option']:
         data['show_tech_option'] = params['show_tech_option']
 
@@ -146,7 +149,7 @@ def transfer(module):
         start = time()
         result = wait_to_copy(module)
         end = time()
-        total_time = int(end-start)
+        total_time = int(end - start)
 
         if result == 'FTS_COMPLETED':
             result = {'changed': True, 'msg': 'image transfer  successful.',

@@ -15,6 +15,9 @@
 # specific language governing permissions and limitations
 # under the License.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 ANSIBLE_METADATA = {
     'metadata_version': '1.1',
     'status': ['preview'],
@@ -212,12 +215,12 @@ EXAMPLES = '''
               trap: "all"
 '''
 
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config # NOQA
-import json # NOQA
-import socket # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config  # NOQA
+import json  # NOQA
+import socket  # NOQA
 
 """
 -------
@@ -431,7 +434,7 @@ def config_ntp_keyId(module):
             newdata = json.loads(check_presence)
             if len(newdata['ntpServerIp4addr_element']) != 0:
                 for ipadd_ele in newdata['ntpServerIp4addr_element']:
-                    if ipadd_ele['ip4addr']['ip4addr_reference']['key-id']['key-id_value'] == params['keyId']: # NOQA
+                    if ipadd_ele['ip4addr']['ip4addr_reference']['key-id']['key-id_value'] == params['keyId']:  # NOQA
                         return {
                             'msg': 'NTP Server IP should be cleared befere '
                             'deleting NTP Key ID',

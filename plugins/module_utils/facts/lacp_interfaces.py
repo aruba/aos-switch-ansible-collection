@@ -9,8 +9,8 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config # NOQA
-import json # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config  # NOQA
+import json  # NOQA
 
 
 class LacpInterfacesFacts(object):
@@ -31,7 +31,7 @@ class LacpInterfacesFacts(object):
         url = '/lacp/port'
         check_presence = get_config(self._module, url)
         if check_presence:
-           lacp_interfaces = json.loads(check_presence)
+            lacp_interfaces = json.loads(check_presence)
         facts = {
             'lacp_interfaces': lacp_interfaces
         }

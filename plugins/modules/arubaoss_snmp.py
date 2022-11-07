@@ -15,6 +15,9 @@
 # specific language governing permissions and limitations
 # under the License.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 ANSIBLE_METADATA = {
     'metadata_version': '1.1',
     'status': ['preview'],
@@ -227,10 +230,9 @@ EXAMPLES = '''
 
 '''
 
-
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
 
 
 def community(module):
@@ -248,10 +250,10 @@ def community(module):
             method = 'POST'
 
         data = {
-                'access_type': params['access_type'],
-                'community_name': params['community_name'],
-                'restricted': params['restricted']
-                }
+            'access_type': params['access_type'],
+            'community_name': params['community_name'],
+            'restricted': params['restricted']
+        }
 
     else:
         url = check_url
@@ -283,22 +285,22 @@ def host(module):
         else:
             method = 'POST'
         data = {
-                'host_ip': {
-                    'octets': params['host_ip'],
-                    'version': params['version']
-                    },
-                'community': params['community_name'],
-                'trap_level': params['trap_level'],
-                'informs': params['informs'],
-                'use_oobm': params['use_oobm'],
-                }
+            'host_ip': {
+                'octets': params['host_ip'],
+                'version': params['version']
+            },
+            'community': params['community_name'],
+            'trap_level': params['trap_level'],
+            'informs': params['informs'],
+            'use_oobm': params['use_oobm'],
+        }
 
         if params['informs']:
             data.update({
                 'informs': params['informs'],
                 'inform_timeout': params['inform_timeout'],
                 'inform_retries': params['inform_retries']
-                })
+            })
 
     else:
         data = {}

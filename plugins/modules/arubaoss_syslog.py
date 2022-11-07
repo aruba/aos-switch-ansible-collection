@@ -15,6 +15,9 @@
 # specific language governing permissions and limitations
 # under the License.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 ANSIBLE_METADATA = {
     'metadata_version': '1.1',
     'status': ['preview'],
@@ -82,10 +85,10 @@ EXAMPLES = '''
 
 '''
 
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
-import sys # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
+import sys  # NOQA
 
 
 def config_syslog(module):
@@ -107,12 +110,12 @@ def config_syslog(module):
             method = 'POST'
 
     data = {
-            'ip_address': {
-                'octets': params['server_address'],
-                'version': params['version']
-                },
-            'transport_protocol': params['protocol'],
-           }
+        'ip_address': {
+            'octets': params['server_address'],
+            'version': params['version']
+        },
+        'transport_protocol': params['protocol'],
+    }
 
     protocol = params['protocol']
     if params['server_port'] == 0:

@@ -15,6 +15,9 @@
 # specific language governing permissions and limitations
 # under the License.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 ANSIBLE_METADATA = {
     'metadata_version': '1.1',
     'status': ['preview'],
@@ -112,11 +115,11 @@ EXAMPLES = '''
 
 '''
 
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
-from ansible.module_utils._text import to_text # NOQA
-from time import sleep # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
+from ansible.module_utils._text import to_text  # NOQA
+from time import sleep  # NOQA
 
 
 def config_backup(module):
@@ -125,9 +128,9 @@ def config_backup(module):
     url = '/system/config/cfg_backup_files'
 
     data = {
-            'file_name': params['file_name'],
-            'config_type': params['config_type']
-            }
+        'file_name': params['file_name'],
+        'config_type': params['config_type']
+    }
 
     if params['state'] == 'create':
         check_config = get_config(module, url)
@@ -154,9 +157,9 @@ def config_restore(module):
 
     server_type = params['server_type']
     data = {
-            'file_name': params['file_name'],
-            'server_type': server_type,
-            }
+        'file_name': params['file_name'],
+        'server_type': server_type,
+    }
 
     if server_type == 'ST_TFTP' or server_type == 'ST_SFTP':
         if not params['server_name'] and not params['server_ip']:
@@ -169,9 +172,9 @@ def config_restore(module):
                 'tftp_server_address': {
                     'server_address': {
                         'host_name': params['server_name']
-                        }
                     }
-                })
+                }
+            })
         if params['server_ip']:
             data.update({
                 'tftp_server_address': {
@@ -179,10 +182,10 @@ def config_restore(module):
                         'ip_address': {
                             'octets': params['server_ip'],
                             'version': 'IAV_IP_V4'
-                            }
                         }
                     }
-                })
+                }
+            })
 
     if server_type == 'ST_SFTP':
         if params['server_name']:
@@ -190,9 +193,9 @@ def config_restore(module):
                 'sftp_server_address': {
                     'server_address': {
                         'host_name': params['server_name']
-                        }
                     }
-                })
+                }
+            })
         if params['server_ip']:
             data.update({
                 'sftp_server_address': {
@@ -200,10 +203,10 @@ def config_restore(module):
                         'ip_address': {
                             'octets': params['server_ip'],
                             'version': 'IAV_IP_V4'
-                            }
                         }
                     }
-                })
+                }
+            })
 
         data['sftp_server_address']['user_name'] = params['user_name']
         data['sftp_server_address']['password'] = params['server_passwd']

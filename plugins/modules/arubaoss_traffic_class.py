@@ -15,6 +15,9 @@
 # specific language governing permissions and limitations
 # under the License.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 ANSIBLE_METADATA = {
     'metadata_version': '1.1',
     'status': ['preview'],
@@ -25,12 +28,12 @@ DOCUMENTATION = '''
 ---
 module: arubaoss_interfaces
 
-short_description: implements rest api for port configuration
+short_description: implements rest api for traffic class configuration
 
 version_added: "2.4"
 
 description:
-    - "This implements rest apiis whcih can be used to configure ports"
+    - "This implements rest apiis whcih can be used to configure trafic class"
 
 options:
     class_name:
@@ -174,10 +177,10 @@ EXAMPLES = '''
 
 '''
 
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
-from ansible.module_utils._text import to_text # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
+from ansible.module_utils._text import to_text  # NOQA
 
 
 def traffic_class(module):
@@ -192,7 +195,7 @@ def traffic_class(module):
         data = {
             'class_name': params['class_name'],
             'class_type': params['class_type']
-           }
+        }
         method = 'POST'
 
     elif params['state'] == 'delete':
@@ -279,9 +282,9 @@ def traffic_class_match(module):
             return {'msg': 'protocol_type is required', 'changed': False}
 
         data = {
-                'traffic_class_id': class_id,
-                'entry_type': params['entry_type'],
-                }
+            'traffic_class_id': class_id,
+            'entry_type': params['entry_type'],
+        }
 
         if params['dscp_value']:
             data['dscp_value'] = params['dscp_value']
@@ -292,21 +295,21 @@ def traffic_class_match(module):
                 "source_ip_address": {
                     "version": version,
                     "octets": params['source_ip_address']
-                    },
+                },
                 "source_ip_mask": {
                     "version": version,
                     "octets": params['source_ip_mask']
-                    },
+                },
                 "destination_ip_address": {
                     "version": version,
                     "octets": params['destination_ip_address']
-                    },
+                },
                 "destination_ip_mask": {
                     "version": version,
                     "octets": params['destination_ip_mask']
-                    }
                 }
-            })
+            }
+        })
 
         if protocol == 'PT_ICMP':
             if params['icmp_type'] > -1:

@@ -9,8 +9,8 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config # NOQA
-import json # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config  # NOQA
+import json  # NOQA
 
 
 class LoopProtectPortsFacts(object):
@@ -31,10 +31,10 @@ class LoopProtectPortsFacts(object):
         url = '/loop_protect/ports'
         check_presence = get_config(self._module, url)
         if check_presence:
-          ports = json.loads(check_presence)
+            ports = json.loads(check_presence)
 
         facts = {
-          'loop_protect_ports': ports
+            'loop_protect_ports': ports
         }
         ansible_facts['ansible_network_resources'].update(facts)
         return ansible_facts

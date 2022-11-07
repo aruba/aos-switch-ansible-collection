@@ -15,6 +15,9 @@
 # specific language governing permissions and limitations
 # under the License.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 ANSIBLE_METADATA = {
     'metadata_version': '1.1',
     'status': ['preview'],
@@ -67,10 +70,10 @@ EXAMPLES = '''
          update_interval: 10
 '''
 
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config  # NOQA
 
 
 """
@@ -95,8 +98,9 @@ def config_accounting(module):
     serverGrp = {}
     data['update_interval'] = params['update_interval']
     data['accounting_commands'] = {
-            'accounting_method': params['cmd_accounting_method'],
-            'accounting_mode': params['cmd_accounting_mode']}
+        'accounting_method': params['cmd_accounting_method'],
+        'accounting_mode': params['cmd_accounting_mode']
+    }
 
     # Server Group name is not supported when accounting_method is AME_TACACS
     if not params['cmd_accounting_method'] == "AME_TACACS":
@@ -107,8 +111,9 @@ def config_accounting(module):
     data['accounting_commands'].update(serverGrp)
 
     data['accounting_network'] = {
-            'accounting_method': params['ntwk_accounting_method'],
-            'accounting_mode': params['ntwk_accounting_mode']}
+        'accounting_method': params['ntwk_accounting_method'],
+        'accounting_mode': params['ntwk_accounting_mode']
+    }
 
     # Server Group name is not supported when accounting_method is AME_TACACS
     if not params['ntwk_accounting_method'] == "AME_TACACS":

@@ -15,6 +15,9 @@
 # specific language governing permissions and limitations
 # under the License.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 ANSIBLE_METADATA = {
     'metadata_version': '1.1',
     'status': ['preview'],
@@ -55,7 +58,7 @@ options:
         required: False
         default: "DRI_MAC"
     untrusted_policy:
-        description: To set the policy for DHCP packets containing option 82 that are 
+        description: To set the policy for DHCP packets containing option 82 that are
                      received on untrusted ports
         choices: ["DUP_DROP","DUP_KEEP", "DUP_REPLACE"]
         required: False
@@ -106,9 +109,8 @@ EXAMPLES = '''
           config: "delete"
 '''  # NOQA
 
-
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
 
 
