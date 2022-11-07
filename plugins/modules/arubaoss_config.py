@@ -209,18 +209,16 @@ EXAMPLES = '''
 
 RETURN = r''' # '''
 
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import load_config # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import load_config  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_cli_commands as run_commands  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_cli_config as get_config  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import check_args as arubaoss_check_args  # NOQA
-from ansible.module_utils.basic import AnsibleModule # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
 try:
     from ansible.module_utils.network.common.config import NetworkConfig, dumps  # NOQA
 except ImportError:
     from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.config import NetworkConfig, dumps  # NOQA
-
-
 
 
 def get_running_config(module, config=None):
@@ -337,7 +335,7 @@ def main():
                 else:
                     filename = "backup.cfg"
 
-                with open(dir_path+'/'+filename, 'w') as backupfile:
+                with open(dir_path + '/' + filename, 'w') as backupfile:
                     backupfile.write(contents)
                     backupfile.write("\n")
 

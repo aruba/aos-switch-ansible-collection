@@ -153,10 +153,10 @@ EXAMPLES = '''
 
 '''
 
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
-from ansible.module_utils._text import to_text # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
+from ansible.module_utils._text import to_text  # NOQA
 
 
 def route(module):
@@ -172,10 +172,11 @@ def route(module):
                 return {'msg': '{} is required for {}'.format(key, route_type),
                         'changed': False}
 
-    data = {'ip_route_mode': params['ip_route_mode'],
-            'metric': params['metric'],
-            'distance': params['distance']
-            }
+    data = {
+        'ip_route_mode': params['ip_route_mode'],
+        'metric': params['metric'],
+        'distance': params['distance']
+    }
 
     if route_type == 'IRM_GATEWAY':
         if 'gateway' not in params:
@@ -199,8 +200,8 @@ def route(module):
 
     if route_type == 'IRM_GATEWAY':
         check_url = url + "/" + params['destination'] + "-" + \
-                    params['mask'] + "-" + params['ip_route_mode'] + "-" + \
-                    params['gateway']
+            params['mask'] + "-" + params['ip_route_mode'] + "-" + \
+            params['gateway']
     else:
         check_url = url + "/" + params['destination'] + "-" + \
             params['mask'] + "-" + params['ip_route_mode']

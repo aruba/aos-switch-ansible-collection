@@ -86,10 +86,10 @@ EXAMPLES = '''
           state: delete
 '''
 
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
-from ansible.module_utils._text import to_text # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
+from ansible.module_utils._text import to_text  # NOQA
 
 
 def ip_auth(module):
@@ -105,17 +105,17 @@ def ip_auth(module):
             return {'msg': 'Required args: auth_ip, mask', 'changed': False}
 
         data = {
-                'auth_ip': {
-                    'octets': params['auth_ip'],
-                    'version': 'IAV_IP_V4'
-                    },
-                'auth_ip_mask': {
-                    'octets': params['mask'],
-                    'version': 'IAV_IP_V4',
-                    },
-                'access_role': params['access_role'],
-                'access_method': params['access_method']
-                }
+            'auth_ip': {
+                'octets': params['auth_ip'],
+                'version': 'IAV_IP_V4'
+            },
+            'auth_ip_mask': {
+                'octets': params['mask'],
+                'version': 'IAV_IP_V4',
+            },
+            'access_role': params['access_role'],
+            'access_method': params['access_method']
+        }
 
         if not params['auth_id']:
             auth_check = get_config(module, url)

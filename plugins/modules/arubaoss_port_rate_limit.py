@@ -112,12 +112,12 @@ message:
     description: The output message that the sample module generates
 '''
 
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config # NOQA
-import sys, json # NOQA
-
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config  # NOQA
+import sys  # NOQA
+import json  # NOQA
 
 """
 -------
@@ -230,14 +230,14 @@ def update_rate_limit_onPort(module):
     data['port_id'] = params['port_id']
 
     data['queue_rate_percentage'] = [
-                 params['queue_rate_percentage_1'],
-                 params['queue_rate_percentage_2'],
-                 params['queue_rate_percentage_3'],
-                 params['queue_rate_percentage_4'],
-                 params['queue_rate_percentage_5'],
-                 params['queue_rate_percentage_6'],
-                 params['queue_rate_percentage_7'],
-                 params['queue_rate_percentage_8']]
+        params['queue_rate_percentage_1'],
+        params['queue_rate_percentage_2'],
+        params['queue_rate_percentage_3'],
+        params['queue_rate_percentage_4'],
+        params['queue_rate_percentage_5'],
+        params['queue_rate_percentage_6'],
+        params['queue_rate_percentage_7'],
+        params['queue_rate_percentage_8']]
 
     url = '/ports/queues_rate_limit/' + str(params['port_id']) + "-" \
         + str(params['queues_direction'])

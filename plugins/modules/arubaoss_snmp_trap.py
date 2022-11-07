@@ -186,9 +186,9 @@ EXAMPLES = '''
 
 '''
 
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
 
 
 def snmp_trap(module):
@@ -201,14 +201,14 @@ def snmp_trap(module):
             'auth_server_fail': params['auth_server_fail'],
             'dhcp_server': params['dhcp_server'],
             'dhcp_snooping': params['dhcp_snooping'],
-            'dhcpv6_snooping_out_of_resource': params['dhcpv6_snooping_out_of_resource'], # NOQA
-            'dhcpv6_snooping_errant_replies': params['dhcpv6_snooping_errant_replies'], # NOQA
+            'dhcpv6_snooping_out_of_resource': params['dhcpv6_snooping_out_of_resource'],  # NOQA
+            'dhcpv6_snooping_errant_replies': params['dhcpv6_snooping_errant_replies'],  # NOQA
             'dyn_ip_lockdown': params['dyn_ip_lockdown'],
-            'dyn_ipv6_ld_out_of_resources': params['dyn_ipv6_ld_out_of_resources'], # NOQA
+            'dyn_ipv6_ld_out_of_resources': params['dyn_ipv6_ld_out_of_resources'],  # NOQA
             'dyn_ipv6_ld_violations': params['dyn_ipv6_ld_violations'],
             'login_failure_mgr': params['login_failure_mgr'],
             'mac_count_notify': params['mac_count_notify'],
-            'nd_snooping_out_of_resources': params['nd_snooping_out_of_resources'], # NOQA
+            'nd_snooping_out_of_resources': params['nd_snooping_out_of_resources'],  # NOQA
             'password_change_mgr': params['password_change_mgr'],
             'port_security': params['port_security'],
             'startup_config_change': params['startup_config_change'],

@@ -63,11 +63,11 @@ EXAMPLES = '''
 
 '''
 
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_firmware # NOQA
-from time import sleep, time # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_firmware  # NOQA
+from time import sleep, time  # NOQA
 
 
 def wait_for_boot(module):
@@ -97,8 +97,8 @@ def reboot(module):
                 'changed': False, 'failed': True}
 
     data = {
-            'boot_image': params['boot_image'],
-            }
+        'boot_image': params['boot_image'],
+    }
 
     result = run_commands(module, url, data, 'reboot')
     total_time = 0
@@ -108,7 +108,7 @@ def reboot(module):
         result = wait_for_boot(module)
 
         end = time()
-        total_time = int(end-start)
+        total_time = int(end - start)
 
         if result:
             result = {'changed': True, 'msg': 'Device reboot successful.',
