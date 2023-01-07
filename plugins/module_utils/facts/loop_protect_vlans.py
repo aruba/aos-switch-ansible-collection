@@ -9,8 +9,8 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config # NOQA
-import json # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config  # NOQA
+import json  # NOQA
 
 
 class LoopProtectVlansFacts(object):
@@ -32,10 +32,10 @@ class LoopProtectVlansFacts(object):
         url = '/loop_protect/vlans'
         check_presence = get_config(self._module, url)
         if check_presence:
-          vlans = json.loads(check_presence)
+            vlans = json.loads(check_presence)
 
         facts = {
-          'loop_protect_vlans': vlans
+            'loop_protect_vlans': vlans
         }
         ansible_facts['ansible_network_resources'].update(facts)
         return ansible_facts

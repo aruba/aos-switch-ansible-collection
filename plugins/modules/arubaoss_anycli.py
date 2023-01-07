@@ -59,9 +59,9 @@ EXAMPLES = '''
           command: "jumbo ip-mtu 1600"
 '''
 
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
 
 """
 -------
@@ -91,6 +91,7 @@ def cli_command(module):
     result = run_commands(module, url, data, method, check=url)
     return result
 
+
 """
 -------
 Name: run_module()
@@ -106,7 +107,7 @@ Returns
 def run_module():
     module_args = dict(
         command=dict(type='str', required=False, default=''),
-   )
+    )
 
     module_args.update(arubaoss_argument_spec)
 

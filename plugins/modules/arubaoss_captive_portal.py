@@ -88,10 +88,10 @@ EXAMPLES = '''
 
 '''
 
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
-from ansible.module_utils._text import to_text # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
+from ansible.module_utils._text import to_text  # NOQA
 
 
 def config_captive_portal(module):
@@ -108,9 +108,9 @@ def config_captive_portal(module):
 
         if params['profile_name']:
             data['custom_profile'] = {
-                    'profile': params['profile_name'],
-                    'url': params['server_url']
-                    }
+                'profile': params['profile_name'],
+                'url': params['server_url']
+            }
 
         result = run_commands(module, url, data, 'PUT', url)
 

@@ -9,7 +9,7 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config, run_commands # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config, run_commands  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.interfaces import InterfacesFacts
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.facts.legacy import Default, HostSystemInfo, \
     SwitchSpecificSystemInfo, Modules, PowerSupplies
@@ -25,7 +25,7 @@ try:
     from ansible.module_utils.network.common.facts.facts import FactsBase
 except ImportError:
     from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.facts.facts import FactsBase
-import json # NOQA
+import json  # NOQA
 
 
 FACT_LEGACY_SUBSETS = dict(
@@ -39,9 +39,9 @@ FACT_LEGACY_SUBSETS = dict(
 FACT_RESOURCE_SUBSETS = dict(
     vlans=VlansFacts,
     vlans_ports=VlansPortsFacts,
-    loop_protect_status = LoopProtectStatusFacts,
-    loop_protect_ports = LoopProtectPortsFacts,
-    loop_protect_vlans = LoopProtectVlansFacts,
+    loop_protect_status=LoopProtectStatusFacts,
+    loop_protect_ports=LoopProtectPortsFacts,
+    loop_protect_vlans=LoopProtectVlansFacts,
     interfaces=InterfacesFacts,
     acls=AclsFacts,
     lldp_neighbors=LldpNeighborsFacts,

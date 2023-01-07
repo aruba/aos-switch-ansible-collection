@@ -94,10 +94,10 @@ EXAMPLES = '''
 
 '''
 
-from ansible.module_utils.basic import AnsibleModule # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec # NOQA
-from ansible.module_utils._text import to_text # NOQA
+from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config  # NOQA
+from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
+from ansible.module_utils._text import to_text  # NOQA
 
 
 def config_user(module):
@@ -112,11 +112,11 @@ def config_user(module):
                         'changed': False, 'failed': True}
 
     data = {
-            'type': params['user_type'],
-            'name': params['user_name'],
-            'password': params['user_password'],
-            'password_type': params['password_type']
-            }
+        'type': params['user_type'],
+        'name': params['user_name'],
+        'password': params['user_password'],
+        'password_type': params['password_type']
+    }
 
     method = 'POST'
     delete_url = url + '/' + params['user_type']
