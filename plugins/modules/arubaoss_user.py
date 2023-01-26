@@ -31,7 +31,7 @@ module: arubaoss_user
 short_description: Implements Ansible module for configuring and
                    managing user on device.
 
-version_added: "2.6"
+version_added: "2.6.0"
 
 description:
     - "This implement rest api's which can be use to manage and configure

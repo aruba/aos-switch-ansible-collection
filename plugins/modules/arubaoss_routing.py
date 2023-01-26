@@ -30,7 +30,7 @@ module: arubaoss_routing
 
 short_description: implements rest api for routing
 
-version_added: "2.6"
+version_added: "2.6.0"
 
 description:
     - "This implements routing rest api to enable/disable routing on device"

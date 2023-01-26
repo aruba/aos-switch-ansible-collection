@@ -30,7 +30,7 @@ module: arubaoss_acl_policy
 
 short_description: implements rest api for global acl configuration
 
-version_added: "2.6"
+version_added: "2.6.0"
 
 description:
     - "This implements rest api's which will configure acl policies

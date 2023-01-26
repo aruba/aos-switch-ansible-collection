@@ -31,7 +31,7 @@ module: arubaoss_config_bkup
 short_description: Implements Ansible module for switch configuration
                    backup and restore.
 
-version_added: "2.6"
+version_added: "2.6.0"
 
 description:
     - "This implement rest api's which can be used to backup switch

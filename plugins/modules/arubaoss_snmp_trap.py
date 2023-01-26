@@ -30,7 +30,7 @@ module: arubaoss_snmp_trap
 
 short_description: implements rest api for snmp trap configuration
 
-version_added: "2.6"
+version_added: "2.6.0"
 
 description:
     - "This implements rest api's which enable/disable snmp traps for

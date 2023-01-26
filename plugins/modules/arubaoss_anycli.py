@@ -30,7 +30,7 @@ module: arubaoss_anycli
 
 short_description: implements rest api to execute CLI command via anyCLI uri
 
-version_added: "2.10"
+version_added: "2.10.0"
 
 description:
     - "This implements rest apis which can be used to support anyCLI"

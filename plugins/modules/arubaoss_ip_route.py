@@ -30,7 +30,7 @@ module: arubaoss_ip_route
 
 short_description: implements rest api for static routing
 
-version_added: "2.4"
+version_added: "2.4.0"
 
 description:
     - "This implements static routing rest api and global routing

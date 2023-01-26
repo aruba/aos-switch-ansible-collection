@@ -13,7 +13,7 @@ network_cli: arubaoss
 short_description: Use CLI to run commands to Switch devices
 description:
   - This AOS-Switch plugin provides CLI operations with ArubaOS-Switch Devices
-version_added: "2.9"
+version_added: "2.9.0"
 """
 
 import json  # NOQA

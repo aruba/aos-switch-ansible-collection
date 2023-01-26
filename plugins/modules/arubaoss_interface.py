@@ -31,7 +31,7 @@ module: arubaoss_interface
 short_description: Implements Ansible module for port configuration
                    and management.
 
-version_added: "2.6"
+version_added: "2.6.0"
 
 description:
     - "This implement rest api's which can be used to configure ports"

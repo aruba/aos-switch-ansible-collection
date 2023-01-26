@@ -18,7 +18,7 @@ ANSIBLE_METADATA = {
 DOCUMENTATION = '''
 ---
 module: arubaoss_config
-version_added: "2.9"
+version_added: "2.9.0"
 short_description: Logs in and executes configuration commands on AOS-Switch device via SSH connection
 description:
   - This module allows configuration of running-configs on AOS-Switch devices via SSH connection

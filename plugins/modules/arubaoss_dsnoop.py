@@ -30,7 +30,7 @@ module: arubaoss_dsnoop
 
 short_description: implements REST API for DHCP snooping
 
-version_added: "2.4"
+version_added: "2.4.0"
 
 description:
     - "This implements REST APIs which can be used to configure DHCP snooping"
