@@ -114,12 +114,15 @@ class Checkversion:
         # needs to be updated here.
         api = 'v6.0'
 
-        self._url = "{}://{}:{}/rest/{}".format(proto, host, port, api)
+        self._url = "{1}://{2}:{3}/rest/{4}".format(proto, host, port, api)
 
-    def _send(self, url, method='POST', body={}):
+    def _send(self, url, method='POST', body=None):
         '''Sends command to device '''
 
         headers = {'Content-Type': 'application/json'}
+
+        if body is None:
+            body = {}
 
         if self._cookie:
             headers['Cookie'] = self._cookie
@@ -249,12 +252,15 @@ class Aossapi:
 
         api = self._module.params['api_version']
 
-        self._url = "{}://{}:{}/rest/{}".format(proto, host, port, api)
+        self._url = "{1}://{2}:{3}/rest/{4}".format(proto, host, port, api)
 
-    def _send(self, url, method='POST', body={}):
+    def _send(self, url, method='POST', body=None):
         '''Sends command to device '''
 
         headers = {'Content-Type': 'application/json'}
+
+        if body is None:
+            body = {}
 
         if self._cookie:
             headers['Cookie'] = self._cookie
@@ -291,7 +297,7 @@ class Aossapi:
         if headers['status'] != 204:
             self._module.fail_json(**headers)
 
-    def run_commands(self, uri, payload={}, method="POST",
+    def run_commands(self, uri, payload=None, method="POST",
                      check=None, wait_after_send=0):
 
         '''
@@ -301,6 +307,8 @@ class Aossapi:
         '''
         reboot = None
         response = None
+        if payload is None:
+            payload = {}
         if method == 'reboot':
             reboot = True
             method = 'POST'
@@ -346,7 +354,7 @@ class Aossapi:
 
             return response
         except Exception as err:
-            self._module.fail_json(msg='Failed : {}'.format(err), failed=True)
+            self._module.fail_json(msg='Failed : {1}'.format(err), failed=True)
 
     def get_config(self, uri, check_login=True):
         ''' Execute a GET operation of device for uri'''

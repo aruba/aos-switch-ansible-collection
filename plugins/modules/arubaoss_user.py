@@ -108,7 +108,7 @@ def config_user(module):
     if params['state'] == 'create':
         for key in ['user_password', 'password_type', 'user_name']:
             if key not in params:
-                return {'msg': '{} is mandatory to create user'.format(key),
+                return {'msg': '{1} is mandatory to create user'.format(key),
                         'changed': False, 'failed': True}
 
     data = {

@@ -169,7 +169,7 @@ def route(module):
     if route_type == 'IRM_VLAN':
         for key in ['destination_vlan', 'vlan_name']:
             if key not in params:
-                return {'msg': '{} is required for {}'.format(key, route_type),
+                return {'msg': '{1} is required for {2}'.format(key, route_type),
                         'changed': False}
 
     data = {
@@ -180,7 +180,7 @@ def route(module):
 
     if route_type == 'IRM_GATEWAY':
         if 'gateway' not in params:
-            return {'msg': 'gateway is required for {}'.format(route_type),
+            return {'msg': 'gateway is required for {1}'.format(route_type),
                     'changed': False}
         else:
             data['gateway'] = {'version': params['ip_version'],
@@ -210,7 +210,7 @@ def route(module):
         vlan_url = '/vlans/' + str(params['destination_vlan'])
         check_vlan = get_config(module, vlan_url)
         if not check_vlan:
-            return {'msg': 'Vlan {} not configured'
+            return {'msg': 'Vlan {1} not configured'
                     .format(params['destination_vlan']), 'changed': False}
 
         data['id'] = params['destination'] + "-" + params['mask'] + "-" + \

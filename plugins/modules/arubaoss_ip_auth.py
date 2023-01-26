@@ -133,7 +133,6 @@ def ip_auth(module):
 
                 total = \
                     check_config['collection_result']['total_elements_count']
-                print("COUNT", total, check)
                 diff = total - check
                 if (total > 1 and diff == 1) or (total == 1 and check == 0):
                     return {'msg': 'Ip auth rule already exists.',

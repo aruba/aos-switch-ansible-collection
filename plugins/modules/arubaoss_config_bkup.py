@@ -218,7 +218,7 @@ def config_restore(module):
         data['sftp_server_address']['port_number'] = params['sftp_port']
 
     # Wait 40 secs for configuration to be applied
-    for _ in range(20):
+    for r in range(20):
         get_status = get_config(module, url_status)
         if get_status:
             get_status = module.from_json(to_text(get_status))
@@ -230,7 +230,7 @@ def config_restore(module):
                     module.log(status['status'])
                     continue
                 else:
-                    return {'msg': 'Config restore is already running: {}'
+                    return {'msg': 'Config restore is already running: {1}'
                             .format(status), 'changed': False}
         break
 

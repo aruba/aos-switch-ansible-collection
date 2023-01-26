@@ -226,8 +226,8 @@ def traffic_class(module):
                         if qos_action['traffic_class_id'] == class_id:
                             for port in port_config['qos_port_policy_element']:
                                 if qos['id'] == port['policy_id']:
-                                    return {'msg': 'Class {} is active in qos '
-                                            'policy {} for port {}.Remove qos '
+                                    return {'msg': 'Class {1} is active in qos '
+                                            'policy {2} for port {3}.Remove qos '
                                             'policy first'
                                             .format(class_id, qos['id'],
                                                     port['port_id']),
@@ -235,8 +235,8 @@ def traffic_class(module):
 
                             for vlan in vlan_config['qos_vlan_policy_element']:
                                 if qos['id'] == vlan['policy_id']:
-                                    return {'msg': 'Class {} is active in qos '
-                                            'policy {} for vlan {}.Remove qos '
+                                    return {'msg': 'Class {1} is active in qos '
+                                            'policy {2} for vlan {3}.Remove qos '
                                             'policy first'
                                             .format(class_id, qos['id'],
                                                     vlan['vlan_id']),
@@ -341,9 +341,7 @@ def traffic_class_match(module):
 
         qos_config = get_config(module, match_url)
         if qos_config:
-            print("HERE")
             check_config = module.from_json(to_text(qos_config))
-            print("CHECK", check_config)
             for config in check_config['qos_class_match_element']:
                 if config['traffic_match']['protocol_type'] == 'PT_TCP':
                     config['traffic_match'].pop('is_connection_established')
@@ -376,7 +374,7 @@ def run_module():
         class_type=dict(type='str', required=False, default='QCT_IP_V4',
                         choices=['QCT_IP_V4', 'QCT_IP_V6']),
         dscp_value=dict(type='int', reqquired=False,
-                        choices=[i for i in range(0, 64)]),
+                        choices=[list(range(0, 64))]),
         state=dict(type='str', required=False, default='create',
                    choices=['create', 'delete']),
         sequence_no=dict(type='int', required=False, default=-1),
