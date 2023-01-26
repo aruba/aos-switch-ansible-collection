@@ -36,11 +36,11 @@ version_added: "2.6"
 description:
     - "This implement rest api's which can be used to backup switch
        configuration from server. Module takes 5 secs to execute each
-       task. Defualt module action is to restore the configuration.
+       task. Default module action is to restore the configuration.
        Use config_type for configuration backup"
 
 options:
-    filne_name:
+    file_name:
         description:
             - configuration file name
         required: true
@@ -83,7 +83,7 @@ options:
         description:
             - Wait if there is already an ongoing configuration change
               on device.
-        defualt: True
+        default: True
         required: false
     state:
         description:
