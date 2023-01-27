@@ -41,10 +41,13 @@ options:
         choices: ["authorization_group", "authorization_method"]
         required: False
         default: "authorization_method"
+        type: 'str'
     authorization_method:
         description: To authorization method needed
         choices: ["AZM_NONE", "AZM_TACACS"]
+        default: "AZM_NONE"
         required: False
+        type: 'str'
     group_name:
         description: Group name for the autorization group
         type: 'str'
@@ -59,15 +62,17 @@ options:
         choices: ["AZP_PERMIT","AZP_DENY"]
         required: False
         default: "AZP_PERMIT"
+        type: 'str'
     is_log_enabled:
         description: Generate an event log any time a match happens.
-        choices: [True, False]
         required: False
         default: False
+        type: 'bool'
     config:
         description: To config or unconfig the required command
-        choices: ["create", "delete" ]
-
+        choices: ["create", "delete"]
+        default: "create"
+        type: 'str'
     host:
         description: >
             Specifies the DNS host name or address for connecting to the remote
@@ -228,9 +233,12 @@ EXAMPLES = '''
 RETURN = '''
 original_message:
     description: The original name param that was passed in
+    returned: always
     type: str
 message:
     description: The output message that the sample module generates
+    returned: always
+    type: str
 '''
 
 from ansible.module_utils.basic import AnsibleModule  # NOQA
