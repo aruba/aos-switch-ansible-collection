@@ -160,7 +160,7 @@ def run_module():
         access_role=dict(type='str', required=False,
                          choices=['AR_MANAGER', 'AR_OPERATOR']),
         mask=dict(type='str', required=False),
-        access_method=dict(type='str', required=False, defualt='AM_ALL',
+        access_method=dict(type='str', required=False, default='AM_ALL',
                            choices=['AM_ALL', 'AM_SSH', 'AM_TELNET',
                                     'AM_WEB', 'AM_SNMP', 'AM_TFTP']),
         auth_id=dict(type='int', required=False),
