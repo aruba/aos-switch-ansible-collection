@@ -115,7 +115,7 @@ options:
        - MB_RST Match TCP packets with the RST bit set
        - MB_SYN Match TCP packets with the SYN bit set
     required: false
-    element: str
+    elements: str
     choices: ['MB_ACK','MB_FIN', 'MB_RST','MB_SYN']
     type: list
   source_port:
