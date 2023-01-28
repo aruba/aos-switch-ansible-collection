@@ -41,22 +41,29 @@ options:
         description:
             - captive portal profile name
         required: false
+        type: str
     server_url:
         description:
             - url for captive portal server
         required: false
+        type: str
     enable_captive_portal:
         description:
             - enable/disable captive portal on device
         required: false
+        type: bool
+        default: true
     url_hash_key:
         description:
             - Hash key to verify integrity of the captive url
         required: false
+        type: str
     state:
         description:
             - Update or read captive protal data
         required: false
+        type: str
+        default: 'create'
 
     host:
         description: >
@@ -246,7 +253,7 @@ def run_module():
         profile_name=dict(type='str', required=False),
         server_url=dict(type='str', required=False, default=""),
         enable_captive_portal=dict(type='bool', required=False, default=True),
-        url_hash_key=dict(type='str', required=False),
+        url_hash_key=dict(type='str', required=False, no_log=True),
         state=dict(type='str', required=False, default='create'),
     )
 
