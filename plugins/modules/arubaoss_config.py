@@ -32,12 +32,15 @@ options:
         These commands must correspond with what would be found in the device's running-config.
     required: False
     type: list
+    elements: str
+    aliases: ['commands']
   parents:
     description:
       - Parent lines that identify the configuration section or context under which the
         "lines" lines should be checked and/or placed.
     required: False
     type: list
+    elements: str
   src:
     description:
       - Path to the file containing the configuration to load into the device.  The path can
@@ -47,19 +50,21 @@ options:
         indentation as a live switch config. The operation is purely additive, as it doesn't remove
         any lines that are present in the existing running-config, but not in the source config.
     required: False
-    type: str
+    type: path
   before:
     description:
       - Commands to be executed prior to execution of the parent and child lines. This option
         can be used to guarantee idempotency.
     required: False
     type: list
+    elements: str
   after:
     description:
       - Commands to be executed following the execution of the parent and child lines. This
         option can be used to guarantee idempotency.
     required: False
     type: list
+    elements: str
   match:
     description:
       - Specifies the method of matching. Matching is the comparison against the existing
@@ -108,7 +113,7 @@ options:
         description:
           - Path to directory in which the backup file should reside.
         required: False
-        type: str
+        type: path
     type: dict
   running_config:
     description:
@@ -156,6 +161,7 @@ options:
         argument takes a list of regular expressions or exact commands.
     required: False
     type: list
+    elements: str
   intended_config:
     description:
       - Path to file containing the intended configuration that the device should conform to, and
@@ -393,11 +399,11 @@ def main():
     argument_spec = dict(
         src=dict(type='path'),
 
-        lines=dict(aliases=['commands'], type='list'),
-        parents=dict(type='list'),
+        lines=dict(aliases=['commands'], type='list', elements='str'),
+        parents=dict(type='list', elements='str'),
 
-        before=dict(type='list'),
-        after=dict(type='list'),
+        before=dict(type='list', elements='str'),
+        after=dict(type='list', elements='str'),
 
         match=dict(default='line',
                    choices=['line', 'strict', 'exact', 'none']),
@@ -413,7 +419,7 @@ def main():
                        default='never'),
 
         diff_against=dict(choices=['running', 'startup', 'intended']),
-        diff_ignore_lines=dict(type='list'),
+        diff_ignore_lines=dict(type='list', elements='str'),
     )
 
     argument_spec.update(arubaoss_argument_spec)
