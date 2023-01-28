@@ -40,6 +40,8 @@ options:
         description: DNS Configuration Mode, default is DCM_DHCP
         choices: [DCM_DHCP, DCM_MANUAL, DCM_DISABLED]
         required: False
+        type: str
+        default: 'DCM_MANUAL'
     dns_domain_names:
         description: The first  manually configured DNS server domain name,
           all DNS configurations need to be made in a single module call,
@@ -82,6 +84,7 @@ options:
         choices: [IAV_IP_V4]
         type: str
         required: False
+        default: 'IAV_IP_V4'
     server_2:
         description: The second manually configured DNS Server IP address
           with priority 2, all DNS configurations need to be made in a
@@ -94,6 +97,7 @@ options:
         choices: [IAV_IP_V4]
         type: str
         required: False
+        default: 'IAV_IP_V4'
     server_3:
         description: The third manually configured DNS Server IP address
           with priority 3, all DNS configurations need to be made in a
@@ -106,6 +110,7 @@ options:
         choices: [IAV_IP_V4]
         type: str
         required: False
+        default: 'IAV_IP_V4'
     server_4:
         description: The fourth manually configured DNS Server IP address
           with priority 4, all DNS configurations need to be made in a single
@@ -118,6 +123,7 @@ options:
         choices: [IAV_IP_V4]
         type: str
         required: False
+        default: 'IAV_IP_V4'
 
     host:
         description: >
