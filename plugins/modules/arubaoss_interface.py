@@ -41,27 +41,55 @@ options:
         description:
             - interface id to be configured
         required: true
+        type: str
     description:
         description:
             - interface name/description, to remove the description
               of an interface pass in an empty string ''
         required: false
+        type: str
     admin_stat:
         description:
             - interface admin status
         required: false
+        type: bool
     qos_policy:
         description:
             - Name of QOS policy profile that needs to applied to port
         required: false
+        type: str
     acl_id:
         description:
             - Name ACL profile that needs to applied to port
         required: false
+        type: str
     acl_direction:
         description:
             - Direction in which ACL will be applied.
         required: false
+        choices: ['AD_INBOUND', 'AD_OUTBOUND', 'AD_CRF']
+        type: str
+    acl_type:
+        description:
+            - Type ACL will be applied.
+        required: false
+        choices: ['AT_STANDARD_IPV4', 'AT_EXTENDED_IPV4', 'AT_CONNECTION_RATE_FILTER']
+        default: AT_STANDARD_IPV4
+        type: str
+    qos_direction:
+        description:
+            - Qos Direction in which ACL will be applied.
+        required: false
+        choices: ['QPPD_INBOUND', 'QPPD_OUTBOUND']
+        default: QPPD_INBOUND
+        type: str
+    state:
+        description:
+            - Enable or disable
+        choices: [ create, delete ]
+        default: create
+        required: false
+        type: str
 
     host:
         description: >
