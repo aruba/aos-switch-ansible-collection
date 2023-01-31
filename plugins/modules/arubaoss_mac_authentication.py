@@ -41,23 +41,33 @@ options:
         description: The command to be configured
         required: False
         choices: [ configMacAuth, configMacAuthOnPort ]
+        default: configMacAuth
+        type: str
     port_id:
         description: The port id to be configured on the switch
         required: False
+        type: str
     unauthorized_vlan_id:
         description: Unauthorized VLAN ID. If we are giving
                      unauthorized_vlan_id as 0,
                      it will remove the unauthorized_vlan_id configured
         required: False
+        type: int
     is_mac_authentication_enabled:
         description: Enables/disables MAC authentication on the Port
         required: False
+        default: True
+        type: bool
     reauthenticate:
         description: Provides option on whether to reauthenticate
         required: False
+        default: False
+        type: bool
     mac_address_limit:
         description: The MAC Authentication address limit to be configured
         required: False
+        default: 1
+        type: int
 
     host:
         description: >
