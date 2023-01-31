@@ -136,7 +136,7 @@ def qos(module):
     # check qos policy is present
     qos_check = '/qos/policies/' + params['qos_policy'] + qptqos
     if not get_config(module, qos_check):
-        return {'msg': 'Configure QoS policy first. {1} does not exist'
+        return {'msg': 'Configure QoS policy first. {0} does not exist'
                 .format(params['qos_policy']), 'changed': False}
 
     if params['state'] == 'create':
@@ -186,7 +186,7 @@ def acl(module):
 
     check_acl = '/acls/' + params['acl_id'] + "~" + acl_type
     if not get_config(module, check_acl):
-        return {'msg': 'Configure ACL first. {1} does not exist'
+        return {'msg': 'Configure ACL first. {0} does not exist'
                 .format(params['acl_id']), 'changed': False}
 
     delete_url = url + '/' + params['interface'] + '-' + \
@@ -250,7 +250,7 @@ def run_module():
     port_url = '/ports/' + str(module.params['interface'])
     check_port = get_config(module, port_url)
     if not check_port:
-        result = {'msg': 'Port {1} not present on device {2}'
+        result = {'msg': 'Port {0} not present on device {1}'
                   .format(module.params['interface'], port_url),
                   'changed': False}
     else:

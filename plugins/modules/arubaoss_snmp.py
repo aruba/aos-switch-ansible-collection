@@ -272,7 +272,7 @@ def host(module):
 
     for key in ['host_ip', 'version']:
         if not params[key]:
-            return {'msg': 'Missing {1} in parameter list'.format(key),
+            return {'msg': 'Missing {0} in parameter list'.format(key),
                     'changed': False}
 
     check_url = url + '/' + params['host_ip'] + '-' + params['community_name']

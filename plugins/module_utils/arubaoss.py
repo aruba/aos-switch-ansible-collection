@@ -114,7 +114,7 @@ class Checkversion:
         # needs to be updated here.
         api = 'v6.0'
 
-        self._url = "{1}://{2}:{3}/rest/{4}".format(proto, host, port, api)
+        self._url = "{0}://{1}:{2}/rest/{3}".format(proto, host, port, api)
 
     def _send(self, url, method='POST', body=None):
         '''Sends command to device '''
@@ -252,7 +252,7 @@ class Aossapi:
 
         api = self._module.params['api_version']
 
-        self._url = "{1}://{2}:{3}/rest/{4}".format(proto, host, port, api)
+        self._url = "{0}://{1}:{2}/rest/{3}".format(proto, host, port, api)
 
     def _send(self, url, method='POST', body=None):
         '''Sends command to device '''
@@ -354,7 +354,7 @@ class Aossapi:
 
             return response
         except Exception as err:
-            self._module.fail_json(msg='Failed : {1}'.format(err), failed=True)
+            self._module.fail_json(msg='Failed : {0}'.format(err), failed=True)
 
     def get_config(self, uri, check_login=True):
         ''' Execute a GET operation of device for uri'''

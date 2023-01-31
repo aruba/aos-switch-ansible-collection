@@ -138,7 +138,7 @@ def update_port(module):
     port_url = '/ports/' + str(params['interface'])
     check_port = get_config(module, port_url)
     if not check_port:
-        return {'msg': 'Port {1} not present on device'
+        return {'msg': 'Port {0} not present on device'
                 .format(params['interface']), 'changed': False}
 
     data = {
@@ -159,7 +159,7 @@ def update_vlan(module):
     vlan_url = '/vlans/' + str(params['vlan'])
     check_vlan = get_config(module, vlan_url)
     if not check_vlan:
-        return {'msg': 'Vlan {1} not configured'.format(params['vlan']),
+        return {'msg': 'Vlan {0} not configured'.format(params['vlan']),
                 'changed': False}
 
     data = {
