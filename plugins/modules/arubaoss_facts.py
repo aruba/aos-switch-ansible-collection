@@ -47,6 +47,7 @@ options:
     default: ['host_system_info', 'switch_specific_system_info',
             'module_info', 'system_power_supply']
     type: list
+    elements: str
 
   gather_network_resources:
     description:
@@ -56,7 +57,7 @@ options:
     choices: ['interfaces', 'vlans', 'vlans_ports', 'vlan_port_element', 'loop_protect_status', 'loop_protect_ports', 'loop_protect_vlans', 'acls', 'lacp_interfaces', 'lldp_neighbors']
     required: False
     type: list
-
+    elements: str
 
   host:
     description: >
