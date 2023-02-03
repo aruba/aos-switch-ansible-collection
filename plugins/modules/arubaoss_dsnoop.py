@@ -112,6 +112,7 @@ EXAMPLES = '''
 from ansible.module_utils.basic import AnsibleModule  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
+from ansible.module_utils._text import to_text  # NOQA
 
 
 def config(module):
@@ -175,6 +176,7 @@ def authorized_server(module):
      Configure the switch with params sent
     -------
     """
+    match_ip = 'false'
     params = module.params
     url = '/dsnoop/authorized_server'
 
@@ -182,10 +184,27 @@ def authorized_server(module):
     data['authorized_server'] = {"version": "IAV_IP_V4",
                                  "octets": params['server_ip']}
 
+    dsnoop_auth_server_config = get_config(module, url)
+    if dsnoop_auth_server_config:
+        check_config = module.from_json(to_text(dsnoop_auth_server_config))
+        for ele in check_config['dsnoop_auth_server_element']:
+            if ele['authorized_server'] ['version'] == "IAV_IP_V4" and \
+                ele['authorized_server'] ['octets'] == params['server_ip']:
+                match_ip = 'true'
+
     method = 'POST'
     if params['config'] == 'delete':
         method = 'DELETE'
         url = url + '/' + params['server_ip']
+
+    if match_ip == 'true':
+         if method == 'POST':
+             return {'msg': 'Specified authorized_server is already configured',
+                     'changed': False, 'failed': False}
+    else:
+        if method == 'DELETE':
+            return {'msg': 'Specified authorized_server does not exists',
+                    'changed': False, 'failed': False}
 
     result = run_commands(module, url, data, method)
 
