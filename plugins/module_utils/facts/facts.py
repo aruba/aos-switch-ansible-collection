@@ -39,6 +39,7 @@ FACT_LEGACY_SUBSETS = dict(
 FACT_RESOURCE_SUBSETS = dict(
     vlans=VlansFacts,
     vlans_ports=VlansPortsFacts,
+    vlan_port_element=VlansPortsFacts,
     loop_protect_status=LoopProtectStatusFacts,
     loop_protect_ports=LoopProtectPortsFacts,
     loop_protect_vlans=LoopProtectVlansFacts,

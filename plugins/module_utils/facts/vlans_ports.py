@@ -34,7 +34,8 @@ class VlansPortsFacts(object):
             vlans_ports = json.loads(check_presence)
 
         facts = {
-            'vlans_ports': vlans_ports
+            'vlans_ports': vlans_ports,
+            'vlan_port_element': vlans_ports
         }
         ansible_facts['ansible_network_resources'].update(facts)
         return ansible_facts
