@@ -302,7 +302,7 @@ def acl(module):
             temp_url = url + '/' + params['acl_name'] + '~' + temp
             check_acl = get_config(module, temp_url)
             if check_acl:
-                result = {'msg': '{1} already exists for ''type {2}.'
+                result = {'msg': '{0} already exists for ''type {1}.'
                           .format(params['acl_name'], temp),
                           'changed': False}
                 module.exit_json(**result)
@@ -317,7 +317,7 @@ def acl(module):
 
             for ele in check_config['acl_port_policy_element']:
                 if ele['acl_id'] == acl_id:
-                    return {'msg': 'ACL {1} applied to port {2}'
+                    return {'msg': 'ACL {0} applied to port {1}'
                             .format(params['acl_name'], ele['port_id']),
                             'changed': False}
 
@@ -329,8 +329,8 @@ def acl(module):
 
             for ele in check_config['acl_vlan_policy_element']:
                 if ele['acl_id'] == acl_id:
-                    result = {'msg': 'ACL {1} applied to vlan '
-                              '{2}'.format(params['acl_name'], ele['vlan_id']),
+                    result = {'msg': 'ACL {0} applied to vlan '
+                              '{1}'.format(params['acl_name'], ele['vlan_id']),
                               'changed': False}
                     module.exit_json(**result)
 
@@ -483,7 +483,7 @@ def acl_rule(module):
                         'destination_ip_address',
                         'destination_ip_mask']:
                 if params.get(key) is None:
-                    return {'msg': '{1} is required for extended '
+                    return {'msg': '{0} is required for extended '
                             'acl policy'.format(key),
                             'changed': False}
 

@@ -47,7 +47,7 @@ class Cliconf(CliconfBase):
         Get the switch config
         '''
         if source not in ('running', 'startup'):
-            return self.invalid_params("fetching configuration from {1} is not"
+            return self.invalid_params("fetching configuration from {0} is not"
                                        " supported".format(source))
         if source == 'running':
             cmd = 'show running-config all'

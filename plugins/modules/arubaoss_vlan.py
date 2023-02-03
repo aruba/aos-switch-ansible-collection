@@ -280,7 +280,7 @@ def config_vlan_ipaddress(module):
             if "is_dhcp_server_enabled" in check_dhcp_enabled.keys():
                 if check_dhcp_enabled["is_dhcp_server_enabled"]:
                     return {'msg': 'DHCP server must be disabled on this '
-                                   'VLAN {1}'.format(params['vlan_id']),
+                                   'VLAN {0}'.format(params['vlan_id']),
                             'changed': False, 'failed': True}
             method = 'DELETE'
             result = run_commands(module, url, data, method)
@@ -434,7 +434,7 @@ def config_vlan(module):
         data = {'vlan_id': params['vlan_id']}
 
     if params['name'] == "":
-        data['name'] = "VLAN{1}".format(params['vlan_id'])
+        data['name'] = "VLAN{0}".format(params['vlan_id'])
     else:
         data['name'] = params['name']
 
@@ -486,7 +486,7 @@ def config_qos(module):
     # check qos policy is present
     qos_check = '/qos/policies/' + params['qos_policy'] + '~' + 'QPT_QOS'
     if not get_config(module, qos_check):
-        return {'msg': 'Configure QoS policy first. {1} does not exist'
+        return {'msg': 'Configure QoS policy first. {0} does not exist'
                 .format(params['qos_policy']), 'changed': False}
 
     if params['config'] == 'create':
@@ -534,10 +534,10 @@ def config_acl(module):
 
     check_acl = '/acls/' + params['acl_id'] + "~" + acl_type
     if not get_config(module, check_acl):
-        return {'msg': 'Configure ACL first. {1} does not exist'
+        return {'msg': 'Configure ACL first. {0} does not exist'
                 .format(params['acl_id']), 'changed': False}
 
-    delete_url = "{1}/{2}-{3}~{4}-{5}".format(url, params['vlan_id'],
+    delete_url = "{0}/{1}-{2}~{3}-{4}".format(url, params['vlan_id'],
                                               params['acl_id'], acl_type,
                                               direction)
 

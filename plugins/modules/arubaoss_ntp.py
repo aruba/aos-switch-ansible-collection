@@ -454,7 +454,7 @@ def config_ntp_keyId(module):
         newdata = json.loads(check_presence)
         if params['authenticationMode'] in \
                 newdata['int']['int_reference']['authentication-mode'].keys():
-            return {'msg': 'Key-ID {1} exists'.format(params['keyId']),
+            return {'msg': 'Key-ID {0} exists'.format(params['keyId']),
                     'changed': False, 'failed': False}
 
     if params['keyValue'] == "":
@@ -559,7 +559,7 @@ def config_ntp_ipv4addr(module):
                                     + str(params['keyId']))
         if not check_presence:
             return {
-                'msg': 'Authentication key-id {1} needs to be configured '
+                'msg': 'Authentication key-id {0} needs to be configured '
                 'to configure ipv4 server'.format(params['keyId']),
                 'changed': False, 'failed': True}
 

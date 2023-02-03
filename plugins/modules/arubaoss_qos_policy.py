@@ -132,7 +132,7 @@ def qos(module):
             qos_config = module.from_json(to_text(qos_config))
             for config in qos_config['qos_port_policy_element']:
                 if policy_id == config['policy_id']:
-                    return {'msg': 'Cannot delete policy {1}, active on port {2}'
+                    return {'msg': 'Cannot delete policy {0}, active on port {1}'
                             .format(policy_id, config['port_id']),
                             'change': False}
 
@@ -143,7 +143,7 @@ def qos(module):
             qos_config = module.from_json(to_text(qos_config))
             for config in qos_config['qos_vlan_policy_element']:
                 if policy_id == config['policy_id']:
-                    return {'msg': 'Cannot delete policy {1}, active on vlan {2}'
+                    return {'msg': 'Cannot delete policy {0}, active on vlan {1}'
                             .format(policy_id, config['vlan_id']),
                             'change': False}
 

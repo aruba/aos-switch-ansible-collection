@@ -226,8 +226,8 @@ def traffic_class(module):
                         if qos_action['traffic_class_id'] == class_id:
                             for port in port_config['qos_port_policy_element']:
                                 if qos['id'] == port['policy_id']:
-                                    return {'msg': 'Class {1} is active in qos '
-                                            'policy {2} for port {3}.Remove qos '
+                                    return {'msg': 'Class {0} is active in qos '
+                                            'policy {1} for port {2}.Remove qos '
                                             'policy first'
                                             .format(class_id, qos['id'],
                                                     port['port_id']),
@@ -235,8 +235,8 @@ def traffic_class(module):
 
                             for vlan in vlan_config['qos_vlan_policy_element']:
                                 if qos['id'] == vlan['policy_id']:
-                                    return {'msg': 'Class {1} is active in qos '
-                                            'policy {2} for vlan {3}.Remove qos '
+                                    return {'msg': 'Class {0} is active in qos '
+                                            'policy {1} for vlan {2}.Remove qos '
                                             'policy first'
                                             .format(class_id, qos['id'],
                                                     vlan['vlan_id']),
