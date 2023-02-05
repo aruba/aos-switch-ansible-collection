@@ -188,8 +188,8 @@ def authorized_server(module):
     if dsnoop_auth_server_config:
         check_config = module.from_json(to_text(dsnoop_auth_server_config))
         for ele in check_config['dsnoop_auth_server_element']:
-            if ele['authorized_server'] ['version'] == "IAV_IP_V4" and \
-                ele['authorized_server'] ['octets'] == params['server_ip']:
+            if ele['authorized_server']['version'] == "IAV_IP_V4" and \
+               ele['authorized_server']['octets'] == params['server_ip']:
                 match_ip = 'true'
 
     method = 'POST'
@@ -198,9 +198,9 @@ def authorized_server(module):
         url = url + '/' + params['server_ip']
 
     if match_ip == 'true':
-         if method == 'POST':
-             return {'msg': 'Specified authorized_server is already configured',
-                     'changed': False, 'failed': False}
+        if method == 'POST':
+            return {'msg': 'Specified authorized_server is already configured',
+                    'changed': False, 'failed': False}
     else:
         if method == 'DELETE':
             return {'msg': 'Specified authorized_server does not exists',
