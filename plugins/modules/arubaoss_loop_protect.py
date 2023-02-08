@@ -30,7 +30,7 @@ module: arubaoss_loop_protect
 
 short_description: implements loop-protect rest api
 
-version_added: "2.6"
+version_added: "2.6.0"
 
 description:
     - "This configures loop protect on device over vlan or port"

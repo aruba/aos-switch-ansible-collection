@@ -30,7 +30,7 @@ module: arubaoss_qos_policy
 
 short_description: implements rest api for qos configuration
 
-version_added: "2.6"
+version_added: "2.6.0"
 
 description:
     - "This implements rest api's which can be used to configure qos

@@ -17,7 +17,7 @@ ANSIBLE_METADATA = {
 DOCUMENTATION = '''
 ---
 module: arubaoss_command
-version_added: "2.9"
+version_added: "2.9.0"
 short_description: Logs in and executes CLI commands on AOS-Switch device via SSH connection
 description:
   - This module allows execution of CLI commands on AOS-Switch devices via SSH connection

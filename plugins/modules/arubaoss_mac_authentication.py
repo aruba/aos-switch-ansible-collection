@@ -30,7 +30,7 @@ module: arubaoss_mac_authentication
 
 short_description: implements rest api for Mac Authentication
 
-version_added: "2.4"
+version_added: "2.4.0"
 
 description:
     - "This implements rest apis which can be used to configure

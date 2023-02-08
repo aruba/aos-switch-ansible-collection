@@ -30,7 +30,7 @@ module: arubaoss_ip_auth
 
 short_description: implements rest api for ip authorization
 
-version_added: "2.6"
+version_added: "2.6.0"
 
 description:
     - "This implements rest api's which configure ip autorization on device"

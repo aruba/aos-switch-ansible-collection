@@ -30,7 +30,7 @@ module: arubaoss_aaa_authorization
 
 short_description: implements rest api for AAA Authorization configuration
 
-version_added: "2.4"
+version_added: "2.4.0"
 
 description:
     - "This implements rest apis which can be used to configure authorization"

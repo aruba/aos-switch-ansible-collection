@@ -32,7 +32,7 @@ module: arubaoss_sntp
 short_description: implements rest api for sntp and sntp server
                    priority configuration
 
-version_added: "2.4"
+version_added: "2.4.0"
 
 description:
     - "This implements rest apis which can be used to configure sntp"

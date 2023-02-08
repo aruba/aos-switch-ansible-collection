@@ -28,7 +28,7 @@ ANSIBLE_METADATA = {
 DOCUMENTATION = '''
 ---
 module: arubaoss_facts
-version_added: "2.10"
+version_added: "2.10.0"
 short_description: Collects facts from remote PVOS device
 description:
   - This module retrieves facts from Aruba devices running the PVOS operating system.

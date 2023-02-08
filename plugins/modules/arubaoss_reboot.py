@@ -30,7 +30,7 @@ module: arubaoss_reboot
 
 short_description: reboots the device
 
-version_added: "2.6"
+version_added: "2.6.0"
 
 description:
     - "This reboots the device and waits until it comes up.

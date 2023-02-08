@@ -30,7 +30,7 @@ module: arubaoss_syslog
 
 short_description: implements rest api for syslog configuration
 
-version_added: "2.6"
+version_added: "2.6.0"
 
 description:
     - "This implements rest api's which configure syslog on device"
