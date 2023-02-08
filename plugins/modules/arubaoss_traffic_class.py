@@ -385,7 +385,7 @@ def run_module():
                                     'PT_PIM', 'PT_VRRP', 'PT_ICMP',
                                     'PT_IGMP', 'PT_IP', 'PT_SCTP',
                                     'PT_TCP', 'PT_UDP']),
-        icmp_type=dict(type='int', required=False, defualt=-1),
+        icmp_type=dict(type='int', required=False, default=-1),
         icmp_code=dict(type='int', required=False, default=-1),
         igmp_type=dict(type='str', required=False,
                        choices=['IT_HOST_QUERY', 'IT_HOST_REPORT',

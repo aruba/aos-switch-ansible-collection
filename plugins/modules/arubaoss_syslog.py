@@ -140,7 +140,7 @@ def config_syslog(module):
 def run_module():
     module_args = dict(
         server_address=dict(type='str', required=True),
-        state=dict(type='str', required=False, defualt='create',
+        state=dict(type='str', required=False, default='create',
                    choices=['create', 'delete']),
         version=dict(type='str', required=False, default='IAV_IP_V4',
                      choices=['IAV_IP_V4', 'IAV_IP_V6']),
