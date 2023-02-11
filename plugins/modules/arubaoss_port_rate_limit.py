@@ -44,28 +44,73 @@ options:
                  update_rate_limit_attributes_onPort ]
         required: False
         default: update_rate_limit_attributes
+        type: str
     port_id:
         description: Port_id of the port
-        required: True
+        required: False
+        type: str
     icmp_traffic_type:
         description: ICMP traffic type.
         choices: [ PITT_IP_ALL, PITT_IP_V4, PITT_IP_V6 ]
         required: False
         default: PITT_IP_V4
-    icmp_rate_limit:
-        description: ICMP Rate Limit value.
-        required: False
+        type: str
     queues_direction:
         description: Queue traffic direction. port_id and queues_direction
                      are required to uniquely identify the
                      queue_rate_percentage to be set
-        choices: [ PTD_OUT ]
+        choices: [ PQTD_OUT ]
         required: False
-        default: PTD_OUT
-    queue_rate_percentage:
-        description: Rate limit for each egress queue in percentage. Apply
+        default: PQTD_OUT
+        type: str
+    queue_rate_percentage_1:
+        description: Rate limit for egress queue 1 in percentage. Apply
                      the default value on all queues to reset the configuration
         required: False
+        default: 100
+        type: int
+    queue_rate_percentage_2:
+        description: Rate limit for egress queue 2 in percentage. Apply
+                     the default value on all queues to reset the configuration
+        required: False
+        default: 100
+        type: int
+    queue_rate_percentage_3:
+        description: Rate limit for egress queue 3 in percentage. Apply
+                     the default value on all queues to reset the configuration
+        required: False
+        default: 100
+        type: int
+    queue_rate_percentage_4:
+        description: Rate limit for egress queue 4 in percentage. Apply
+                     the default value on all queues to reset the configuration
+        required: False
+        default: 100
+        type: int
+    queue_rate_percentage_5:
+        description: Rate limit for egress queue 5 in percentage. Apply
+                     the default value on all queues to reset the configuration
+        required: False
+        default: 100
+        type: int
+    queue_rate_percentage_6:
+        description: Rate limit for egress queue 6 in percentage. Apply
+                     the default value on all queues to reset the configuration
+        required: False
+        default: 100
+        type: int
+    queue_rate_percentage_7:
+        description: Rate limit for egress queue 8 in percentage. Apply
+                     the default value on all queues to reset the configuration
+        required: False
+        default: 100
+        type: int
+    queue_rate_percentage_8:
+        description: Rate limit for egress queue 8 in percentage. Apply
+                     the default value on all queues to reset the configuration
+        required: False
+        default: 100
+        type: int
     traffic_type:
         description: The traffic type. port_id, traffic_type and
                      direction are  required to uniquely identify
@@ -73,6 +118,7 @@ options:
         choices: [ PTT_BCAST, PTT_MCAST, PTT_ALL, PTT_UKWN_UNCST ]
         required: False
         default : PTT_ALL
+        type: str
     direction:
         description: Traffic flow direction. port_id, traffic_type and
                      direction are required to uniquely identify the
@@ -82,10 +128,26 @@ options:
         choices: [ PTD_IN, PTD_OUT ]
         required: False
         default: PTD_IN
+        type: str
     rate_limit:
         description: Rate limit value. rate_limit_in_kbps and
                      rate_limit_in_percent will be null if rate_limit
                      is not configured
+        required: False
+        type: str
+    rate_limit_in_kbps:
+        description: Rate limit in kbps
+        required: False
+        type: int
+    rate_limit_in_percent:
+        description: Rate limit in percentage
+        required: False
+        type: int
+    config:
+        description: Create or Delete Port Rate Limit
+        choices: ['create', 'delete']
+        default: create
+        type: str
         required: False
 
     host:
@@ -228,8 +290,11 @@ RETURN = '''
 original_message:
     description: The original name param that was passed in
     type: str
+    returned: always
 message:
     description: The output message that the sample module generates
+    type: str
+    returned: always
 '''
 
 from ansible.module_utils.basic import AnsibleModule  # NOQA
@@ -448,7 +513,7 @@ def run_module():
                               "update_rate_limit_onPort",
                               "update_rate_limit_attributes_onPort"]),
         config=dict(type='str', required=False, default='create',
-                    choices=["create", "Delete"]),
+                    choices=["create", "delete"]),
         port_id=dict(type='str', required=False),
         icmp_traffic_type=dict(type='str', required=False,
                                default="PITT_IP_V4",
