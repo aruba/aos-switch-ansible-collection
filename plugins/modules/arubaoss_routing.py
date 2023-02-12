@@ -41,6 +41,7 @@ options:
             - To enable/disable routing globally.
         required: true
         choices: [ create, delete ]
+        type: str
 
     host:
         description: >
@@ -205,7 +206,7 @@ def run_module():
     # define the available arguments/parameters that a user can pass to
     # the module
     module_args = dict(
-        state=dict(type='str', required=False, choices=['create', 'delete']),
+        state=dict(type='str', required=True, choices=['create', 'delete']),
     )
 
     module_args.update(arubaoss_argument_spec)
