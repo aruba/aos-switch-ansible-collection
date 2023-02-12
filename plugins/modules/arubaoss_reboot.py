@@ -43,13 +43,14 @@ options:
             - Boots device using this image
         default: BI_PRIMARY_IMAGE
         choices: [ BI_PRIMARY_IMAGE, BI_SECONDARY_IMAGE ]
-        required: true
+        required: false
+        type: str
     is_wait:
         description:
             - Wait for boot or skip the reboot
         default: true
-        choices: [ true, false ]
         required: false
+        type: bool
 
     host:
         description: >
