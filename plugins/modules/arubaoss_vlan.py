@@ -39,113 +39,155 @@ options:
     command:
         description: Name of sub module, according to the
                      configuration required.
-        choices: [ config_vlan, config_vlan_port, config_vlan_ipaddress, config_vlan_dhcpHelperAddress, config_vlan_igmp ]
-        required: True
+        choices: ['config_vlan', 'config_vlan_port', 'config_vlan_ipaddress', 'config_vlan_dhcpHelperAddress',
+                  'config_vlan_qos', 'config_vlan_acl', 'config_vlan_igmp']
+        default: config_vlan
+        required: False
+        type: str
     config:
         description: To config or unconfig the required command
         choices: [ create, delete ]
+        default: create
         required: False
+        type: str
     vlan_id:
         description: vlan id to be configured
         required: true
+        type: int
     name:
         description: "Name of the VLAN. While creating a Vlan If name is given
         as empty string, default value (VLANx, where x is the vlan_id) will be
         configured. Empty string will not be accepted while modifying a Vlan"
         required: false
+        type: str
     status:
         description: the status of the VLAN
         choices: [ VS_PORT_BASED, VS_PROTOCOL_BASED, VS_DYNAMIC ]
+        default: VS_PORT_BASED
         required: false
+        type: str
     vlantype:
         description: The type of VLAN, default being VT_STATIC
         choices: [ VT_STATIC, VT_STATIC_SVLAN, VT_GVRP ]
+        default: VT_STATIC
         required: false
+        type: str
     is_jumbo_enabled:
         description: Whether Jumbo is enabled
+        default: False
         required: false
+        type: bool
     is_voice_enabled:
         description: Whether Voice is enabled
+        default: False
         required: false
+        type: bool
     is_dsnoop_enabled:
         description: Whether DSNOOP is enabled
+        default: false
         required: false
+        type: bool
     is_dhcp_server_enabled:
         description: Whether DHCP server is enabled
+        default: false
         required: false
+        type: bool
     is_management_vlan:
         description: Whether vlan is a management vlan or not
+        default: false
         required: false
+        type: bool
     ip_address_mode:
         description: IP Address Mode to be configured on vlan
         choices: [ IAAM_DISABLED, IAAM_STATIC, IAAM_DHCP ]
+        default: IAAM_STATIC
         required: False
+        type: str
     vlan_ip_address:
         description: IP Address to be configured on vlan
         required: False
+        type: str
     vlan_ip_mask:
         description: IP Mask for the IP Address configured
         required: False
+        type: str
     version:
         description: Version of IP Address (V6 is not supported via REST)
         choices: [ IAV_IP_V4 ]
+        default: IAV_IP_V4
         required: False
+        type: str
     helper_addresses:
         description: DHCP helper address for the corresponding VLAN id
         required: False
+        type: str
     port_id:
         description: Port ID to be configured on the vlan
         required: False
+        type: str
     port_mode:
         description: Port modes to be configured
         choices: [ POM_UNTAGGED, POM_TAGGED_STATIC, POM_FORBIDDEN ]
+        default: POM_UNTAGGED
         required: False
+        type: str
     qos_policy:
         description: Qos policy to be added to vlan
         required: False
+        type: str
     acl_id:
         description: Acl policy to be added to vlan
         required: false
+        type: str
     acl_type:
         description: Type of acl policy
         default: AT_STANDARD_IPV4
         choices: [ AT_STANDARD_IPV4, AT_EXTENDED_IPV4, AT_CONNECTION_RATE_FILTER ]
         required: false
+        type: str
     acl_direction:
         description: Direction is which acl to be applied
-        choices: [ AD_INBOUND, AD_OUTPUND, AD_CRF ]
+        choices: [ AD_INBOUND, AD_OUTBOUND, AD_CRF ]
         required: false
+        type: str
     is_igmp_enabled:
         description: "Enable/disable/configure Internet Group Management
                       Protocol (IGMP) feature on a VLAN."
         required: false
         default: false
+        type: bool
     last_member_query_interval:
-        description: "IGMP last member query interval. Value will be
+        description: "IGMP last member query interval (1 or 2). Value will be
                       ignored if is_igmp_enabled is false."
         required: false
-        default: 1 [1-2]
+        default: 1
+        type: int
     query_max_response_time:
-        description: "Set the time interval in seconds to wait for a
+        description: "Set the time interval (10-128) in seconds to wait for a
                       response to a query"
         required: false
-        default: 10 [10-128]
+        default: 10
+        type: int
     robustness:
-        description: Set the number of times to retry a query
+        description: Set the number (1-8) of times to retry a query
         required: false
-        default: 2 [1-8]
+        default: 2
+        type: int
     igmp_version:
-        description: Set the IGMP version to use
+        description: Set the IGMP version (2 or 3) to use
         required: false
-        default: 2 [2-3]
+        default: 2
+        type: int
     is_querier_enabled:
         description: Specify querier/non-querier capability for the VLAN.
         required: false
         default: true
+        type: bool
     interval:
-        description: Sets the interval in seconds between IGMP queries
+        description: Sets the interval (5-300) in seconds between IGMP queries
         required: false
-        default: 125 [5-300]
+        default: 125
+        type: int
 
     host:
         description: >
@@ -770,7 +812,7 @@ def run_module():
         vlan_ip_address=dict(type='str', required=False, default=""),
         vlan_ip_mask=dict(type='str', required=False, default=""),
         version=dict(type='str', required=False, default='IAV_IP_V4',
-                     choices=['IAV_IP_V4', 'IAV_IP_V6']),
+                     choices=['IAV_IP_V4']),
         helper_addresses=dict(type='str', required=False, default=""),
         port_id=dict(type='str', required=False, default=""),
         port_mode=dict(type='str', required=False, default="POM_UNTAGGED",
