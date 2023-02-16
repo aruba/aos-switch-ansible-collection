@@ -26,7 +26,7 @@ ANSIBLE_METADATA = {
 
 DOCUMENTATION = '''
 ---
-module: arubaoss_interfaces
+module: arubaoss_traffic_class
 
 short_description: implements rest api for traffic class configuration
 
@@ -40,38 +40,46 @@ options:
         description:
             - Traffic class name
         required: true
+        type: str
     class_type:
         description:
             - Traffic class type
         default: QCT_IP_V4
         choices: [ QCT_IP_V4, QCT_IP_V6 ]
-        required: true
+        required: false
+        type: str
     dscp_value:
         description:
-            - dscp value to be applied
-        choices: [ 0 - 64 ]
+            - dscp value (0 - 64) to be applied
         required: false
+        type: int
     entry_type:
         description:
             - Type of action to take.
         choices: [ QTCET_MATCH, QTCET_IGNORE ]
         required: false
+        type: str
     protocol_type:
         description:
             - Protocol type for traffic filter.
         required: false
         choices: [ 'PT_GRE','PT_ESP','PT_AH','PT_OSPF','PT_PIM','PT_VRRP',
                  'PT_ICMP','PT_IGMP','PT_IP','PT_SCTP','PT_TCP','PT_UDP' ]
+        type: str
     icmp_type:
         description:
             - Applies to icmp type matching this field. Only PT_ICMP
               protocol_type support icmp_code
         required: false
+        default: -1
+        type: int
     icmp_code:
         description:
             - Applies to icmp code matching this field. Only PT_ICMP
               protocol_type support icmp_code
         required: false
+        default: -1
+        type: int
     igmp_type:
         description:
             - Applies to igmp type matching this field. Only PT_IGMP
@@ -81,59 +89,82 @@ options:
                   IT_V2_HOST_REPORT, IT_V2_HOST_LEAVE, IT_MTRACE_REPLY,
                   IT_MTRACE_REQUEST, IT_V3_HOST_REPORT, IT_MROUTER_ADVERTISEMENT,
                   IT_MROUTER_SOLICITATION, IT_MROUTER_TERMINATION ]
+        type: str
     match_bit:
         description:
             - The set of tcp match bits . Only PT_TCP  protocol_type
               support match_bit
         required: false
         choices: [ MB_ACK, MB_FIN, MB_RST, MB_SYN ]
+        elements: str
+        type: list
     source_port:
         description:
             - Applies to source port matching this filter. Only PT_SCTP,
               PT_TCP and PT_UDP Protocol types support source_port
         required: false
+        type: dict
     destination_port:
         description:
             - Applies to destination port matching this filter. Only
               PT_SCTP,PT_TCP and PT_UDP Protocol types support
               destination_port
         required: false
+        type: dict
     source_ip_address:
         description:
             - Applies to source IP Address/Subnet matching this
               extended traffic filter
         required: false
+        type: str
     source_ip_mask:
         description:
             - Net mask source_ip_address
         required: false
+        type: str
     destination_ip_address:
         description:
             - Applies to destination IP Address/Subnet matching this
               extended traffic filter
         required: false
+        type: str
+    destination_ip_mask:
+        description:
+            - Net mask destination_ip_address
+        required: false
+        type: str
     device_type:
         description:
             - Applies to device type matching this extended traffic filter
         required: false
+        type: str
     application_type:
         description:
             - Applies to application matching this extended traffic filter
         required: false
+        type: str
     precedence:
         description:
             - IP precedence flag
         required: false
-        choices: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+        type: int
     tos:
         description:
             - Tos value
         required: false
-        choices: [ 0, 2, 4, 8 ]
-    sequece_no:
+        type: int
+    sequence_no:
         description:
             - Sequence number for the traffic class configured
         required: false
+        default: -1
+        type: int
+    state:
+        description: To create or delete traffic class
+        choices: [ create, delete ]
+        required: False
+        default: create
+        type: str
 
     host:
         description: >
@@ -494,8 +525,7 @@ def run_module():
         class_name=dict(type='str', required=True),
         class_type=dict(type='str', required=False, default='QCT_IP_V4',
                         choices=['QCT_IP_V4', 'QCT_IP_V6']),
-        dscp_value=dict(type='int', reqquired=False,
-                        choices=[list(range(0, 64))]),
+        dscp_value=dict(type='int', required=False),
         state=dict(type='str', required=False, default='create',
                    choices=['create', 'delete']),
         sequence_no=dict(type='int', required=False, default=-1),
@@ -517,7 +547,7 @@ def run_module():
                                 'IT_MROUTER_ADVERTISEMENT',
                                 'IT_MROUTER_SOLICITATION',
                                 'IT_MROUTER_TERMINATION']),
-        match_bit=dict(type='list', required=False,
+        match_bit=dict(type='list', required=False, elements='str',
                        choices=['MB_ACK', 'MB_FIN', 'MB_RST', 'MB_SYN']),
         source_port=dict(type='dict', required=False),
         destination_port=dict(type='dict', required=False),
@@ -527,9 +557,8 @@ def run_module():
         destination_ip_mask=dict(type='str', required=False),
         device_type=dict(type='str', required=False,),
         application_type=dict(type='str', required=False),
-        precedence=dict(type='int', required=False,
-                        choices=[0, 1, 2, 3, 4, 5, 6, 7]),
-        tos=dict(type='int', required=False, choices=[0, 2, 4, 8]),
+        precedence=dict(type='int', required=False),
+        tos=dict(type='int', required=False),
     )
 
     module_args.update(arubaoss_argument_spec)
