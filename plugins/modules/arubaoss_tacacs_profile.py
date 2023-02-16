@@ -67,11 +67,13 @@ options:
                  TACACS+ servers. Used with the config_tacacs_profile
                  command. To delete, pass in empty string ''.
     required: False
+    default: ''
     type: str
   ip_address:
     description: TACACS Server IP Address. Used with the
                  config_tacacs_server command.
     required: False
+    default: ''
     type: str
   version:
     description: Server IP address version
@@ -82,6 +84,7 @@ options:
     description: Configure the server authentication key. Used with the
                  config_tacacs_server command.
     required: False
+    default: ''
     type: str
   is_oobm:
     description: Use oobm interface to connect the server. Used with the

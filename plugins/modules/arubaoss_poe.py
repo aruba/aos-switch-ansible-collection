@@ -45,6 +45,7 @@ options:
     port_id:
         description: The Port id
         required: False
+        default: ''
         type: str
     is_poe_enabled:
         description: The port PoE status
@@ -72,6 +73,7 @@ options:
     port_configured_type:
         description:  Port configured type
         required: False
+        default: ''
         type: str
     pre_standard_detect_enabled:
         description: pre_std_detect enable or disable
@@ -81,6 +83,7 @@ options:
     slot_name:
         description: The slot name
         required: False
+        default: ''
         type: str
     power_threshold_percentage:
         description: The power threshold percentage

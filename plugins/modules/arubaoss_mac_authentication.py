@@ -46,12 +46,14 @@ options:
     port_id:
         description: The port id to be configured on the switch
         required: False
+        default: ''
         type: str
     unauthorized_vlan_id:
         description: Unauthorized VLAN ID. If we are giving
                      unauthorized_vlan_id as 0,
                      it will remove the unauthorized_vlan_id configured
         required: False
+        default: 0
         type: int
     is_mac_authentication_enabled:
         description: Enables/disables MAC authentication on the Port

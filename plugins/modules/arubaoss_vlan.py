@@ -59,6 +59,7 @@ options:
         as empty string, default value (VLANx, where x is the vlan_id) will be
         configured. Empty string will not be accepted while modifying a Vlan"
         required: false
+        default: ''
         type: str
     status:
         description: the status of the VLAN
@@ -106,10 +107,12 @@ options:
     vlan_ip_address:
         description: IP Address to be configured on vlan
         required: False
+        default: ''
         type: str
     vlan_ip_mask:
         description: IP Mask for the IP Address configured
         required: False
+        default: ''
         type: str
     version:
         description: Version of IP Address (V6 is not supported via REST)
@@ -120,10 +123,12 @@ options:
     helper_addresses:
         description: DHCP helper address for the corresponding VLAN id
         required: False
+        default: ''
         type: str
     port_id:
         description: Port ID to be configured on the vlan
         required: False
+        default: ''
         type: str
     port_mode:
         description: Port modes to be configured

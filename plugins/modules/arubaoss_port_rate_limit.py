@@ -134,14 +134,17 @@ options:
                      rate_limit_in_percent will be null if rate_limit
                      is not configured
         required: False
+        default: ''
         type: str
     rate_limit_in_kbps:
         description: Rate limit in kbps
         required: False
+        default: 0
         type: int
     rate_limit_in_percent:
         description: Rate limit in percentage
         required: False
+        default: 0
         type: int
     config:
         description: Create or Delete Port Rate Limit

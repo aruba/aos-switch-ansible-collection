@@ -51,6 +51,7 @@ options:
     cmd_server_group:
         description: Server Group for commands Accounting Configuration
         required: False
+        default: ''
         type: str
     ntwk_accounting_method:
         description: Method for network Accounting Configuration
@@ -67,6 +68,7 @@ options:
     ntwk_server_group:
         description: Server Group for network Accounting Configuration
         required: False
+        default: ''
         type: str
     update_interval:
         description: Update interval for accounting

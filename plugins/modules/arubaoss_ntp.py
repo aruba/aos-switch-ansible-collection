@@ -67,6 +67,7 @@ options:
         description: The IPv4 address of the server used with
                      config_ntp_ipv4addr command
         required: False
+        default: ''
         type: str
     minpoll_value:
         description: Configures the minimum time interval in seconds
@@ -91,6 +92,7 @@ options:
         description: Sets the authentication key to use for this server
                      used with config_ntp_ipv4addr and config_ntp_keyId command
         required: False
+        default: 0
         type: int
     timesyncType:
         description: Updates the timesync type  used with
@@ -147,6 +149,7 @@ options:
         description: The string to be added to authentication KeyId
                      used with config_ntp_keyId command
         required: False
+        default: ''
         type: str
     use_oobm:
         description: Use the OOBM interface to connect to the server

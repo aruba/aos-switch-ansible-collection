@@ -77,6 +77,7 @@ options:
         description:
             - Sequence number for traffic class
         required: false
+        default: 0
         type: int
     state:
         description:

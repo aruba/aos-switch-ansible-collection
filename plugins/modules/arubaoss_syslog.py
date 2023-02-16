@@ -52,6 +52,7 @@ options:
         description:
             - Server description
         required: false
+        default: ''
         type: str
     protocol:
         description:
@@ -64,6 +65,7 @@ options:
         description:
             - Server port id to be configured
         required: false
+        default: 0
         type: int
     state:
         description:

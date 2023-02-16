@@ -56,6 +56,7 @@ options:
     cached_reauth_delay:
         description: Global 802.1x cached reauth delay
         required: False
+        default: 0
         type: int
     allow_gvrp_vlans:
         description:  allow GVRP vlans
@@ -70,6 +71,7 @@ options:
     port_id:
         description: Port ID
         required: False
+        default: ''
         type: str
     is_authenticator_enabled:
         description: 802.1X Authenticator Port admin status
@@ -86,43 +88,53 @@ options:
         description: 802.1X unauthorized VLAN ID. Displays 0 if not
                      configured. Use 0 to reset unauthorized_vlan_id.
         required: False
+        default: 0
         type: int
     client_limit:
         description: Client limit
         required: False
+        default: 0
         type: int
     quiet_period:
         description: Quiet Period
         required: False
+        default: 0
         type: int
     tx_period:
         description: Tx Period
         required: False
+        default: 0
         type: int
     supplicant_timeout:
         description: Supplicant timeout
         required: False
+        default: 0
         type: int
     server_timeout:
         description: Server timeout
         required: False
+        default: 0
         type: int
     max_requests:
         description: Max requests
         required: False
+        default: 0
         type: int
     reauth_period:
         description: Reauth Period
         required: False
+        default: 0
         type: int
     authorized_vlan_id:
         description: 802.1X authorized VLAN ID. Displays 0 if not configured.
                      Use 0 to reset authorized_vlan_id
         required: False
+        default: 0
         type: int
     logoff_period:
         description: Logoff Period
         required: False
+        default: 0
         type: int
     unauth_period:
         description: Unauth period
@@ -154,6 +166,7 @@ options:
     server_group:
         description: The server group
         required: False
+        default: ''
         type: str
     controlled_direction:
         description: Traffic Controlled direction

@@ -46,6 +46,7 @@ options:
         description:
             - url for captive portal server
         required: false
+        default: ''
         type: str
     enable_captive_portal:
         description:

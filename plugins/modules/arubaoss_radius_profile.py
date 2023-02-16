@@ -82,6 +82,7 @@ options:
                     the default authentication key for all RADIUS.
         Input key as empty string to reset the value
       type: str
+      default: ''
       required: False
     tracking_uname:
       description: The RADIUS service tracking username
@@ -106,11 +107,13 @@ options:
         config_radius_serverGroup - Radius server hosts IP address.
         Minimum is 1 servers, and maximum is 3"
       type: str
+      default: ''
       required: False
     shared_secret:
       description: "Used with config_radius_server command -
                     The Radius server secret key"
       type: str
+      default: ''
       required: False
     version:
       description: Version of the IP Address used  (V6 is not supported via REST)
@@ -121,6 +124,7 @@ options:
     server_group_name:
       description: the AAA Server Group name
       required: False
+      default: ''
       type: str
     time_window_type:
       description: Time window type

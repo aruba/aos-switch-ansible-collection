@@ -165,6 +165,7 @@ options:
   sequence_no:
     description: Sequence number for the ACL rule to be configured
     required: false
+    default: 0
     type: int
   state:
     description: Create or deletes acl policy.

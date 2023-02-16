@@ -50,12 +50,15 @@ options:
         type: 'str'
     group_name:
         description: Group name for the autorization group
+        default: ''
         type: 'str'
     seq_num:
         description: The sequence number. <1-2147483647>
+        default: 0
         type: 'int'
     match_cmd:
         description: Specify the command to match.
+        default: ''
         type: 'str'
     cmd_permission:
         description: Permit or deny the match command

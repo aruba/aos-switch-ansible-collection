@@ -39,18 +39,22 @@ options:
     hostname:
         description: The system name
         required: False
+        default: ''
         type: str
     location:
         description: Location where the system is installed
         required: False
+        default: ''
         type: str
     contact:
         description: Contact information for the system.
         required: False
+        default: ''
         type: str
     domain_name:
         description: Regulatory domain where the system is operating on
         required: False
+        default: ''
         type: str
     version:
         description: Version of ip address
@@ -70,6 +74,7 @@ options:
                      DOM_CLOUD_WITH_SUPPORT. This won't be available for
                      non Central uses case
         required: False
+        default: ''
         type: str
     uplink_ip:
         description: Ip address of Vlan via which central is connected. This is
@@ -77,11 +82,13 @@ options:
                      DOM_CLOUD_WITH_SUPPORT. This won't be available for non
                      Central uses case
         required: False
+        default: ''
         type: str
     default_gateway_ip:
         description: The global IPV4 default gateway. Input octets
                      as 0.0.0.0 to reset.
         required: False
+        default: ''
         type: str
 
     host:

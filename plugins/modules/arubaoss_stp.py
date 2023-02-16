@@ -62,6 +62,7 @@ options:
     port_id:
         description: ID of the port
         required: False
+        default: ''
         type: str
     is_enable_admin_edge_port:
         description: Enable/Disable admin-edge-port

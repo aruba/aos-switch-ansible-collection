@@ -72,11 +72,13 @@ options:
                  Used with config_authentication_local_user
       command.
     type: 'str'
+    default: ''
     required: False
   group_name:
     description: Specify the group for a username.
                  Used with config_authentication_local_user
       command.
+    default: ''
     type: 'str'
   password_type:
     description: Specify the password type.
@@ -90,6 +92,7 @@ options:
     description: Specify the password.
                  Used with config_authentication_local_user
       command.
+    default: ''
     type: 'str'
   min_pwd_len:
     description: Configures the minimum password length (1-64) for a user. Used with

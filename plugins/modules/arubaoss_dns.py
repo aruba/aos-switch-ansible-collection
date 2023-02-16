@@ -47,36 +47,42 @@ options:
           all DNS configurations need to be made in a single module call,
           to remove configuration pass in empty string ""
         type: str
+        default: ''
         required: False
     dns_domain_names_2:
         description: The second  manually configured DNS server domain name,
           all DNS configurations need to be made in a single module call,
           to remove configuration pass in empty string ""
         type: str
+        default: ''
         required: False
     dns_domain_names_3:
         description: The third  manually configured DNS server domain name,
           all DNS configurations need to be made in a single module call,
           to remove configuration pass in empty string ""
         type: str
+        default: ''
         required: False
     dns_domain_names_4:
         description: The fourth  manually configured DNS server domain name,
           all DNS configurations need to be made in a single module call,
           to remove configuration pass in empty string ""
         type: str
+        default: ''
         required: False
     dns_domain_names_5:
         description: The fifth  manually configured DNS server domain name,
           all DNS configurations need to be made in a single module call,
           to remove configuration pass in empty string ""
         type: str
+        default: ''
         required: False
     server_1:
         description: The first manually configured DNS Server IP address
           with priority 1, all DNS configurations need to be made in a
           single module call, to remove configuration pass in empty string ""
         type: str
+        default: ''
         required: False
     version_1:
         description: The ip version of first manually configured DNS Server.
@@ -90,6 +96,7 @@ options:
           with priority 2, all DNS configurations need to be made in a
           single module call
         type: str
+        default: ''
         required: False
     version_2:
         description: The ip version of second manually configured DNS Server.
@@ -103,6 +110,7 @@ options:
           with priority 3, all DNS configurations need to be made in a
           single module call, to remove configuration pass in empty string ""
         type: str
+        default: ''
         required: False
     version_3:
         description: The ip version of third manually configured DNS Server.
@@ -116,6 +124,7 @@ options:
           with priority 4, all DNS configurations need to be made in a single
           module call, to remove configuration pass in empty string ""
         type: str
+        default: ''
         required: False
     version_4:
         description: The ip version of fourth manually configured DNS Server.

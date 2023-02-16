@@ -47,6 +47,7 @@ options:
             - Set the number of seconds before disabled ports are
               automatically re-enabled
         required: false
+        default: 0
         type: int
     transmit_interval:
         description:

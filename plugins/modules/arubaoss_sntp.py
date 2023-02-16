@@ -68,6 +68,7 @@ options:
     sntp_ip_address:
         description: IP Address to be configured on sntp server priority
         required: False
+        default: ''
         type: str
     version:
         description: Version of IP Address (V6 is not supported via REST)

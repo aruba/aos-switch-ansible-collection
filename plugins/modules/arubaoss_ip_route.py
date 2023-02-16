@@ -66,12 +66,14 @@ options:
         description:
             - name for ip route being configured
         required: false
+        default: ''
         type: str
     tag:
         description:
             - Tag that can be used to filter redistribution of this route
               via route-maps
         required: false
+        default: 0
         type: int
     logging:
         description:
@@ -89,6 +91,7 @@ options:
         description:
             - IP address of the gateway to forward traffic when route mode
                 is IRM_GATEWAY
+        default: ''
         required: false
         type: str
     mask:
@@ -105,11 +108,13 @@ options:
         description:
             - Enable BFD for static routes. Only for Lava and Bolt platforms.
         required: false
+        default: ''
         type: str
     vlan_name:
         description:
             - vlan id/name to which route is being applied
         required: false
+        default: ''
         type: str
     state:
         description:
