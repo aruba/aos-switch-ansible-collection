@@ -41,12 +41,15 @@ options:
       choice config_tacacs_server - Configure a TACACS+ server.
       choice config_tacacs_profile - Configure global TACACS+ profile.
     choices: [ config_tacacs_profile, config_tacacs_server ]
-    required: True
+    default: config_tacacs_profile
+    required: False
+    type: str
   config:
     description: To configure or unconfigure the required command.
     choices: [ create, delete ]
     default: create
     required: False
+    type: str
   dead_time:
     description: Dead time for unavailable TACACS+ servers. Used with the
                  config_tacacs_profile command.
@@ -69,6 +72,11 @@ options:
     description: TACACS Server IP Address. Used with the
                  config_tacacs_server command.
     required: False
+    type: str
+  version:
+    description: Server IP address version
+    default: IAV_IP_V4
+    required: false
     type: str
   auth_key:
     description: Configure the server authentication key. Used with the
@@ -357,8 +365,8 @@ def run_module():
         dead_time=dict(type='int', required=False, default=0),
         time_out=dict(type='int', required=False, default=5),
         ordering_sequence=dict(type='bool', required=False, default=False),
-        global_auth_key=dict(type='str', required=False, default=""),
-        auth_key=dict(type='str', required=False, default=""),
+        global_auth_key=dict(type='str', required=False, default="", no_log=True),
+        auth_key=dict(type='str', required=False, default="", no_log=True),
         ip_address=dict(type='str', required=False, default=""),
         version=dict(type='str', required=False, default="IAV_IP_V4"),
         is_oobm=dict(type='bool', required=False, default=False),
