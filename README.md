@@ -40,7 +40,7 @@ ansible-galaxy collection install arubanetworks.aos_switch
 Inventory Variables
 --------------
 
-The variables that should be defined in your inventory for your AOS-CX host are:
+The variables that should be defined in your inventory for your AOS-Switch host are:
 
 * `ansible_host`: IP address of switch in `A.B.C.D` format. For IPv6 hosts use a string and enclose in square brackets E.G. `'[2001::1]'` 
 * `ansible_user`: Username for switch in `plaintext` format  
