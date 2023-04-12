@@ -90,8 +90,8 @@ add `arubanetworks.aos_switch` to your list of collections:
        tasks:
          - name: Create VLAN 300
            arubaoss_vlan:
-             vlan_id: 400
-             name: "vlan400"
+             vlan_id: 300
+             name: "vlan300"
              config: "create"
              command: config_vlan
 ```
@@ -148,7 +148,7 @@ sets the `ansible_connection` value accordingly):
   collections:
     - arubanetworks.aos_switch
   tasks:
-    - name: Create VLAN 200
+    - name: Create VLAN 300
       arubaoss_vlan:
         vlan_id: 300
         name: "vlan300"
