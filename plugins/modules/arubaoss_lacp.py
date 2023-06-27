@@ -57,9 +57,9 @@ Author:
 '''  # NOQA
 
 EXAMPLES = '''
-      - name: Resulting config - trunk 9 Trk3 lacp
+      - name: Resulting config - trunk 1/2 Trk3 lacp
        arubaoss_lacp:
-          port_id: 9
+          port_id: 1/2
           trunk_group: trk3
           lacp: True
 
@@ -68,10 +68,10 @@ EXAMPLES = '''
           port_id: 13
           trunk_group: trk20
           lacp: False
-       
-      - name: Resulting config - trunk 10 Trk20 trunk
+      
+      - name: Resulting config - trunk A1 Trk20 trunk
        arubaoss_lacp:
-          port_id: 10
+          port_id: A1
           trunk_group: Trk20
           lacp: False
 
@@ -90,7 +90,7 @@ EXAMPLES = '''
       
       - name: DELETE remove port from Trk50
        arubaoss_lacp:
-          port_id: 15
+          port_id: 16
           trunk_group: Trk50
           lacp: True
           state: delete
@@ -110,8 +110,9 @@ def config_trunk_port(module):
 
     data = {'port_id': params['port_id'],
             'trunk_group': params['trunk_group']}
-
-    match_port = 'false'            
+    
+    #check if the port to be configured is lacp or trunk  
+    match_port = 'false'
     if module.params['lacp'] == 'True':
         my_trk_url = '/lacp/port'
         my_trk_ele = 'lacp_element'
@@ -123,6 +124,8 @@ def config_trunk_port(module):
         other_trk_url = '/lacp/port'
         other_trk_ele = 'lacp_element'
     
+    #trunk_element has both lacp and trunk element but lacp has only lacp element
+    #so checking if my_ele is oresent in other_ele
     trunk_match = 'False'
     port_id_match = 'False'
     if params['state'] == 'create':
@@ -138,13 +141,12 @@ def config_trunk_port(module):
         for elem in trk_data_other[other_trk_ele]:
             if elem['trunk_group'].lower() == trunk_group and \
                 trunk_match == 'False':
-                return {'msg': 'Specified trunk type is inconsistent \
-with existing trunk group'}
+                return {'msg': 'Specified trunk type is inconsistent with existing trunk group'}
             elif elem['port_id'].lower == port_id and \
                 port_id_match == 'False':
-                return {'msg': 'Specified port already belongs to \
-another trunk type'}
+                return {'msg': 'Specified port already belongs to another trunk type'}
     
+    #checking if other_ele is oresent in my_ele
     my_trunk_match = 'False'
     my_port_id_match = 'False'
     check_config = get_config(module, my_trk_url)
@@ -157,7 +159,7 @@ another trunk type'}
             if module.params['lacp'] == 'True':
                 my_trunk_match = 'False'
             else:
-                my_trunk_match = 'True'    
+                my_trunk_match = 'True'
                 return {'msg': 'Trunk to be configured is already in use'}
         elif element['port_id'].lower() == port_id and \
             params['state'] == 'create':
@@ -171,10 +173,9 @@ another trunk type'}
                      match_port = 'true'
                 elif ele['port_id'].lower() == port_id and \
                      params['state'] == 'create':
-                     return {'msg': 'Specified Port belongs to another  \
-trunk group {}'.format(ele['port_id'].lower()), 'changed': False, \
-'failed': False}
+                     return {'msg': 'Specified Port belongs to another  trunk group {}'.format(ele['port_id'].lower()), 'changed': False, 'failed': False}
     
+    #A trunk group can have maximum of 8 ports
     if params['state'] == 'create' and match_port == 'false':
         ports_sme_trunk = 0
         check_config = get_config(module, my_trk_url)
@@ -185,20 +186,19 @@ trunk group {}'.format(ele['port_id'].lower()), 'changed': False, \
                     ports_sme_trunk += 1
                     if ports_sme_trunk > 7:
                         return {'msg': 'Max ports in same trunk'}
-    
+
     method = 'POST'
     if params['state'] == 'delete':
         method = 'DELETE'
         my_trk_url = my_trk_url + '/' + str(params['port_id'])
 
+    #if trying to configure already configured port or trying to delete an unconfigured port
     if match_port == 'true':
          if method == 'POST':
-             return {'msg': 'Specified trunk port already configured',
-                     'changed': False, 'failed': False}
+             return {'msg': 'Specified trunk port already configured','changed': False, 'failed': False}
     else:
         if method == 'DELETE':
-            return {'msg': 'Specified trunk port does not exists',
-                    'changed': False, 'failed': False}
+            return {'msg': 'Specified trunk port does not exists','changed': False, 'failed': False}
 
     result = run_commands(module, my_trk_url, data, method)
 
@@ -223,7 +223,8 @@ def run_module():
 
     if module.check_mode:
         module.exit_json(**result)
-
+    
+    #trying to configure port not present in switch
     port_url = '/ports/' + str(module.params['port_id'])
     check_port = get_config(module, port_url)
     if not check_port:
