@@ -124,8 +124,9 @@ def config_trunk_port(module):
         other_trk_url = '/lacp/port'
         other_trk_ele = 'lacp_element'
     
-    #trunk_element has both lacp and trunk element but lacp has only lacp element
-    #so checking if my_ele is oresent in other_ele
+    #trunk_element has both lacp and trunk element but lacp has only lacp element \
+    #so using trunk_match and port_id_match to find if the lacp port/group is present \
+    #in trunk group
     trunk_match = 'False'
     port_id_match = 'False'
     if params['state'] == 'create':
@@ -133,6 +134,8 @@ def config_trunk_port(module):
         trk_data_other = module.from_json(to_text(trk_config))
         check_config = get_config(module, my_trk_url)
         old_trk_data = module.from_json(to_text(check_config))
+    #if the port is configured in lacp group, then checking if lacp port/group is \
+    # present in trunk_group and vice versa
         for ele in old_trk_data[my_trk_ele]:
             if ele['trunk_group'].lower() == trunk_group:
                 trunk_match = 'True'
@@ -146,7 +149,9 @@ def config_trunk_port(module):
                 port_id_match == 'False':
                 return {'msg': 'Specified port already belongs to another trunk type'}
     
-    #checking if other_ele is oresent in my_ele
+    #trunk_element has both lacp and trunk element but lacp has only lacp element \
+    #so using my_trunk_match and my_port_id_match to find if the lacp port/group is present \
+    #in trunk group
     my_trunk_match = 'False'
     my_port_id_match = 'False'
     check_config = get_config(module, my_trk_url)
@@ -165,6 +170,8 @@ def config_trunk_port(module):
             params['state'] == 'create':
             my_port_id_match = 'True'
             return {'msg': 'Port to be configured is already in use'}
+    #checking if the lacp port/group to be configured is already configured as \
+    #part of lacp port/group
     if old_trk_data:
         for ele in old_trk_data[my_trk_ele]:
             if  my_trunk_match == 'False' or  my_port_id_match == 'False':
