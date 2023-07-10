@@ -520,9 +520,8 @@ def config_ntp_ipv4addr(module):
     except Exception:
         check_presence = get_config(module, "/dns")
         newdata = json.loads(check_presence)
-        value = [newdata["server_1"], newdata["server_2"], newdata["server_3"],
-                 newdata["server_4"]]
-        if value.count(None) == 4:
+        value = [ newdata[x] for x in newdata if "server_" in x ]
+        if value.count(None) == len(value):
             return {
                 'msg': 'A DNS server must be configured before configuring '
                 'NTP unicast server name', 'changed': False, 'failed': True}
