@@ -42,7 +42,7 @@ class Cliconf(CliconfBase):
         super(Cliconf, self).__init__(*args, **kwargs)
 
     @enable_mode
-    def get_config(self, source='running', format='text', flags=None):
+    def get_config(self, source='running', flags=None, format='text'):
         '''
         Get the switch config
         '''
