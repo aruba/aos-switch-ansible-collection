@@ -78,30 +78,30 @@ EXAMPLES = '''
        arubaoss_aaa_authorization:
          authorization_method: "AZM_TACACS"
 
-      - name: Create Authorization group
-        arubaoss_aaa_authorization:
-          command: authorization_group
-          group_name: "cool"
-          seq_num: 500
-          match_cmd: "show running-config"
-          cmd_permission: "AZP_PERMIT"
-          is_log_enabled: "true"
+     - name: Create Authorization group
+       arubaoss_aaa_authorization:
+         command: authorization_group
+         group_name: "cool"
+         seq_num: 500
+         match_cmd: "show running-config"
+         cmd_permission: "AZP_PERMIT"
+         is_log_enabled: "true"
 
-      - name: Create Authorization group
-        arubaoss_aaa_authorization:
-          command: authorization_group
-          group_name: "cool"
-          seq_num: 600
-          match_cmd: "show version"
-          cmd_permission: "AZP_DENY"
-          is_log_enabled: "false"
+     - name: Create Authorization group
+       arubaoss_aaa_authorization:
+         command: authorization_group
+         group_name: "cool"
+         seq_num: 600
+         match_cmd: "show version"
+         cmd_permission: "AZP_DENY"
+         is_log_enabled: "false"
 
-      - name: Delete Authorization group
-        arubaoss_aaa_authorization:
-          command: authorization_group
-          group_name: "cool"
-          seq_num: 500
-          config: "delete"
+     - name: Delete Authorization group
+       arubaoss_aaa_authorization:
+         command: authorization_group
+         group_name: "cool"
+         seq_num: 500
+         config: "delete"
 '''
 
 RETURN = '''
