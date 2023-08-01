@@ -44,11 +44,13 @@ class ActionModule(_ActionModule):
 
             display.vvvv('connection transport is %s for %s'
                          % (transport, self._play_context.remote_addr))
-            if not provider.get('api_version') is None:
+            if provider.get('api_version') != "None":
                 api = provider.get('api_version')
                 if api not in ['v1.0', 'v2.0', 'v2.1', 'v2.2',
                                'v3.0', 'v3.1', 'v4.0', 'v5.0']:
-                    provider['api_version'] = None
+                    # Latest API version is discovered in another
+                    # function - this is a backup in case failure
+                    provider['api_version'] = "v6.0"
                     display.vvvv('%s is not valid api version.'
                                  'using aossapi v6.0 instead' % api)
                 else:
