@@ -50,6 +50,7 @@ options:
     choices: ['config_authentication', 'config_authentication_console',
       'config_authentication_ssh', 'config_authentication_local_user']
     required: False
+    type: 'str'
   primary_method:
     description: The primary authentication method,
                  used with config_authentication_console
@@ -57,6 +58,7 @@ options:
     choices: ['PAM_LOCAL', 'PAM_TACACS']
     default: PAM_LOCAL
     required: False
+    type: 'str'
   secondary_method:
     description: The secondary authentication method,
                  used with config_authentication_console
@@ -64,16 +66,19 @@ options:
     choices: ['SAM_NONE', 'SAM_LOCAL']
     default: SAM_NONE
     required: False
+    type: 'str'
   local_user_name:
     description: Create or remove a local user account.
                  Used with config_authentication_local_user
       command.
     type: 'str'
+    default: ''
     required: False
   group_name:
     description: Specify the group for a username.
                  Used with config_authentication_local_user
       command.
+    default: ''
     type: 'str'
   password_type:
     description: Specify the password type.
@@ -82,21 +87,29 @@ options:
     choices: ["PET_SHA1","PET_PLAIN_TEXT", "PET_SHA256"]
     required: False
     default: "PET_SHA1"
+    type: 'str'
   user_password:
     description: Specify the password.
                  Used with config_authentication_local_user
       command.
+    default: ''
     type: 'str'
   min_pwd_len:
-    description: Configures the minimum password length for a user. Used with
+    description: Configures the minimum password length (1-64) for a user. Used with
       config_authentication_local_user command.
-    type: 'int <1-64>'
+    type: 'int'
     default: 8
   aging_period:
     description: Configures the password aging time for a user. Used with
       config_authentication_local_user command.
     type: int
     default: 0
+  config:
+    description: Create or Delete Authentication
+    choices: ['create', 'delete']
+    default: create
+    type: str
+    required: False
 
   host:
       description: >
@@ -476,7 +489,7 @@ def run_module():
                            choices=["PET_SHA1",
                                     "PET_PLAIN_TEXT",
                                     "PET_SHA256"]),
-        user_password=dict(type='str', required=False, default=""),
+        user_password=dict(type='str', required=False, default="", no_log=True),
         min_pwd_len=dict(type='int', required=False, default=8),
         aging_period=dict(type='int', required=False, default=0),
     )

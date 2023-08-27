@@ -40,41 +40,49 @@ options:
         description: DNS Configuration Mode, default is DCM_DHCP
         choices: [DCM_DHCP, DCM_MANUAL, DCM_DISABLED]
         required: False
+        type: str
+        default: 'DCM_MANUAL'
     dns_domain_names:
         description: The first  manually configured DNS server domain name,
           all DNS configurations need to be made in a single module call,
           to remove configuration pass in empty string ""
         type: str
+        default: ''
         required: False
     dns_domain_names_2:
         description: The second  manually configured DNS server domain name,
           all DNS configurations need to be made in a single module call,
           to remove configuration pass in empty string ""
         type: str
+        default: ''
         required: False
     dns_domain_names_3:
         description: The third  manually configured DNS server domain name,
           all DNS configurations need to be made in a single module call,
           to remove configuration pass in empty string ""
         type: str
+        default: ''
         required: False
     dns_domain_names_4:
         description: The fourth  manually configured DNS server domain name,
           all DNS configurations need to be made in a single module call,
           to remove configuration pass in empty string ""
         type: str
+        default: ''
         required: False
     dns_domain_names_5:
         description: The fifth  manually configured DNS server domain name,
           all DNS configurations need to be made in a single module call,
           to remove configuration pass in empty string ""
         type: str
+        default: ''
         required: False
     server_1:
         description: The first manually configured DNS Server IP address
           with priority 1, all DNS configurations need to be made in a
           single module call, to remove configuration pass in empty string ""
         type: str
+        default: ''
         required: False
     version_1:
         description: The ip version of first manually configured DNS Server.
@@ -82,11 +90,13 @@ options:
         choices: [IAV_IP_V4]
         type: str
         required: False
+        default: 'IAV_IP_V4'
     server_2:
         description: The second manually configured DNS Server IP address
           with priority 2, all DNS configurations need to be made in a
           single module call
         type: str
+        default: ''
         required: False
     version_2:
         description: The ip version of second manually configured DNS Server.
@@ -94,11 +104,13 @@ options:
         choices: [IAV_IP_V4]
         type: str
         required: False
+        default: 'IAV_IP_V4'
     server_3:
         description: The third manually configured DNS Server IP address
           with priority 3, all DNS configurations need to be made in a
           single module call, to remove configuration pass in empty string ""
         type: str
+        default: ''
         required: False
     version_3:
         description: The ip version of third manually configured DNS Server.
@@ -106,11 +118,13 @@ options:
         choices: [IAV_IP_V4]
         type: str
         required: False
+        default: 'IAV_IP_V4'
     server_4:
         description: The fourth manually configured DNS Server IP address
           with priority 4, all DNS configurations need to be made in a single
           module call, to remove configuration pass in empty string ""
         type: str
+        default: ''
         required: False
     version_4:
         description: The ip version of fourth manually configured DNS Server.
@@ -118,6 +132,7 @@ options:
         choices: [IAV_IP_V4]
         type: str
         required: False
+        default: 'IAV_IP_V4'
 
     host:
         description: >

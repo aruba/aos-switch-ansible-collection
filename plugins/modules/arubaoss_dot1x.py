@@ -46,99 +46,149 @@ options:
                  authenticator_port_initialize,
                  authenticator_port_reauthenticate ]
         required: False
+        type: str
+        default: 'dot1x_config'
     is_dot1x_enabled:
         description: Global 802.1x admin status
         required: False
+        type: bool
+        default: False
     cached_reauth_delay:
         description: Global 802.1x cached reauth delay
         required: False
+        default: 0
+        type: int
     allow_gvrp_vlans:
         description:  allow GVRP vlans
         required: False
+        type: bool
+        default: False
     use_lldp_data:
         description: Use LLDP data
         required: False
+        type: bool
+        default: False
     port_id:
         description: Port ID
         required: False
+        default: ''
+        type: str
     is_authenticator_enabled:
         description: 802.1X Authenticator Port admin status
         required: False
+        type: bool
+        default: False
     control:
         description: 802.1X Authenticator Port operational control
         required: False
         choices: [ DAPC_UNAUTHORIZED, DAPC_AUTO, DAPC_AUTHORIZED ]
+        type: str
+        default: DAPC_AUTO
     unauthorized_vlan_id:
         description: 802.1X unauthorized VLAN ID. Displays 0 if not
                      configured. Use 0 to reset unauthorized_vlan_id.
         required: False
+        default: 0
+        type: int
     client_limit:
         description: Client limit
         required: False
+        default: 0
+        type: int
     quiet_period:
         description: Quiet Period
         required: False
+        default: 0
+        type: int
     tx_period:
         description: Tx Period
         required: False
+        default: 0
+        type: int
     supplicant_timeout:
         description: Supplicant timeout
         required: False
-        default: 30
+        default: 0
+        type: int
     server_timeout:
         description: Server timeout
         required: False
-        default: 300
+        default: 0
+        type: int
     max_requests:
         description: Max requests
         required: False
-        default: 2
+        default: 0
+        type: int
     reauth_period:
         description: Reauth Period
         required: False
+        default: 0
+        type: int
     authorized_vlan_id:
         description: 802.1X authorized VLAN ID. Displays 0 if not configured.
                      Use 0 to reset authorized_vlan_id
         required: False
+        default: 0
+        type: int
     logoff_period:
         description: Logoff Period
         required: False
-        default: 300
+        default: 0
+        type: int
     unauth_period:
         description: Unauth period
         required: False
         default: 0
+        type: int
     cached_reauth_period:
         description: Cached reauth period
         required: False
         default: 0
+        type: int
     enforce_cache_reauth:
         description: Authenticator enforce canched reauthentication
         required: False
+        type: bool
+        default: False
     primary_authentication_method:
         description: The primary authentication method
         choices: [ DPAM_LOCAL, DPAM_EAP_RADIUS, DPAM_CHAP_RADIUS ]
         required: False
+        type: str
+        default: DPAM_LOCAL
     secondary_authentication_method:
         description: The secondary authentication method
         choices: [ DSAM_NONE, DSAM_AUTHORIZED, DSAM_CACHED_REAUTH ]
         required: False
+        type: str
+        default: 'DSAM_NONE'
     server_group:
         description: The server group
         required: False
+        default: ''
+        type: str
     controlled_direction:
         description: Traffic Controlled direction
-        choices: [ DCD_IN, DCD_OUT ]
+        choices: [ DCD_BOTH, DCD_IN ]
         required: False
+        type: str
+        default: 'DCD_BOTH'
     allow_mbv:
         description: Configuration of MAC based Vlans
         required: False
+        type: bool
+        default: False
     allow_mixed_users:
         description: Allowed users
         required: False
+        type: bool
+        default: False
     is_port_speed_vsa_enabled:
         description: Is port speed VSA enabled
         required: False
+        type: bool
+        default: False
 
     host:
         description: >

@@ -38,9 +38,8 @@ description:
 options:
     command:
         description: command to be executed
-        required: true
         type: str
-
+        required: true
     host:
         description: >
             Specifies the DNS host name or address for connecting to the remote
@@ -228,7 +227,7 @@ Returns
 
 def run_module():
     module_args = dict(
-        command=dict(type='str', required=False, default=''),
+        command=dict(type='str', required=True),
     )
 
     module_args.update(arubaoss_argument_spec)

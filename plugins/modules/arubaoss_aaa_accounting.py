@@ -30,7 +30,7 @@ module: arubaoss_aaa_accounting
 
 short_description: implements rest api for AAA Accounting configuration
 
-version_added: "2.4"
+version_added: "2.4.0"
 
 description:
     - "This implements rest apis which can be used to configure AAA Accounting"
@@ -39,22 +39,42 @@ options:
     cmd_accounting_method:
         description: Method for commands Accounting Configuration
         choices: [ AME_NONE, AME_TACACS, AME_RADIUS ]
+        default: AME_NONE
         required: False
+        type: str
     cmd_accounting_mode:
         description: Mode for commands Accounting Configuration
         choices: [ AMO_NONE, AMO_STOP_ONLY ]
+        default: AMO_NONE
         required: False
+        type: str
+    cmd_server_group:
+        description: Server Group for commands Accounting Configuration
+        required: False
+        default: ''
+        type: str
     ntwk_accounting_method:
         description: Method for network Accounting Configuration
         choices: [ AME_NONE, AME_TACACS, AME_RADIUS ]
+        default: AME_NONE
         required: False
+        type: str
     ntwk_accounting_mode:
         description: Mode for network Accounting Configuration
         choices: [ AMO_NONE, AMO_STOP_ONLY, AMO_START_STOP ]
+        default: AMO_NONE
         required: False
+        type: str
+    ntwk_server_group:
+        description: Server Group for network Accounting Configuration
+        required: False
+        default: ''
+        type: str
     update_interval:
         description: Update interval for accounting
+        default: '0'
         required: False
+        type: int
 
     host:
         description: >

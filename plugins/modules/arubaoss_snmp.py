@@ -40,58 +40,79 @@ options:
         description:
             - snmp community name. Required when configuring community
         required: false
+        type: str
     access_type:
         description:
             - Type of access required. Operator or Manager.
         required: false
         default: UT_OPERATOR
         choices: [ UT_OPERATOR, UT_MANAGER ]
+        type: str
     restricted:
         description:
             - Extent of access restricted or unrestricted
         required: false
+        default: True
+        type: bool
     host_ip:
         description:
             - Snmp host ip address
         required: false
+        type: str
     version:
         description:
             - Host IP address version
         required: false
-        default: IAP_IP_V4
-        choices: [ IAP_IP_V4 ]
+        default: IAV_IP_V4
+        type: str
     informs:
         description:
             - Enable/disables informs to host
         required: false
+        default: False
+        type: bool
     inform_timeout:
         description:
             - Timeout for informs
         required: false
         default: 15
-    inform_retires:
+        type: int
+    inform_retries:
         description:
             - Retries required for informs
         required: false
         default: 3
+        type: int
     trap_level:
         description:
             - Trap level for host
         required: false
         default: STL_NONE
         choices: [ STL_ALL, STL_CRITICAL, STL_NOT_INFO, STL_DEBUG, STL_NONE ]
+        type: str
     use_oobm:
         description:
             - Enable/disable oobm port usage
         required: false
+        default: False
+        type: bool
     location:
         description:
             - Server location
         required: false
+        type: str
     contact:
         description:
             - Server contact
         required: false
+        type: str
+    state:
+        description:
+            - To enable/disable SNMP.
+        required: false
+        choices: [ create, delete ]
+        default: create
+        type: str
 
     host:
         description: >

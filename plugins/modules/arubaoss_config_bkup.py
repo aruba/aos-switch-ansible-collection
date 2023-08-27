@@ -44,58 +44,70 @@ options:
         description:
             - configuration file name
         required: true
+        type: str
     config_type:
         description:
             - Type of configuration file. If this option is used, configuration
               file is saved to the system.
         choices: [CT_RUNNING_CONFIG, CT_STARTUP_CONFIG]
         required: false
+        type: str
     server_type:
         description:
             - server type from/to which configuration needs to be copied
         choices: [ST_FLASH, ST_TFTP, ST_SFTP]
         required: false
+        type: str
     forced_reboot:
         description:
             - Apply the configuration with reboot if the configuration
               has reboot required commands
         required: false
-    recover_mode:
+        type: bool
+    recovery_mode:
         description:
             - To enable or disable recovery mode. Not applicable if
               is_forced_reboot_enabled is true
         required: false
+        type: bool
     server_name:
         description:
             - Server name in which file is stored. Not applicable for ST_FLASH.
         required: false
+        type: str
     server_ip:
         description:
             - Server ip address in which file is stored. Not applicable for
               ST_FLASH
         required: false
+        type: str
     sftp_port:
         description:
             - TCP port number. Applicable for ST_SFTP.
         default: 22
         required: false
+        type: int
     wait_for_apply:
         description:
             - Wait if there is already an ongoing configuration change
               on device.
         default: True
         required: false
+        type: bool
     state:
         description:
             - Adding or reading data
         default: create
         required: false
+        type: str
     user_name:
-            description: SFTP server Username
-            required: false
+        description: SFTP server Username
+        required: false
+        type: str
     server_passwd:
-            description: SFTP server password
-            required: false
+        description: SFTP server password
+        required: false
+        type: str
 
     host:
         description: >

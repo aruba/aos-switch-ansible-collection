@@ -42,28 +42,33 @@ options:
         description:
             - user_name that needs to be configured.
         required: true
+        type: str
     user_type:
         description:
             - Type of user being configured.
-        required: true
+        required: false
         choices: [ UT_OPERATOR, UT_MANAGER ]
         default: UT_OPERATOR
+        type: str
     user_password:
         description:
             - user password in plain text or sha1
         required: true
+        type: str
     password_type:
         description:
             - type of password being conifgured
-        required: true
+        required: false
         choices: [ PET_PLAIN_TEXT, PET_SHA1 ]
         default: PET_PLAIN_TEXT
+        type: str
     state:
         description:
             - Enable or disable
         choices: [ create, delete ]
         default: create
         required: false
+        type: str
 
     host:
         description: >

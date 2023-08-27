@@ -82,6 +82,7 @@ options:
                     the default authentication key for all RADIUS.
         Input key as empty string to reset the value
       type: str
+      default: ''
       required: False
     tracking_uname:
       description: The RADIUS service tracking username
@@ -92,7 +93,9 @@ options:
       description: "The RADIUS server for if tracking is enabled.
                     The flag is_tracking_enabled, cannot set to
                     true when dead_time is configured"
+      default: False
       required: False
+      type: bool
     cppm_details:
       description: "Username and password combination of CPPM which is used to
         login to CPPM to download user roles, dictionary should be in the
@@ -104,30 +107,61 @@ options:
         config_radius_serverGroup - Radius server hosts IP address.
         Minimum is 1 servers, and maximum is 3"
       type: str
+      default: ''
       required: False
     shared_secret:
       description: "Used with config_radius_server command -
                     The Radius server secret key"
       type: str
+      default: ''
       required: False
     version:
       description: Version of the IP Address used  (V6 is not supported via REST)
       default: IAV_IP_V4
       choices: [ IAV_IP_V4 ]
       required: False
+      type: str
     server_group_name:
       description: the AAA Server Group name
       required: False
+      default: ''
+      type: str
     time_window_type:
-        description: Time window type
-        default: TW_POSITIVE_TIME_WINDOW
-        choices: [ TW_POSITIVE_TIME_WINDOW, TW_PLUS_OR_MINUS_TIME_WINDOW ]
-        required: False
+      description: Time window type
+      default: TW_POSITIVE_TIME_WINDOW
+      choices: [ TW_POSITIVE_TIME_WINDOW, TW_PLUS_OR_MINUS_TIME_WINDOW ]
+      required: False
+      type: str
+    time_window:
+      description: The Time window value
+      default: 300
+      required: False
+      type: int
     radius_server_id:
-        description: The unique ID of the RADIUS Profile.
-        choices: [ 1 -- 15 ]
-        default: 1
-        required: False
+      description: The unique ID of the RADIUS Profile.
+      default: 1
+      required: False
+      type: int
+    accounting_port:
+      description: Configure the UDP port for accounting messages.
+      default: 1813
+      type: int
+      required: False
+    authentication_port:
+      description: Configure the UDP port for authentication messages.
+      default: 1812
+      type: int
+      required: False
+    is_oobm:
+      description: Enable/Disable RADIUS over OOBM
+      type: bool
+      default: False
+      required: False
+    is_dyn_authorization_enabled:
+      description: Enable/Disable dyn authorization (CoA)
+      type: bool
+      default: False
+      required: False
 
     host:
         description: >
@@ -490,13 +524,13 @@ def run_module():
         retransmit_attempts=dict(type='int', required=False, default='5'),
         dead_time=dict(type='int', required=False, default='10'),
         dyn_autz_port=dict(type='int', required=False, default=3799),
-        key=dict(type='str', required=False, default=""),
+        key=dict(type='str', required=False, default="", no_log=True),
         tracking_uname=dict(type='str', required=False,
                             default='radius-tracking-user'),
         is_tracking_enabled=dict(type='bool', required=False, default=False),
         cppm_details=dict(type='dict', required=False, default=None),
         server_ip=dict(type='str', required=False, default=""),
-        shared_secret=dict(type='str', required=False, default=""),
+        shared_secret=dict(type='str', required=False, default="", no_log=True),
         version=dict(type='str', required=False, default="IAV_IP_V4",
                      choices=["IAV_IP_V4"]),
         server_group_name=dict(type='str', required=False, default=""),

@@ -48,7 +48,8 @@ options:
     required: false
     default: AT_STANDARD_IPV4
     choices: ['AT_STANDARD_IPV4', 'AT_EXTENDED_IPV4',
-             'AT_CONNECTOIN_RATE_FILTER']
+             'AT_CONNECTION_RATE_FILTER']
+    type: str
   acl_action:
     description:
         - Type of action acl rule will take, required when defining ACL rule.
@@ -62,11 +63,13 @@ options:
   acl_source_address:
     description: source ip address for acl policy type standard i.e 192.168.0.1, used with
       acl_type=AT_STANDARD_IPV4
+    default: '0.0.0.0'
     required: false
     type: str
   acl_source_mask:
     description: net mask for source acl_source_address in octet form i.e 255.255.255.0, used with
       acl_type=AT_STANDARD_IPV4
+    default: '255.255.255.255'
     required: false
     type: str
   is_log:
@@ -78,6 +81,7 @@ options:
     required: false
     choices: ['PT_GRE','PT_ESP','PT_AH','PT_OSPF','PT_PIM','PT_VRRP',
              'PT_ICMP','PTIGMP','PT_IP','PT_SCTP','PT_TCP','PT_UDP']
+    type: str
   icmp_type:
     description: Applies to icmp type matching this field. Only PT_ICMP
           protocol_type support icmp_code
@@ -98,6 +102,7 @@ options:
               'IT_HOST_REPORT','IT_DVMRP','IT_PIM','IT_TRACE','IT_V2_HOST_REPORT',
               'IT_V2_HOST_LEAVE','IT_MTRACE_REPLY','IT_MTRACE_REQUEST','IT_V3_HOST_REPORT',
               'IT_MROUTER_ADVERTISEMENT','IT_MROUTER_SOLICITATION','IT_MROUTER_TERMINATION']
+    type: str
   is_connection_established:
     description:  Match TCP packets of an established connection on ACL rule.
       Only PT_TCP protocol_type support is_connection_established
@@ -110,7 +115,9 @@ options:
        - MB_RST Match TCP packets with the RST bit set
        - MB_SYN Match TCP packets with the SYN bit set
     required: false
+    elements: str
     choices: ['MB_ACK','MB_FIN', 'MB_RST','MB_SYN']
+    type: list
   source_port:
     description: "Dictionary of ports to match on. Applies to source port matching this filter. Only PT_SCTP,
           PT_TCP and PT_UDP Protocol types support source_port. Maximum value for port_range_end is 65525.
@@ -129,14 +136,22 @@ options:
     description: Applies to source IP Address matching this extended acl filter, i.e 192.168.0.1.
       Used with acl_type=AT_EXTENDED_IPV4
     required: false
+    type: str
   source_ip_mask:
     description: Net mask source_ip_address in octet form i.e 255.255.255.0.
       Used with acl_type=AT_EXTENDED_IPV4
     required: false
+    type: str
   destination_ip_address:
     description: Applies to destination IP Address/Subnet matching this extended acl filter, i.e 192.168.0.1.
       Used with acl_type=AT_EXTENDED_IPV4
     required: false
+    type: str
+  destination_ip_mask:
+    description: Net mask destination_ip_address in octet form i.e 255.255.255.0.
+      Used with acl_type=AT_EXTENDED_IPV4
+    required: false
+    type: str
   precedence:
     description: Match a specific IP precedence flag.
     required: false
@@ -148,14 +163,16 @@ options:
     choices: [0, 2, 4, 8]
     type: int
   sequence_no:
-      description: Sequence number for the ACL rule to be configured
-      required: false
-      type: int
+    description: Sequence number for the ACL rule to be configured
+    required: false
+    default: 0
+    type: int
   state:
     description: Create or deletes acl policy.
     required: false
     default: create
     choices: ['create', 'delete']
+    type: str
 
   host:
       description: >
@@ -390,8 +407,11 @@ RETURN = '''
 original_message:
     description: The original name param that was passed in
     type: str
+    returned: always
 message:
     description: The output message that the sample module generates
+    type: str
+    returned: always
 '''
 
 from ansible.module_utils.basic import AnsibleModule  # NOQA
@@ -762,7 +782,7 @@ def run_module():
                                 'IT_MROUTER_SOLICITATION',
                                 'IT_MROUTER_TERMINATION']),
         is_connection_established=dict(type='bool', required=False),
-        match_bit=dict(type='list', required=False,
+        match_bit=dict(type='list', required=False, elements='str',
                        choices=['MB_ACK', 'MB_FIN', 'MB_RST', 'MB_SYN']),
         source_port=dict(type='dict', required=False),
         destination_port=dict(type='dict', required=False),

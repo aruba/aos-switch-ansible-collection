@@ -42,16 +42,21 @@ options:
         description: Name of sub module, according to the configuration
                      required.
         choices: [ config_sntp, config_sntp_priority ]
-        required: True
+        default: config_sntp
+        required: False
+        type: str
     config:
         description: To config, unconfig the required command
         choices: [ create, delete ]
-        required: True
+        required: False
         default: create
+        type: str
     sntp_config_poll_interval:
         description: The number of seconds between updates of the system
                      clock using SNTP.
         required: false
+        default: 720
+        type: int
     sntp_client_operation_mode:
         description: The mode in which clients are sending packets
                      to SNTP server.
@@ -59,25 +64,32 @@ options:
                SNTP_UNICAST_MODE, SNTP_BROADCAST_MODE]
         required: false
         default: SNTP_DHCP_MODE
+        type: str
     sntp_ip_address:
         description: IP Address to be configured on sntp server priority
-        required: True
+        required: False
+        default: ''
+        type: str
     version:
         description: Version of IP Address (V6 is not supported via REST)
         choices: [ IAV_IP_V4]
-        required: True
+        required: False
         default: IAV_IP_V4
+        type: str
     sntp_server_priority:
         description: Priority of Server Address.
-        required: True
+        required: False
+        type: int
     sntp_server_version:
         description: SNTP version of server.
         required: false
-        default : 7
+        default : 3
+        type: int
     sntp_server_is_oobm:
         description:  Use the OOBM interface to connect to the server
         required: false
         default : false
+        type: bool
 
     host:
         description: >
@@ -202,7 +214,7 @@ options:
                 default: 'None'
 
 author:
-    - Naveen Prabhu S D (sd.naveen-prabhu@hpe.com)
+    - Naveen Prabhu S D (@hpe)
 '''
 
 EXAMPLES = '''
@@ -370,7 +382,7 @@ def run_module():
                                                  'SNTP_BROADCAST_MODE']),
         sntp_ip_address=dict(type='str', required=False, default=""),
         version=dict(type='str', required=False, default='IAV_IP_V4',
-                     choices=['IAV_IP_V4', 'IAV_IP_V6']),
+                     choices=['IAV_IP_V4']),
         sntp_server_priority=dict(type='int', required=False),
         sntp_server_version=dict(type='int', required=False, default=3),
         sntp_server_is_oobm=dict(type='bool', required=False, default=False),

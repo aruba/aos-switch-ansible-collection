@@ -40,32 +40,40 @@ options:
         description:
             - syslog server IP address
         required: true
+        type: str
     version:
         description:
             - Server IP address version
         default: IAV_IP_V4
         choices: [ IAV_IP_V4, IAV_IP_V6 ]
         required: false
+        type: str
     description:
         description:
             - Server description
         required: false
+        default: ''
+        type: str
     protocol:
         description:
             - Type of protocol to configure
         default: TP_UDP
         choices: [ TP_TCP, TP_UDP, TP_TLS ]
         required: false
+        type: str
     server_port:
         description:
             - Server port id to be configured
         required: false
+        default: 0
+        type: int
     state:
         description:
             - Create or delete configuration
         default: create
         choices: [ create, delete ]
         required: false
+        type: str
 
     host:
         description: >

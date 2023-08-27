@@ -41,26 +41,33 @@ options:
             - Type of action to be taken.
         required: true
         choices: [ update, update_port, update_vlan ]
+        type: str
     port_disable_timer:
         description:
             - Set the number of seconds before disabled ports are
               automatically re-enabled
         required: false
-    trasmit_interval:
+        default: 0
+        type: int
+    transmit_interval:
         description:
             - Set the number of seconds between loop detect packet
               transmissions.
         required: false
+        default: 5
+        type: int
     mode:
         description:
             - Configures vlan or port mode
         required: false
         default: LPM_PORT
         choices: [ LPM_PORT, LPM_VLAN ]
+        type: str
     interface:
         description:
             - Interface id on which loop protect to be configured
         required: false
+        type: str
     receiver_action:
         description:
             - Set the action to take when a loop is detected.
@@ -69,10 +76,24 @@ options:
         required: false
         default: LPRA_SEND_DISABLE
         choices: [ LPRA_SEND_DISABLE, LPRA_NO_DISABLE, LPRA_SEND_RECV_DISABLE ]
+        type: str
     vlan:
         description:
             - Vlan id on which loop protect is to be configured
         required: false
+        type: int
+    loop_protected:
+        description:
+            - Enable Loop Protected
+        required: false
+        default: True
+        type: bool
+    trap:
+        description:
+            - Enable Trap
+        required: false
+        default: False
+        type: bool
 
     host:
         description: >

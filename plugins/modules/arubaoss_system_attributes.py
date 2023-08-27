@@ -39,41 +39,57 @@ options:
     hostname:
         description: The system name
         required: False
+        default: ''
+        type: str
     location:
         description: Location where the system is installed
         required: False
+        default: ''
+        type: str
     contact:
         description: Contact information for the system.
         required: False
+        default: ''
+        type: str
     domain_name:
         description: Regulatory domain where the system is operating on
         required: False
+        default: ''
+        type: str
     version:
         description: Version of ip address
         required: False
         choices: [ IAV_IP_V4, IAV_IP_V6 ]
         default: IAV_IP_V4
+        type: str
     device_operation_mode:
         description: Mode in which the device is operating on
         required: False
         choices: [ DOM_CLOUD, DOM_CLOUD_WITH_SUPPORT, DOM_AUTONOMOUS ]
         default: DOM_AUTONOMOUS
+        type: str
     uplink_vlan_id:
         description: Vlan via which central is connected. This is applicable
                      only when device_operation_mode is DOM_CLOUD or
                      DOM_CLOUD_WITH_SUPPORT. This won't be available for
                      non Central uses case
         required: False
+        default: ''
+        type: str
     uplink_ip:
         description: Ip address of Vlan via which central is connected. This is
                      applicable only when device_operation_mode is DOM_CLOUD or
                      DOM_CLOUD_WITH_SUPPORT. This won't be available for non
                      Central uses case
         required: False
+        default: ''
+        type: str
     default_gateway_ip:
         description: The global IPV4 default gateway. Input octets
                      as 0.0.0.0 to reset.
         required: False
+        default: ''
+        type: str
 
     host:
         description: >
@@ -292,7 +308,6 @@ def run_module():
         version=dict(type='str', required=False, default='IAV_IP_V4',
                      choices=['IAV_IP_V4', 'IAV_IP_V6']),
         domain_name=dict(type='str', required=False, default=''),
-        default_gateway=dict(type='str', required=False, default=''),
         device_operation_mode=dict(type='str', required=False,
                                    default='DOM_AUTONOMOUS',
                                    choices=["DOM_CLOUD",

@@ -43,59 +43,86 @@ options:
         choices: [ 'IRM_GATEWAY', 'IRM_REJECT', 'IRM_VLAN', 'IRM_BLACK_HOLE',
                  'IRM_TUNNEL_ARUBA_VPN']
         required: true
+        type: str
     destination_vlan:
         description:
             - vlan id for IRM_VLAN mode.
         required: false
+        default: False
+        type: int
     metric:
         description:
             - ip route metric
         default: 1
         required: false
+        type: int
     distance:
         description:
             - ip route distance
         default: 1
         required: false
+        type: int
     name:
         description:
             - name for ip route being configured
         required: false
+        default: ''
+        type: str
     tag:
         description:
             - Tag that can be used to filter redistribution of this route
               via route-maps
         required: false
+        default: 0
+        type: int
     logging:
         description:
             - if the packets received on the route need to be logged
         required: false
+        default: false
+        type: bool
     ip_version:
         description:
             - Ip address type to be configured
-        default: IAV_IPV_V4
+        default: IAV_IP_V4
         required: false
+        type: str
     gateway:
         description:
             - IP address of the gateway to forward traffic when route mode
                 is IRM_GATEWAY
+        default: ''
         required: false
+        type: str
     mask:
         description:
             - Subnet for the ip route.
-        required: false
+        required: true
+        type: str
     destination:
         description:
             - IP address for the ip routed
-        required: false
+        required: true
+        type: str
     bfd_ip_address:
         description:
             - Enable BFD for static routes. Only for Lava and Bolt platforms.
         required: false
+        default: ''
+        type: str
     vlan_name:
         description:
             - vlan id/name to which route is being applied
         required: false
+        default: ''
+        type: str
+    state:
+        description:
+            - Enable/disable/read ip auth data
+        required: false
+        default: create
+        choices: [ create, delete ]
+        type: str
 
     host:
         description: >

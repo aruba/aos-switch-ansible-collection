@@ -33,7 +33,7 @@ short_description: Collects facts from remote PVOS device
 description:
   - This module retrieves facts from Aruba devices running the PVOS operating system.
     Facts will be printed out when the playbook execution is done with increased verbosity.
-author: Stella Rajan
+author: Stella Rajan (@hpe)
 options:
 
   gather_subset:
@@ -47,6 +47,7 @@ options:
     default: ['host_system_info', 'switch_specific_system_info',
             'module_info', 'system_power_supply']
     type: list
+    elements: str
 
   gather_network_resources:
     description:
@@ -56,6 +57,61 @@ options:
     choices: ['interfaces', 'vlans', 'vlans_ports', 'vlan_port_element', 'loop_protect_status', 'loop_protect_ports', 'loop_protect_vlans', 'acls', 'lacp_interfaces', 'lldp_neighbors']
     required: False
     type: list
+    elements: str
+
+  host:
+    description: >
+      Specifies the DNS host name or address for connecting to the remote
+      device over the specified transport. The value of host is used as the
+      destination address for the transport.
+    type: str
+  password:
+    description: >
+      Specifies the password to use to authenticate the connection to the
+      remote device. This value is used to authenticate the SSH session.
+      If the value is not specified in the task, the value of environment
+      variable ANSIBLE_NET_PASSWORD will be used instead.
+    type: str
+  port:
+    description: >
+      Specifies the port to use when building the connection to the remote
+      device.
+    type: int
+  ssh_keyfile:
+    description: >
+      Specifies the SSH key to use to authenticate the connection to the
+      remote device. This value is the path to the key used to
+      authenticate the SSH session. If the value is not specified in the
+      task, the value of environment variable ANSIBLE_NET_SSH_KEYFILE will
+      be used instead.
+    type: path
+  timeout:
+    description: >
+      Specifies the timeout in seconds for communicating with the network
+      device for either connecting or sending commands. If the timeout is
+      exceeded before the operation is completed, the module will error.
+    type: int
+  username:
+    description: >
+      Configures the username to use to authenticate the connection to the
+      remote device. This value is used to authenticate the SSH session.
+      If the value is not specified in the task, the value of environment
+      variable ANSIBLE_NET_USERNAME will be used instead.
+    type: str
+  use_ssl:
+    description: >
+      Configures use SSL (HTTPS) for access to the remote device.
+    type: bool
+  validate_certs:
+    description: >
+      Configures validation of certification for access to the remote device.
+    type: bool
+    default: False
+  api_version:
+    description: >
+      Configures (force) API version (vX.Y) for acces to the remote device.
+    type: str
+    default: 'None'
 
   provider:
       description: A dict object containing connection details.
@@ -192,12 +248,12 @@ def main():
                                        'switch_specific_system_info',
                                        'module_info',
                                        'system_power_supply'],
-                              type='list',
+                              type='list', elements='str',
                               choices=['host_system_info',
                                        'switch_specific_system_info',
                                        'module_info',
                                        'system_power_supply']),
-        'gather_network_resources': dict(type='list',
+        'gather_network_resources': dict(type='list', elements='str',
                                          choices=['interfaces', 'vlans', 'vlans_ports', 'vlan_port_element',
                                                   'loop_protect_status', 'loop_protect_ports', 'loop_protect_vlans',
                                                   'acls', 'lldp_neighbors',

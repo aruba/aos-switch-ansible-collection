@@ -47,6 +47,7 @@ options:
               or from file needs to downloded to switch. This is http/https
               server, which needs to configured with default ports.
         required: True
+        type: str
     file_type:
         description:
             - Type of file that needs to be transfered.
@@ -54,12 +55,14 @@ options:
         choices: [ FTT_CONFIG, FTT_FIRMWARE, FTT_EVENT_LOGS, FTT_CRASH_FILES,
           FTT_SYSTEM_INFO, FTT_SHOW_TECH,  FTT_DEBUG_LOGS ]
         default: FTT_FIRMWARE
+        type: str
     action:
         description:
             - Type of action upload/download.
         required: False
         choices: [ FTA_DOWNLOAD, FTA_UPLOAD ]
         default: FTA_DOWNLOAD
+        type: str
     show_tech_option:
         description:
             - Specifies type of show tech command to be executed.
@@ -68,15 +71,18 @@ options:
           STO_MSTP, STO_OOBM, STO_RAPID_PVST, STO_ROUTE, STO_SMART_LINK,
           STO_STATISTICS, STO_TRANSCEIVERS, STO_TUNNEL_INTERCEPT,
           STO_TUNNEL_TAP, STO_TUNNEL_VXLAN, STO_COMPONENTS ]
+        type: str
     boot_image:
         description:
             - Flash where image needs to be copied
         choices: [ BI_PRIMARY_IMAGE, BI_SECONDARY_IMAGE ]
         default: BI_PRIMARY_IMAGE
+        type: str
     copy_iter:
         description:
             - Approx max iteration to wait for image copy to get completed.
         default: 20
+        type: int
 
     host:
         description: >

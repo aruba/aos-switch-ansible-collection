@@ -39,37 +39,51 @@ options:
     command:
         description: Function name calls according to configuration required
         choices: [ config_spanning_tree, config_spanning_tree_port ]
-        required: True
+        required: False
         default: config_spanning_tree
+        type: str
     config:
         description: To config or unconfig the required command
         choices: [ create, delete ]
         required: False
         default: create
+        type: str
     mode:
         description: MSTP or RPVST
         choices: [ STM_MSTP, STM_RPVST ]
         required: False
         default: STM_MSTP
+        type: str
     priority:
         description: STP priority
         required: False
         default: 8
+        type: int
     port_id:
         description: ID of the port
         required: False
+        default: ''
+        type: str
     is_enable_admin_edge_port:
         description: Enable/Disable admin-edge-port
         required: False
+        default: False
+        type: bool
     is_enable_bpdu_protection:
         description: Enable/Disable bpdu-protection.
         required: False
+        default: False
+        type: bool
     is_enable_bpdu_filter:
         description: Enable/Disable bpdu-filter.
         required: False
+        default: False
+        type: bool
     is_enable_root_guard:
         description: Enable/Disable root-guard.
         required: False
+        default: False
+        type: bool
 
     host:
         description: >

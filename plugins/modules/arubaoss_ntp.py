@@ -52,80 +52,117 @@ options:
         choices: ['config_timesync', 'enable_includeCredentials',
                   'config_ntp', 'config_ntp_ipv4addr', 'config_ntp_keyId']
         required: True
+        type: str
     config:
         description: To config or unconfig the required command
-        choices: create, delete
+        choices: [ 'create', 'delete']
+        default: create
+        type: str
+    authenticationMode:
+        description: Configure the Authentication Mode
+        choices: ['md5', 'sha1']
+        default: md5
+        type: str
     ntp_ip4addr:
         description: The IPv4 address of the server used with
                      config_ntp_ipv4addr command
         required: False
+        default: ''
+        type: str
     minpoll_value:
         description: Configures the minimum time interval in seconds
                      used with config_ntp_ipv4addr command
         required: False
+        default: 6
+        type: int
     maxpoll_value:
         description: Configures the maximum time interval in seconds
                      used with config_ntp_ipv4addr command
         required: False
+        default: 10
+        type: int
     mode:
         description: Enable burst or iburst mode used with
                      config_ntp_ipv4addr command
         choices: ['burst', 'iburst']
         required: False
+        default: burst
+        type: str
     keyId:
         description: Sets the authentication key to use for this server
                      used with config_ntp_ipv4addr and config_ntp_keyId command
         required: False
+        default: 0
+        type: int
     timesyncType:
         description: Updates the timesync type  used with
                      config_timesync command
-        choices: ['burst', 'iburst']
+        choices: ['ntp', 'sntp', 'timep', 'timep-or-sntp']
+        default: timep-or-sntp
         required: False
+        type: str
     include_credentials_in_response:
         description: Enables include credentials when value is set to
                      ICS_ENABLED  used with enable_includeCredentials command
         choices: [ICS_ENABLED, ICS_DISABLED, ICS_RADIUS_TACAS_ONLY]
         required: False
+        default: ICS_ENABLED
+        type: str
     operate:
         description: Operate in broadcast or unicast mode  used with
                      config_ntp command
         choices: [broadcast, unicast]
         required: False
+        default: broadcast
+        type: str
     association_value:
         description: Maximum number of NTP associations used with
                      config_ntp command
         required: False
+        default: 8
+        type: int
     trap_value:
         description: Enable or disable traps used with config_ntp command,
                      list of dictionary vaules of enable and trap,
                      see example below.
-        type: list of dictionaries
-        enable:
-            description: enable or disable traps
-            choices: [ True, False ]
-            required: False
-        trap:
-            description: Select trap variable
-            choices: [ ntp-Mode-Change,
-                     ntp-Stratum-Change,
-                     ntp-Peer-Change,
-                     ntp-New-Association,
-                     ntp-Remove-Association,
-                     ntp-Config-Change,
-                     ntp-LeapSec-announced,
-                     ntp-alive-Heartbeat,
-                     all ]
-        required: true
+        type: dict
+        suboptions:
+            trap:
+                description: Select trap variable
+                choices: [ ntp-Mode-Change,
+                        ntp-Stratum-Change,
+                        ntp-Peer-Change,
+                        ntp-New-Association,
+                        ntp-Remove-Association,
+                        ntp-Config-Change,
+                        ntp-LeapSec-announced,
+                        ntp-alive-Heartbeat,
+                        all ]
+                required: true
+                type: str
+            enable:
+                description : Enable trap variable
+                default: false
+                type: bool
+        required: false
     keyValue:
         description: The string to be added to authentication KeyId
                      used with config_ntp_keyId command
         required: False
+        default: ''
+        type: str
     use_oobm:
         description: Use the OOBM interface to connect to the server
                      used with config_ntp_ipv4addr command. Note not
                      all devices have OOBM ports
-        choices: [ True, False ]
         required: False
+        default: False
+        type: bool
+    trusted:
+        description: Enable/Disable Trusted NTP
+        required: False
+        default: True
+        type: bool
 
     host:
         description: >
@@ -787,7 +824,7 @@ def run_module():
                      choices=["broadcast",
                               "unicast"]),
         association_value=dict(type='int', required=False, default=8),
-        trap_value=dict(type='list', required=False,
+        trap_value=dict(type='dict', required=False, options=dict(
                         enable=dict(type='bool', required=False,
                                     default=False),
                         trap=dict(type='str', required=True,
@@ -798,7 +835,7 @@ def run_module():
                                            "ntp-Remove-Association",
                                            "ntp-Config-Change",
                                            "ntp-LeapSec-announced",
-                                           "Ntp-alive-Heartbeat", "all"])),
+                                           "ntp-alive-Heartbeat", "all"]))),
         ntp_ip4addr=dict(type='str', required=False, default=""),
         maxpoll_value=dict(type='int', required=False, default=10),
         minpoll_value=dict(type='int', required=False, default=6),
@@ -810,9 +847,9 @@ def run_module():
                                                       'ICS_DISABLED',
                                                       'ICS_RADIUS_TACAS_ONLY'
                                                       ]),
-        keyId=dict(type='int', required=False, default=0),
+        keyId=dict(type='int', required=False, default=0, no_log=True),
         trusted=dict(type='bool', required=False, default=True),
-        keyValue=dict(type='str', required=False, default=""),
+        keyValue=dict(type='str', required=False, default="", no_log=True),
         authenticationMode=dict(type='str', required=False, default="md5",
                                 choices=["md5", "sha1"]),
         use_oobm=dict(type='bool', required=False, default=False),

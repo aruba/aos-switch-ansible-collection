@@ -33,6 +33,7 @@ options:
       command timeout, set the variable 'ansible_command_timeout' to the desired time in seconds.
     required: True
     type: list
+    elements: str
   wait_for:
     description: A list of conditions to wait to be satisfied before continuing execution.
       Each condition must include a test of the 'result' variable, which contains the output
@@ -40,7 +41,9 @@ options:
       such that result[0] contains the output from commands[0], results[1] contains the output
       from commands[1], and so on.
     required: False
+    aliases: [ 'waitfor' ]
     type: list
+    elements: str
   match:
     description: Specifies whether all conditions in 'wait_for' must be satisfied or if just
       any one condition can be satisfied. To be used with 'wait_for'.
@@ -269,8 +272,8 @@ def main():
     '''
 
     argument_spec = dict(
-        commands=dict(type='list', required=True),
-        wait_for=dict(type='list', aliases=['waitfor']),
+        commands=dict(type='list', elements="str", required=True),
+        wait_for=dict(type='list', elements="str", aliases=['waitfor']),
         match=dict(default='all', choices=['all', 'any']),
         retries=dict(default=10, type='int'),
         interval=dict(default=1, type='int'),

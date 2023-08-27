@@ -41,40 +41,55 @@ options:
         choices: [ reset_poe_port, config_poe_port, config_poe_slot ]
         required: False
         default: config_poe_port
+        type: str
     port_id:
         description: The Port id
         required: False
+        default: ''
+        type: str
     is_poe_enabled:
         description: The port PoE status
         required: False
+        default: True
+        type: bool
     poe_priority:
         description: The port PoE priority
         choices: [ PPP_CRITICAL, PPP_HIGH, PPP_LOW ]
         required: False
         default: PPP_LOW
+        type: str
     poe_allocation_method:
         description: The PoE allocation method
         choices: [ PPAM_USAGE, PPAM_CLASS, PPAM_VALUE ]
         required: False
         default: PPAM_USAGE
+        type: str
     allocated_power_in_watts:
         description: Allocated power value. Default value for this is
                      platform dependent
         required: False
         default: 1
+        type: int
     port_configured_type:
         description:  Port configured type
         required: False
+        default: ''
+        type: str
     pre_standard_detect_enabled:
         description: pre_std_detect enable or disable
         required: False
         default: False
+        type: bool
     slot_name:
         description: The slot name
         required: False
+        default: ''
+        type: str
     power_threshold_percentage:
         description: The power threshold percentage
         required: False
+        default: 1
+        type: int
 
     host:
         description: >

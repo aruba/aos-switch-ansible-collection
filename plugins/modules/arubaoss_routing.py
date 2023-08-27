@@ -41,20 +41,7 @@ options:
             - To enable/disable routing globally.
         required: true
         choices: [ create, delete ]
-
-
-author:
-    - Ashish Pant (@hpe)
-'''
-
-EXAMPLES = '''
-     - name: enable routing
-       arubaoss_routing:
-         state: create
-
-     - name: disable routing
-       arubaoss_routing:
-         state: delete
+        type: str
 
     host:
         description: >
@@ -178,6 +165,20 @@ EXAMPLES = '''
                 type: str
                 default: 'None'
 
+
+author:
+    - Ashish Pant (@hpe)
+'''
+
+EXAMPLES = '''
+     - name: enable routing
+       arubaoss_routing:
+         state: create
+
+     - name: disable routing
+       arubaoss_routing:
+         state: delete
+
 '''
 
 from ansible.module_utils.basic import AnsibleModule  # NOQA
@@ -205,7 +206,7 @@ def run_module():
     # define the available arguments/parameters that a user can pass to
     # the module
     module_args = dict(
-        state=dict(type='str', required=False, choices=['create', 'delete']),
+        state=dict(type='str', required=True, choices=['create', 'delete']),
     )
 
     module_args.update(arubaoss_argument_spec)
