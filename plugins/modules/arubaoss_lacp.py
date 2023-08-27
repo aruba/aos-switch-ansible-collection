@@ -48,7 +48,7 @@ options:
         required: True
         default: False
     state:
-        description:Specify if Port needs to be created or Deleted
+        description: Specify if Port needs to be created or Deleted
         choices: ["create", "delete"]
         default: "create"
 
@@ -58,38 +58,38 @@ Author:
 
 EXAMPLES = '''
       - name: Resulting config - trunk 1/2 Trk3 lacp
-       arubaoss_lacp:
+        arubaoss_lacp:
           port_id: 1/2
           trunk_group: trk3
           lacp: True
 
       - name: Resulting config - trunk 13 Trk20 trunk
-       arubaoss_lacp:
+        arubaoss_lacp:
           port_id: 13
           trunk_group: trk20
           lacp: False
       
       - name: Resulting config - trunk A1 Trk20 trunk
-       arubaoss_lacp:
+        arubaoss_lacp:
           port_id: A1
           trunk_group: Trk20
           lacp: False
 
       - name: Resulting config - trunk 14 Trk50 lacp
-       arubaoss_lacp:
+        arubaoss_lacp:
           port_id: 14
           trunk_group: Trk50
           lacp: True
 
       - name: DELETE remove port from Trk20
-       arubaoss_lacp:
+        arubaoss_lacp:
           port_id: 15
           trunk_group: Trk20
           lacp: True
           state: delete
       
       - name: DELETE remove port from Trk50
-       arubaoss_lacp:
+        arubaoss_lacp:
           port_id: 16
           trunk_group: Trk50
           lacp: True
