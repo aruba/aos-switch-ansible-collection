@@ -641,7 +641,7 @@ def config_ntp_ipv4addr(module):
     except Exception:
         check_presence = get_config(module, "/dns")
         newdata = json.loads(check_presence)
-        value = [ newdata[x] for x in newdata if "server_" in x ]
+        value = [newdata[x] for x in newdata if "server_" in x]
         if value.count(None) == len(value):
             return {
                 'msg': 'A DNS server must be configured before configuring '
