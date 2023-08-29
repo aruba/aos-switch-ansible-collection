@@ -30,7 +30,7 @@ module: arubaoss_lacp
 
 short_description: implements REST API for Lacp
 
-version_added: "2.4"
+version_added: "1.6.0"
 
 description:
     - "This implements REST APIs which can be used to configure Lacp"
