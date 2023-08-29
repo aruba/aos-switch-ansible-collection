@@ -175,7 +175,7 @@ def config_trunk_port(module):
                 if ele['trunk_group'].lower() == trunk_group and ele['port_id'].lower() == port_id:
                     match_port = 'true'
                 elif ele['port_id'].lower() == port_id and params['state'] == 'create':
-                    return {'msg': 'Specified Port belongs to another  trunk group {}'.format(ele['port_id'].lower()), 'changed': False, 'failed': False}
+                    return {'msg': 'Specified Port belongs to another  trunk group {0}'.format(ele['port_id'].lower()), 'changed': False, 'failed': False}
 
     # A trunk group can have maximum of 8 ports
     if params['state'] == 'create' and match_port == 'false':
@@ -231,7 +231,7 @@ def run_module():
     port_url = '/ports/' + str(module.params['port_id'])
     check_port = get_config(module, port_url)
     if not check_port:
-        result = {'msg': 'Port {} not present on device {}'
+        result = {'msg': 'Port {0} not present on device {1}'
                   .format(module.params['port_id'], port_url),
                   'changed': False}
     else:
