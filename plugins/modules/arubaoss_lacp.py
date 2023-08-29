@@ -44,9 +44,8 @@ options:
         required: True
     lacp:
         description: Specify if the Trunk Group is Lacp or Trunk
-        choices: [True, False]
+        choices: ["True", "False"]
         required: True
-        default: False
     state:
         description: Specify if Port needs to be created or Deleted
         choices: ["create", "delete"]
@@ -332,7 +331,7 @@ def run_module():
     module_args = dict(
         port_id=dict(type='str', required=True),
         trunk_group=dict(type='str', required=True),
-        lacp=dict(type='str', required=False, default=False),
+        lacp=dict(type='str', required=True, choices=['True', 'False']),
         state=dict(type='str', required=False, default='create',
                    choices=['create', 'delete'])
     )
