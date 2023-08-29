@@ -39,17 +39,21 @@ options:
     port_id:
         description: Port ID to be configured
         required: True
+        type: str
     trunk_group:
         description: Trunk Group Name
         required: True
+        type: str
     lacp:
         description: Specify if the Trunk Group is Lacp or Trunk
         choices: ["True", "False"]
         required: True
+        type: str
     state:
         description: Specify if Port needs to be created or Deleted
         choices: ["create", "delete"]
         default: "create"
+        type: str
 
     host:
         description: >
