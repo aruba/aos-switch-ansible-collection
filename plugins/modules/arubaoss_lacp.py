@@ -172,7 +172,7 @@ options:
                     Configures (force) API version (vX.Y) for acces to the remote device.
                 type: str
                 default: 'None'
-Author:
+author:
     - Emimal (@hpe)
 '''  # NOQA
 
