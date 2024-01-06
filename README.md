@@ -19,10 +19,18 @@ Requirements
     switch(config)# rest-interface
     ```
 * If you use RADIUS or TACACS for switch managment add also this command
+  * for RADIUS
     ```
     switch(config)# aaa authentication rest login radius local
     switch(config)# aaa authentication rest enable radius local
     ```
+
+  * for TACACS
+    ```
+    switch(config)# aaa authentication rest login tacacs local
+    switch(config)# aaa authentication rest enable tacacs local
+    ```
+     
 * Install all Ansible requirements, with the following command:
     ```
     ansible-galaxy install -r requirements.yml
