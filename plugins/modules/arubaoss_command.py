@@ -254,7 +254,7 @@ def transform_commands(module):
     return transform(module.params['commands'])
 
 
-def parse_commands(module, warnings):
+def parse_commands(module):
     '''
     Parse the command
     '''
@@ -279,15 +279,13 @@ def main():
 
     argument_spec.update(arubaoss_argument_spec)
 
-    warnings = list()
-
-    result = {'changed': False, 'warnings': warnings}
+    result = {'changed': False}
     module = AnsibleModule(
         argument_spec=argument_spec,
         supports_check_mode=True
     )
 
-    commands = parse_commands(module, warnings)
+    commands = parse_commands(module)
     wait_for = module.params['wait_for'] or list()
 
     try:

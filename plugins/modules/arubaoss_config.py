@@ -335,7 +335,6 @@ from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss 
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_cli_commands as run_commands  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_cli_config as get_config  # NOQA
-from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import check_args as arubaoss_check_args  # NOQA
 from ansible.module_utils.basic import AnsibleModule  # NOQA
 try:
     from ansible.module_utils.network.common.config import NetworkConfig, dumps  # NOQA
@@ -431,9 +430,7 @@ def main():
                            required_if=required_if,
                            supports_check_mode=True)
 
-    warnings = list()
-    arubaoss_check_args(module, warnings)
-    result = {'changed': False, 'warnings': warnings}
+    result = {'changed': False}
 
     config = None
 

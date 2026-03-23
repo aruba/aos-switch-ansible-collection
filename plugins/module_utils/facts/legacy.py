@@ -20,7 +20,6 @@ class FactsBase(object):
 
     def __init__(self, module):
         self._module = module
-        self.warnings = list()
         self.facts = dict()
         self.responses = None
         self._url = None

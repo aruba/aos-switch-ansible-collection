@@ -382,7 +382,7 @@ def run_module():
 
     module_args.update(arubaoss_argument_spec)
 
-    result = dict(changed=False, warnings='Not Supported')
+    result = {"changed": False}
 
     module = AnsibleModule(
         argument_spec=module_args,

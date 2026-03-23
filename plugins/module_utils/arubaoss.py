@@ -84,10 +84,6 @@ def get_provider_argspec():
     return arubaoss_provider_spec
 
 
-def check_args(module, warnings):
-    pass
-
-
 class Checkversion:
     '''
     Here we set default REST API version as v6.0 to login &

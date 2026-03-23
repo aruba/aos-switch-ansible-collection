@@ -211,14 +211,9 @@ def main():
 
     module._connection = get_connection(module)  # NOQA
 
-    warnings = []
+    ansible_facts = Facts(module).get_facts()
 
-    result = Facts(module).get_facts()
-
-    ansible_facts, additional_warnings = result
-    warnings.extend(additional_warnings)
-
-    module.exit_json(ansible_facts=ansible_facts, warnings=warnings)
+    module.exit_json(ansible_facts=ansible_facts)
 
 
 if __name__ == '__main__':
