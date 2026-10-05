@@ -60,7 +60,14 @@ options:
         default: PET_PLAIN_TEXT
     state:
         description:
-            - Enable or disable
+            - C(create) creates the user of I(user_type), or replaces an
+              existing one - name and password - without comparing them
+              first, so it always reports a change.
+            - With C(create), the module also sets the switch's
+              C(include_credentials_in_response). It enables it for
+              C(PET_SHA1) when disabled, and disables it for
+              C(PET_PLAIN_TEXT) when enabled.
+            - C(delete) removes the user of I(user_type).
         choices: [ create, delete ]
         default: create
         required: false

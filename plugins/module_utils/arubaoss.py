@@ -287,15 +287,16 @@ class Aossapi:
         else:
             self._module.fail_json(**headers)
 
-    def logout(self):
-        ''' Logout from device '''
+    def logout(self, fail_on_error=True):
+        ''' Logout from device, and return the HTTP status '''
         url = self._url + "/login-sessions"
 
         response, headers = self._send(url, body="", method='DELETE')
         self._cookie = None
 
-        if headers['status'] != 204:
+        if headers['status'] != 204 and fail_on_error:
             self._module.fail_json(**headers)
+        return headers['status']
 
     def run_commands(self, uri, payload=None, method="POST",
                      check=None, wait_after_send=0):
@@ -331,7 +332,15 @@ class Aossapi:
             sleep(wait_after_send)
 
             if not reboot:
-                self.logout()
+                # The request has been sent, so a failed logout must not
+                # hide its result. Writing the manager user, for one, ends
+                # the session, and the logout is then refused.
+                status = self.logout(fail_on_error=False)
+                if status != 204:
+                    self._module.warn(
+                        'Logout after {0} {1} returned HTTP {2}. Reporting '
+                        'the {0} itself, which returned HTTP {3}.'.format(
+                            method, uri, status, headers['status']))
 
             if headers['status'] == 204:
                 return {'msg': 'Successful', 'changed': True}
