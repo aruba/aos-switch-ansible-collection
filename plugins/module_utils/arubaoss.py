@@ -435,7 +435,10 @@ def run_commands(module, commands, *args, **kwargs):
     return conn.run_commands(commands, *args, **kwargs)
 
 
-def run_cli_commands(module, commands, check_rc=False):
+def run_cli_commands(module, commands, check_rc=True):
+    # check_rc=True makes cliconf raise on a failed connection or a
+    # refused command. Without it, cliconf returns the error text as the
+    # command's output, and the task reports ok having run nothing.
     conn = get_connection(module, True)
     try:
         return conn.run_commands(commands=commands, check_rc=check_rc)
