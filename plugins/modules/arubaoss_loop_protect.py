@@ -45,17 +45,22 @@ options:
         description:
             - Set the number of seconds before disabled ports are
               automatically re-enabled
+            - With I(command=update), when not set, the switch's current
+              value is kept.
         required: false
     trasmit_interval:
         description:
             - Set the number of seconds between loop detect packet
               transmissions.
+            - With I(command=update), when not set, the switch's current
+              value is kept.
         required: false
     mode:
         description:
             - Configures vlan or port mode
+            - With I(command=update), when not set, the switch's current
+              value is kept.
         required: false
-        default: LPM_PORT
         choices: [ LPM_PORT, LPM_VLAN ]
     interface:
         description:
@@ -231,6 +236,7 @@ EXAMPLES = '''
 
 
 from ansible.module_utils.basic import AnsibleModule  # NOQA
+from ansible.module_utils.common.text.converters import to_text  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import run_commands, get_config  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
 import sys  # NOQA
@@ -241,12 +247,21 @@ def update(module):
     params = module.params
     url = "/loop_protect"
 
-    data = {
-        'port_disable_timer_in_senconds': params['port_disable_timer'],
-        'trasmit_interval_in_seconds': params['transmit_interval'],
-        'mode': params['mode'],
-        'is_trap_on_loop_detected_enabled': params['trap']
-    }
+    # The PUT carries all four settings. Each one the task leaves unset
+    # keeps the switch's current value, or takes the old default when the
+    # switch returns none.
+    current = get_config(module, url)
+    current = module.from_json(to_text(current)) if current else {}
+    data = {}
+    for option, field, default in (
+            ('port_disable_timer', 'port_disable_timer_in_seconds', 0),
+            ('transmit_interval', 'transmit_interval_in_seconds', 5),
+            ('mode', 'mode', 'LPM_PORT'),
+            ('trap', 'is_trap_on_loop_detected_enabled', False)):
+        if params[option] is not None:
+            data[field] = params[option]
+        else:
+            data[field] = current.get(field, default)
 
     result = run_commands(module, url, data, 'PUT', check=url)
 
@@ -298,11 +313,10 @@ def run_module():
     module_args = dict(
         command=dict(type='str', required=True,
                      choices=['update', 'update_port', 'update_vlan']),
-        port_disable_timer=dict(type='int', required=False, default=0),
-        transmit_interval=dict(type='int', required=False, default=5),
-        mode=dict(type='str', required=False, choices=['LPM_PORT', 'LPM_VLAN'],
-                  default='LPM_PORT'),
-        trap=dict(type='bool', required=False, default=False),
+        port_disable_timer=dict(type='int', required=False),
+        transmit_interval=dict(type='int', required=False),
+        mode=dict(type='str', required=False, choices=['LPM_PORT', 'LPM_VLAN']),
+        trap=dict(type='bool', required=False),
         interface=dict(type='str', required=False,),
         loop_protected=dict(type='bool', required=False, default=True),
         receiver_action=dict(type='str', required=False,
