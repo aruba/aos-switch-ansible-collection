@@ -54,10 +54,11 @@ options:
         choices: [ IAV_IP_V4, IAV_IP_V6 ]
         default: IAV_IP_V4
     device_operation_mode:
-        description: Mode in which the device is operating on
+        description:
+            - Mode in which the device is operating on.
+            - When not set, the switch's mode is left as it is.
         required: False
         choices: [ DOM_CLOUD, DOM_CLOUD_WITH_SUPPORT, DOM_AUTONOMOUS ]
-        default: DOM_AUTONOMOUS
     uplink_vlan_id:
         description: Vlan via which central is connected. This is applicable
                      only when device_operation_mode is DOM_CLOUD or
@@ -262,7 +263,7 @@ def config(module):
     if not params['uplink_vlan_id'] == "":
         data['uplink_vlan_id'] = params['uplink_vlan_id']
 
-    if not params['device_operation_mode'] == "":
+    if params['device_operation_mode'] is not None:
         data['device_operation_mode'] = params['device_operation_mode']
 
     url = '/system'
@@ -294,7 +295,6 @@ def run_module():
         domain_name=dict(type='str', required=False, default=''),
         default_gateway=dict(type='str', required=False, default=''),
         device_operation_mode=dict(type='str', required=False,
-                                   default='DOM_AUTONOMOUS',
                                    choices=["DOM_CLOUD",
                                             "DOM_CLOUD_WITH_SUPPORT",
                                             "DOM_AUTONOMOUS"]),
