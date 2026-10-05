@@ -256,17 +256,13 @@ def run_module():
 
     module = AnsibleModule(
         argument_spec=module_args,
-        supports_check_mode=True
+        supports_check_mode=False
     )
 
-    if module.check_mode:
-        module.exit_json(**result)
-
-    else:
-        try:
-            result = config_captive_portal(module)
-        except Exception as err:
-            return module.fail_json(msg=err)
+    try:
+        result = config_captive_portal(module)
+    except Exception as err:
+        return module.fail_json(msg=err)
 
     module.exit_json(**result)
 

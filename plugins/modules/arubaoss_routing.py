@@ -214,14 +214,8 @@ def run_module():
 
     module = AnsibleModule(
         argument_spec=module_args,
-        supports_check_mode=True
+        supports_check_mode=False
     )
-
-    # if the user is working with this module in only check mode we do not
-    # want to make any changes to the environment, just return the current
-    # state with no modifications
-    if module.check_mode:
-        return result
 
     try:
         result = routing(module)

@@ -481,11 +481,8 @@ def run_module():
 
     module = AnsibleModule(
         argument_spec=module_args,
-        supports_check_mode=True
+        supports_check_mode=False
     )
-
-    if module.check_mode:
-        return result
 
     try:
         if module.params['command'] == "update_rate_limit_attributes":
