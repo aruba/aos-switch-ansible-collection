@@ -21,7 +21,7 @@ import re  # NOQA
 from itertools import chain  # NOQA
 
 from ansible.errors import AnsibleConnectionFailure  # NOQA
-from ansible.module_utils._text import to_text  # NOQA
+from ansible.module_utils.common.text.converters import to_text  # NOQA
 from ansible.module_utils.common._collections_compat import Mapping  # NOQA
 try:
     from ansible.module_utils.network.common.utils import to_list

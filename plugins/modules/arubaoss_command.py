@@ -224,7 +224,7 @@ EXAMPLES = '''
 RETURN = r''' # '''
 
 import time  # NOQA
-from ansible.module_utils._text import to_text  # NOQA
+from ansible.module_utils.common.text.converters import to_text  # NOQA
 from ansible.module_utils.basic import AnsibleModule  # NOQA
 try:
     from ansible.module_utils.network.common.parsing import Conditional  # NOQA

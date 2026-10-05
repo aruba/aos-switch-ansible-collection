@@ -312,7 +312,7 @@ from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss 
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_config  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import get_firmware  # NOQA
 from ansible_collections.arubanetworks.aos_switch.plugins.module_utils.arubaoss import arubaoss_argument_spec  # NOQA
-from ansible.module_utils._text import to_text  # NOQA
+from ansible.module_utils.common.text.converters import to_text  # NOQA
 import json  # NOQA
 
 
